@@ -19,13 +19,11 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return InternalApp(
-    );
+    return InternalApp();
   }
 }
 
 class InternalApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return ProviderWidget<GlobalViewModel>(
@@ -46,7 +44,9 @@ class InternalApp extends StatelessWidget {
         initialRoute: ClubsScreen.routeName,
         onGenerateRoute: MainNavigatorWidgetState.onGenerateRoute,
         navigatorKey: MainNavigatorWidgetState.navigationKey,
-        builder: (context, child)=>MainNavigatorWidget(child: child??const SizedBox.shrink(),),
+        builder: (context, child) => MainNavigatorWidget(
+          child: child ?? const SizedBox.shrink(),
+        ),
       ),
       create: () => GetIt.I()..init(),
     );

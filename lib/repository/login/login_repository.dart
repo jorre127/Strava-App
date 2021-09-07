@@ -23,6 +23,7 @@ class _LoginRepository implements LoginRepository {
 
   @override
   Future<void> login() async {
+    //TODO Add Auth0 authentication for strava
 
     /*final queryParameters = {
       'client_id': AppConstants.CLIENT_ID,
