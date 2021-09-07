@@ -50,6 +50,7 @@ class _ClubCardState extends State<ClubCard> {
         onEnter: _onEnter,
         onExit: _onExit,
         child: TweenAnimationBuilder(
+          curve: Curves.easeIn,
           duration: ThemeDurations.shortAnimationDuration(),
           tween: Tween(begin: 1, end: currentScale),
           builder: (context, value, child) {
