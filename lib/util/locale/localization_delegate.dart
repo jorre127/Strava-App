@@ -12,20 +12,17 @@ typedef LocaleFilter = bool Function(String languageCode);
 
 class LocalizationDelegate extends LocalizationsDelegate<Localization> {
   static LocaleFilter? localeFilter;
-  static const defaultLocale = Locale('nl');
-  static const _supportedLanguages = [
-    'nl',
-    'en',
-  ];
+  static const defaultLocale = Locale.fromSubtags(languageCode: 'nl', scriptCode: null, countryCode: null);
 
   static const _supportedLocales = [
-    Locale('nl'),
-    Locale('en'),
+    Locale.fromSubtags(languageCode: 'nl', scriptCode: null, countryCode: null),
+    Locale.fromSubtags(languageCode: 'en', scriptCode: null, countryCode: null),
   ];
 
   static List<String> get supportedLanguages {
-    if (localeFilter == null) return _supportedLanguages;
-    return _supportedLanguages.where((element) => localeFilter?.call(element) ?? true).toList();
+    final supportedLanguageTags = _supportedLocales.map((e) => e.toLanguageTag()).toList(growable: false);
+    if (localeFilter == null) return supportedLanguageTags;
+    return supportedLanguageTags.where((element) => localeFilter?.call(element) ?? true).toList();
   }
 
   static List<Locale> get supportedLocales {

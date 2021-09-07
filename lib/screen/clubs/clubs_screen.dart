@@ -47,13 +47,13 @@ class ClubsScreenState extends State<ClubsScreen>
                     ClubCard(
                         width: 350,
                         height: 350,
-                        title: 'Running',
+                        title: localization.clubSelectionRunningTitle,
                         url: viewModel.runningPicture),
                     const SizedBox(height: ThemeDimens.padding56),
                     ClubCard(
                         width: 350,
                         height: 350,
-                        title: 'Cycling',
+                        title: localization.clubSelectionCyclingTitle,
                         url: viewModel.cyclingPicture)
                   ],
                 );

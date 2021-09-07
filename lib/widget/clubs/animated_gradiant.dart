@@ -9,15 +9,18 @@ class AnimatedGradiant extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DataProviderWidget(childBuilderTheme: (context, theme) {
-      return AnimatedContainer(
-          duration: ThemeDurations.shortAnimationDuration(),
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  stops: [isActive ? 0.2 : 0.05, 1],
-                  colors: [ThemeColors.primary, Colors.transparent])));
-    });
+    return DataProviderWidget(
+      childBuilderTheme: (context, theme) => AnimatedContainer(
+        duration: ThemeDurations.shortAnimationDuration(),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            stops: [isActive ? 0.2 : 0.05, 1],
+            colors: const [ThemeColors.primary, Colors.transparent],
+          ),
+        ),
+      ),
+    );
   }
 }

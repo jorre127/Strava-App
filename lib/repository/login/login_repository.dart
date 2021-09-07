@@ -1,6 +1,4 @@
-import 'dart:html';
 import 'package:flutter_template/repository/secure_storage/auth/auth_storage.dart';
-import 'package:flutter_template/util/app_constants.dart';
 import 'package:injectable/injectable.dart';
 
 @lazySingleton
@@ -23,6 +21,7 @@ class _LoginRepository implements LoginRepository {
 
   @override
   Future<void> login() async {
+    //TODO Add Auth0 authentication for strava
 
     /*final queryParameters = {
       'client_id': AppConstants.CLIENT_ID,

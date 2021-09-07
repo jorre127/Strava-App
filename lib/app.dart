@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_template/navigator/main_navigator.dart';
 import 'package:flutter_template/screen/clubs/clubs_screen.dart';
-import 'package:flutter_template/screen/splash/splash_screen.dart';
 import 'package:flutter_template/styles/theme_data.dart';
 import 'package:flutter_template/util/env/flavor_config.dart';
 import 'package:flutter_template/util/locale/localization_delegate.dart';
@@ -19,13 +18,11 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return InternalApp(
-    );
+    return InternalApp();
   }
 }
 
 class InternalApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return ProviderWidget<GlobalViewModel>(
@@ -46,7 +43,9 @@ class InternalApp extends StatelessWidget {
         initialRoute: ClubsScreen.routeName,
         onGenerateRoute: MainNavigatorWidgetState.onGenerateRoute,
         navigatorKey: MainNavigatorWidgetState.navigationKey,
-        builder: (context, child)=>MainNavigatorWidget(child: child??const SizedBox.shrink(),),
+        builder: (context, child) => MainNavigatorWidget(
+          child: child ?? const SizedBox.shrink(),
+        ),
       ),
       create: () => GetIt.I()..init(),
     );

@@ -476,13 +476,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
-  icapps_translations:
-    dependency: "direct dev"
-    description:
-      name: icapps_translations
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "4.4.1"
   image:
     dependency: transitive
     description:
@@ -540,7 +533,7 @@ packages:
     source: hosted
     version: "5.0.0"
   locale_gen:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: locale_gen
       url: "https://pub.dartlang.org"
