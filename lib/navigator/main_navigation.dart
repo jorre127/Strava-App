@@ -9,6 +9,8 @@ abstract class MainNavigation {
   void goToHome();
 
   void goToAddTodo();
+  
+  void goToClubs();
 
   void goToDebugPlatformSelector();
 
