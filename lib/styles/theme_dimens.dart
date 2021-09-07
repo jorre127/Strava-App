@@ -16,6 +16,7 @@ class ThemeDimens {
   static const double padding96 = 96;
   static const double padding128 = 128;
   static const double cardBorderRadius = 5;
+  static const double largeCardBorderRadius = 10;
 
   static const double enabledOpacity = 1;
   static const double disabledOpacity = 0.24;

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_template/navigator/main_navigator.dart';
+import 'package:flutter_template/screen/clubs/clubs_screen.dart';
+import 'package:flutter_template/screen/splash/splash_screen.dart';
 import 'package:flutter_template/styles/theme_data.dart';
 import 'package:flutter_template/util/env/flavor_config.dart';
 import 'package:flutter_template/util/locale/localization_delegate.dart';
@@ -17,21 +19,16 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return const InternalApp(
-      home: MainNavigatorWidget(),
+    return InternalApp(
     );
   }
 }
 
 class InternalApp extends StatelessWidget {
-  final Widget home;
-
-  const InternalApp({required this.home});
 
   @override
   Widget build(BuildContext context) {
     return ProviderWidget<GlobalViewModel>(
-      consumerChild: home,
       lazy: FlavorConfig.isInTest(),
       consumer: (context, viewModel, child) => MaterialApp(
         debugShowCheckedModeBanner: !FlavorConfig.isInTest(),
@@ -46,7 +43,10 @@ class InternalApp extends StatelessWidget {
         themeMode: viewModel.themeMode,
         theme: FlutterTemplateThemeData.lightTheme(viewModel.targetPlatform),
         darkTheme: FlutterTemplateThemeData.darkTheme(viewModel.targetPlatform),
-        home: child,
+        initialRoute: ClubsScreen.routeName,
+        onGenerateRoute: MainNavigatorWidgetState.onGenerateRoute,
+        navigatorKey: MainNavigatorWidgetState.navigationKey,
+        builder: (context, child)=>MainNavigatorWidget(child: child??const SizedBox.shrink(),),
       ),
       create: () => GetIt.I()..init(),
     );

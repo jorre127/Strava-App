@@ -36,8 +36,8 @@ class LoginViewModel with ChangeNotifierEx {
   Future<void> onLoginClicked() async {
     try {
       _isLoading = true;
-      await _loginRepo.login(email: _email, password: _password);
-      _navigator.goToHome();
+      //await _loginRepo.login();
+      _navigator.goToClubSelection();
     } catch (e, stack) {
       logger.error('Failed to login', error: e, trace: stack);
       if (e is LocalizedError) {
@@ -54,5 +54,5 @@ class LoginViewModel with ChangeNotifierEx {
 
 // ignore: one_member_abstracts
 abstract class LoginNavigator implements ErrorNavigator {
-  void goToHome();
+  void goToClubSelection();
 }

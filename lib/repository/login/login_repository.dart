@@ -1,5 +1,6 @@
+import 'dart:html';
 import 'package:flutter_template/repository/secure_storage/auth/auth_storage.dart';
-import 'package:icapps_architecture/icapps_architecture.dart';
+import 'package:flutter_template/util/app_constants.dart';
 import 'package:injectable/injectable.dart';
 
 @lazySingleton
@@ -9,7 +10,7 @@ abstract class LoginRepository {
 
   Future<bool> isLoggedIn();
 
-  Future<void> login({required String email, required String password});
+  Future<void> login();
 }
 
 class _LoginRepository implements LoginRepository {
@@ -21,7 +22,26 @@ class _LoginRepository implements LoginRepository {
   Future<bool> isLoggedIn() async => _authStorage.hasLoggedInUser();
 
   @override
-  Future<void> login({required String email, required String password}) async {
-    logger.debug('Login should be implemented');
+  Future<void> login() async {
+
+    /*final queryParameters = {
+      'client_id': AppConstants.CLIENT_ID,
+      'redirect_uri': 'http://localhost:${AppConstants.PORT}/',
+      'scope': 'activity:write,read',
+      'response_type': 'code',
+      'approval_prompt': 'auto'
+    };
+    const domain = 'www.strava.com';
+    const path = '/oauth/authorize';
+    final Auth0 auth0 = await createAuth0Client(Auth0CreateOptions(
+      domain: domain + path,
+      client_id: AppConstants.CLIENT_ID,
+    ));
+
+    String token = await auth0.getTokenWithPopup();
+    print(token);
+
+    //final url = Uri.https(domain, path, queryParameters);
+    */
   }
 }
