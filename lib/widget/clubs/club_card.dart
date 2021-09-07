@@ -61,26 +61,31 @@ class _ClubCardState extends State<ClubCard> {
                 decoration: const BoxDecoration(boxShadow: [BoxShadow(color: ThemeColors.shadow, blurRadius: 10, spreadRadius: 5)]),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(ThemeDimens.largeCardBorderRadius),
-                  child: Stack(children: [
-                    Image.network(
-                      widget.url,
-                      fit: BoxFit.cover,
-                      width: widget.width,
-                      height: widget.height,
-                    ),
-                    AnimatedGradiant(
-                      isActive: isHovered,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(ThemeDimens.padding24),
-                      child: Align(
+                  child: Stack(
+                    children: [
+                      Image.network(
+                        widget.url,
+                        fit: BoxFit.cover,
+                        width: widget.width,
+                        height: widget.height,
+                      ),
+                      AnimatedGradiant(
+                        isActive: isHovered,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(ThemeDimens.padding24),
+                        child: Align(
                           alignment: Alignment.bottomLeft,
                           child: Text(
                             widget.title,
-                            style: theme.lightTextTheme.titleBig.copyWith(color: Colors.white.withOpacity(0.8)),
-                          )),
-                    )
-                  ]),
+                            style: theme.lightTextTheme.titleBig.copyWith(
+                              color: Colors.white.withOpacity(0.8),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );
