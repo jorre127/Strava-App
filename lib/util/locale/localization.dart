@@ -18,13 +18,13 @@ class Localization {
       return localizations;
     }
     final jsonContent = await rootBundle.loadString('assets/locale/${locale.languageCode}.json', cache: useCaching);
-    localizations._localisedValues = json.decode(jsonContent) as Map<String, dynamic>;
+    localizations._localisedValues = json.decode(jsonContent) as Map<String, dynamic>; // ignore: avoid_as
     return localizations;
   }
 
   String _t(String key, {List<dynamic>? args}) {
     try {
-      final value = _localisedValues[key] as String?;
+      final value = _localisedValues[key] as String?; // ignore: avoid_as
       if (value == null) return '$key';
       if (args == null || args.isEmpty) return value;
       var newValue = value;
@@ -327,4 +327,5 @@ class Localization {
   String get todoTitle => _t(LocalizationKeys.todoTitle);
 
   String getTranslation(String key, {List<dynamic>? args}) => _t(key, args: args ?? <dynamic>[]);
+
 }
