@@ -326,6 +326,20 @@ class Localization {
   /// en:  **'Todo'**
   String get todoTitle => _t(LocalizationKeys.todoTitle);
 
+  /// Translations:
+  ///
+  /// nl:  **'Fietsen'**
+  ///
+  /// en:  **'Cycling'**
+  String get clubSelectionCyclingTitle => _t(LocalizationKeys.clubSelectionCyclingTitle);
+
+  /// Translations:
+  ///
+  /// nl:  **'Lopen'**
+  ///
+  /// en:  **'Running'**
+  String get clubSelectionRunningTitle => _t(LocalizationKeys.clubSelectionRunningTitle);
+
   String getTranslation(String key, {List<dynamic>? args}) => _t(key, args: args ?? <dynamic>[]);
 
 }

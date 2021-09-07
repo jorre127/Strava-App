@@ -27,9 +27,7 @@ class FlutterTemplateButton extends StatelessWidget {
             child: Text(
               text,
             ),
-            style: isEnabled
-                ? theme.lightTextTheme.labelButtonSmall
-                : theme.darkTextTheme.labelButtonSmall.withOpacity20(),
+            style: isEnabled ? theme.lightTextTheme.labelButtonSmall : theme.darkTextTheme.labelButtonSmall.withOpacity20(),
             duration: ThemeDurations.shortAnimationDuration(),
           ),
         );
@@ -38,9 +36,7 @@ class FlutterTemplateButton extends StatelessWidget {
             child: AnimatedContainer(
               height: height,
               child: content,
-              color: isEnabled
-                  ? theme.colorsTheme.accent
-                  : theme.colorsTheme.disabled,
+              color: isEnabled ? theme.colorsTheme.accent : theme.colorsTheme.disabled,
               duration: ThemeDurations.shortAnimationDuration(),
             ),
             onClick: isEnabled ? onClick : null,
@@ -49,9 +45,7 @@ class FlutterTemplateButton extends StatelessWidget {
         return AnimatedContainer(
           child: TouchFeedBack(
             child: MouseRegion(
-              cursor: isEnabled
-                  ? SystemMouseCursors.click
-                  : SystemMouseCursors.basic,
+              cursor: isEnabled ? SystemMouseCursors.click : SystemMouseCursors.basic,
               child: Container(
                 height: height,
                 child: content,
@@ -59,8 +53,7 @@ class FlutterTemplateButton extends StatelessWidget {
             ),
             onClick: isEnabled ? onClick : null,
           ),
-          color:
-              isEnabled ? theme.colorsTheme.accent : theme.colorsTheme.disabled,
+          color: isEnabled ? theme.colorsTheme.accent : theme.colorsTheme.disabled,
           duration: ThemeDurations.shortAnimationDuration(),
         );
       },

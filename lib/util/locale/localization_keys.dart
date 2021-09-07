@@ -283,4 +283,18 @@ class LocalizationKeys {
   /// en:  **'Todo'**
   static const todoTitle = 'todo_title';
 
+  /// Translations:
+  ///
+  /// nl:  **'Fietsen'**
+  ///
+  /// en:  **'Cycling'**
+  static const clubSelectionCyclingTitle = 'club_selection_cycling_title';
+
+  /// Translations:
+  ///
+  /// nl:  **'Lopen'**
+  ///
+  /// en:  **'Running'**
+  static const clubSelectionRunningTitle = 'club_selection_running_title';
+
 }

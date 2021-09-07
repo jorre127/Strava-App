@@ -17,7 +17,7 @@ class AnimatedGradiant extends StatelessWidget {
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
                   stops: [isActive ? 0.2 : 0.05, 1],
-                  colors: [ThemeColors.primary, Colors.transparent])));
+                  colors: const [ThemeColors.primary, Colors.transparent])));
     });
   }
 }

@@ -7,4 +7,4 @@ then
   cd ..
 fi
 
-fvm flutter packages pub run icapps_translations
+fvm flutter packages pub run locale_gen

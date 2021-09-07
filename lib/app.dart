@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_template/navigator/main_navigator.dart';
 import 'package:flutter_template/screen/clubs/clubs_screen.dart';
-import 'package:flutter_template/screen/splash/splash_screen.dart';
 import 'package:flutter_template/styles/theme_data.dart';
 import 'package:flutter_template/util/env/flavor_config.dart';
 import 'package:flutter_template/util/locale/localization_delegate.dart';

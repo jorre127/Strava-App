@@ -34,12 +34,13 @@ class _ClubCardState extends State<ClubCard> {
       isHovered = true;
     });
   }
-void _onExit(PointerExitEvent event){
-          setState(() {
-            currentScale = 1;
-            isHovered = false;
-          });
-}
+
+  void _onExit(PointerExitEvent event) {
+    setState(() {
+      currentScale = 1;
+      isHovered = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
