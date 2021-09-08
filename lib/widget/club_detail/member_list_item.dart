@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/member/member.dart';
-import 'package:flutter_template/styles/theme_colors.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 

@@ -17,4 +17,7 @@ abstract class ClubWebService {
 
   @GET('/clubs/{id}/members')
   Future<List<Member>> getClubMembers(@Path('id') String id);
+
+  @GET('/clubs/{id}/admins')
+  Future<List<Member>> getClubAdmins(@Path('id') String id);
 }

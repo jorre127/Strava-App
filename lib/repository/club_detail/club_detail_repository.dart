@@ -11,6 +11,7 @@ abstract class ClubDetailRepository {
 
   Future<Club> getClub(String id);
   Future<List<Member>> getMembers(String id);
+    Future<List<Member>> getAdmins(String id);
 }
 
 class _ClubDetailRepository implements ClubDetailRepository {
@@ -23,4 +24,7 @@ class _ClubDetailRepository implements ClubDetailRepository {
 
   @override
   Future<List<Member>> getMembers(String id) => _clubWebService.getClubMembers(id);
+
+  @override
+  Future<List<Member>> getAdmins(String id)=> _clubWebService.getClubAdmins(id);
 }

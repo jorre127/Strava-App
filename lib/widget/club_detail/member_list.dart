@@ -6,7 +6,8 @@ import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 
 class MemberList extends StatelessWidget {
   final List<Member> memberList;
-  const MemberList({required this.memberList, Key? key}) : super(key: key);
+  final String title;
+  const MemberList({required this.memberList, Key? key, this.title =''}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class MemberList extends StatelessWidget {
           children: [
             Container(
               child: Text(
-                'Members',
+                title,
                 style: theme.lightTextTheme.titleBig,
               ),
             ),
@@ -34,14 +35,9 @@ class MemberList extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(ThemeDimens.cardBorderRadius),
-                child: ListView(
-                  children: memberList
-                      .map(
-                        (member) => MemberListItem(
-                          member: member,
-                        ),
-                      )
-                      .toList(),
+                child: ListView.builder(
+                  itemCount: memberList.length,
+                  itemBuilder: (context, index) => MemberListItem(member: memberList[index]),
                 ),
               ),
             ),

@@ -35,8 +35,8 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
               ? const Center(
                   child: CircularProgressIndicator(),
                 )
-              : Center(
-                  child: Stack(
+              : ListView(children: [
+                  Stack(
                     children: [
                       ClubBanner(imgUrl: viewModel.club!.coverPhoto!),
                       Padding(
@@ -47,18 +47,34 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                             ClubHeader(
                               club: viewModel.club!,
                             ),
-                            SizedBox(height: ThemeDimens.padding16,),
+                            const SizedBox(
+                              height: ThemeDimens.padding16,
+                            ),
                             viewModel.members == null
                                 ? const Center(
                                     child: CircularProgressIndicator(),
                                   )
-                                : MemberList(memberList: viewModel.members!,)
+                                : MemberList(
+                                    title: 'Members',
+                                    memberList: viewModel.members!,
+                                  ),
+                            const SizedBox(
+                              height: ThemeDimens.padding16,
+                            ),
+                            viewModel.admins == null
+                                ? const Center(
+                                    child: CircularProgressIndicator(),
+                                  )
+                                : MemberList(
+                                    title: 'Admins',
+                                    memberList: viewModel.admins!,
+                                  )
                           ],
                         ),
                       )
                     ],
                   ),
-                ),
+                ]),
         );
       },
     );

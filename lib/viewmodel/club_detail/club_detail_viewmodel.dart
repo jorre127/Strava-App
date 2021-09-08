@@ -11,6 +11,7 @@ class ClubDetailViewModel with ChangeNotifierEx {
   late ClubDetailViewNavigator _navigator;
   Club? club;
   List<Member>? members;
+  List<Member>? admins;
 
   ClubDetailViewModel(this._clubDetailRepository);
 
@@ -18,6 +19,7 @@ class ClubDetailViewModel with ChangeNotifierEx {
     _navigator = navigator;
     await getClub(clubId);
     await getMembers(clubId);
+    await getAdmins(clubId);
     notifyListeners();
   }
 
@@ -28,6 +30,11 @@ class ClubDetailViewModel with ChangeNotifierEx {
 
   Future<void> getMembers(String clubId) async {
     members = await _clubDetailRepository.getMembers(clubId);
+    notifyListeners();
+  }
+
+  Future<void> getAdmins(String clubId) async {
+    admins = await _clubDetailRepository.getAdmins(clubId);
     notifyListeners();
   }
 }
