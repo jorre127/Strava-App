@@ -55,7 +55,7 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                                     child: CircularProgressIndicator(),
                                   )
                                 : MemberList(
-                                    title: 'Members',
+                                    title: localization.clubDetailMemberTitle,
                                     memberList: viewModel.members!,
                                   ),
                             const SizedBox(
@@ -66,7 +66,7 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                                     child: CircularProgressIndicator(),
                                   )
                                 : MemberList(
-                                    title: 'Admins',
+                                    title: localization.clubDetailAdminTitle,
                                     memberList: viewModel.admins!,
                                   )
                           ],

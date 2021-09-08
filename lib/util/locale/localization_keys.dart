@@ -297,4 +297,18 @@ class LocalizationKeys {
   /// en:  **'Running'**
   static const clubSelectionRunningTitle = 'club_selection_running_title';
 
+  /// Translations:
+  ///
+  /// nl:  **'Leden'**
+  ///
+  /// en:  **'Members'**
+  static const clubDetailMemberTitle = 'club_detail_member_title';
+
+  /// Translations:
+  ///
+  /// nl:  **'Administrators'**
+  ///
+  /// en:  **'Admins'**
+  static const clubDetailAdminTitle = 'club_detail_admin_title';
+
 }
