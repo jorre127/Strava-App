@@ -21,6 +21,7 @@ class ClubHeader extends StatelessWidget {
                 color: theme.colorsTheme.secondary.withOpacity(0.8),
               ),
             ),
+            const SizedBox(height: ThemeDimens.padding8,),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -49,11 +50,11 @@ class ClubHeader extends StatelessWidget {
               children: [
                 Text(
                   '${club.state == null ? 'unkown' : club.state!}, ',
-                  style: theme.lightTextTheme.bodySmall,
+                  style: theme.lightTextTheme.bodySmall.apply(color: theme.colorsTheme.secondary.withOpacity(0.7)),
                 ),
                 Text(
                   club.country == null ? 'unkown' : club.country!,
-                  style: theme.lightTextTheme.bodySmall,
+                  style: theme.lightTextTheme.bodySmall.apply(color: theme.colorsTheme.secondary.withOpacity(0.7)),
                 ),
               ],
             ),

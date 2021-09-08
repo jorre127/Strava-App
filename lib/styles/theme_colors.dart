@@ -13,4 +13,5 @@ class ThemeColors {
   static const backgroundGrey = Color(0xFFF1F2F3);
   static const disabledGrey = Color(0xFFE6E6E6);
   static const shadow = Color(0x1e000000); //black 12%
+  static const disabledWidget = Color(0xFF04284E);
 }

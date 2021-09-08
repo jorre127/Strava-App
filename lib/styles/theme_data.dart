@@ -84,8 +84,11 @@ class FlutterTemplateColorsTheme {
   final Color darkIcon;
   final Color lightProgressIndicator;
   final Color darkProgressIndicator;
+  final Color disabledWidget;
+  final Color shadow;
 
   const FlutterTemplateColorsTheme({
+    required this.disabledWidget,
     required this.primary,
     required this.secondary,
     required this.accent,
@@ -97,6 +100,7 @@ class FlutterTemplateColorsTheme {
     required this.darkIcon,
     required this.lightProgressIndicator,
     required this.darkProgressIndicator,
+    required this.shadow
   });
 }
 
@@ -152,6 +156,8 @@ class FlutterTemplateTheme {
     ),
     exceptionsTextTheme: FlutterTemplateTextThemeExceptions(),
     colorsTheme: FlutterTemplateColorsTheme(
+      disabledWidget: ThemeColors.disabledWidget,
+      shadow: ThemeColors.shadow,
       primary: ThemeColors.primary,
       accent: ThemeColors.accent,
       secondary: ThemeColors.white,

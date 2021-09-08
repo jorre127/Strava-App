@@ -1,4 +1,5 @@
 import 'package:flutter_template/model/webservice/club/club.dart';
+import 'package:flutter_template/model/webservice/member/member.dart';
 import 'package:flutter_template/navigator/mixin/error_navigator.dart';
 import 'package:flutter_template/repository/club_detail/club_detail_repository.dart';
 import 'package:icapps_architecture/icapps_architecture.dart';
@@ -9,17 +10,24 @@ class ClubDetailViewModel with ChangeNotifierEx {
   final ClubDetailRepository _clubDetailRepository;
   late ClubDetailViewNavigator _navigator;
   Club? club;
+  List<Member>? members;
 
   ClubDetailViewModel(this._clubDetailRepository);
 
-  Future<void> init(ClubDetailViewNavigator navigator) async {
+  Future<void> init(ClubDetailViewNavigator navigator, String clubId) async {
     _navigator = navigator;
-    await getClub();
+    await getClub(clubId);
+    await getMembers(clubId);
     notifyListeners();
   }
 
-  Future<void> getClub() async {
-    club = await _clubDetailRepository.getClub('198480');
+  Future<void> getClub(String clubId) async {
+    club = await _clubDetailRepository.getClub(clubId);
+    notifyListeners();
+  }
+
+  Future<void> getMembers(String clubId) async {
+    members = await _clubDetailRepository.getMembers(clubId);
     notifyListeners();
   }
 }

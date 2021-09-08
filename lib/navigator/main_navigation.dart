@@ -12,7 +12,7 @@ abstract class MainNavigation {
 
   void goToClubs();
   
-  void goToClubDetail();
+  void goToClubDetail(String clubId);
 
   void goToDebugPlatformSelector();
 

@@ -8,16 +8,18 @@ class ClubsViewModel with ChangeNotifierEx {
 
   var runningPicture = 'https://thumbs.dreamstime.com/b/healthy-lifestyle-fitness-sports-woman-running-sunrise-road-39709089.jpg';
   var cyclingPicture = 'https://static6.depositphotos.com/1070914/590/i/950/depositphotos_5907954-stock-photo-man-extreme-biking.jpg';
+  var runningClub = '198480';
+  var cyclingClub = '198478';
 
   Future<void> init(ClubsViewNavigator navigator) async {
     _navigator = navigator;
   }
-  void onCardClicked(){
-    _navigator.goToClubDetail();
+  void onCardClicked(String clubId){
+    _navigator.goToClubDetail(clubId);
   }
 }
 
 // ignore: one_member_abstracts
 abstract class ClubsViewNavigator implements ErrorNavigator {
-  void goToClubDetail();
+  void goToClubDetail(String clubId);
 }
