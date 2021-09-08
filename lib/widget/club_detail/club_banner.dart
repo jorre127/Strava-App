@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/styles/theme_colors.dart';
 import 'package:flutter_template/widget/general/animated_gradiant.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 
 class ClubBanner extends StatelessWidget {
-  const ClubBanner({required this.imgUrl, Key? key}) : super(key: key);
   final String imgUrl;
+  const ClubBanner({required this.imgUrl, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class ClubBanner extends StatelessWidget {
               fit: BoxFit.cover,
               width: double.infinity,
               errorBuilder: (context, object, trace) => Container(
-                color: Colors.white,
+                color: ThemeColors.white,
               ),
             ),
             const AnimatedGradiant()

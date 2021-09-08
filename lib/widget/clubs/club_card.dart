@@ -7,6 +7,11 @@ import 'package:flutter_template/widget/general/animated_gradiant.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 
 class ClubCard extends StatefulWidget {
+  final double width;
+  final double height;
+  final String title;
+  final String url;
+  final VoidCallback onClick;
   const ClubCard({
     required this.onClick,
     Key? key,
@@ -15,11 +20,6 @@ class ClubCard extends StatefulWidget {
     this.title = '',
     this.url = 'https://thumbs.dreamstime.com/b/healthy-lifestyle-fitness-sports-woman-running-sunrise-road-39709089.jpg',
   }) : super(key: key);
-  final double width;
-  final double height;
-  final String title;
-  final String url;
-  final VoidCallback onClick;
 
   @override
   _ClubCardState createState() => _ClubCardState();
@@ -63,7 +63,11 @@ class _ClubCardState extends State<ClubCard> {
                 child: Container(
                   width: widget.width,
                   height: widget.height,
-                  decoration: const BoxDecoration(boxShadow: [BoxShadow(color: ThemeColors.shadow, blurRadius: 10, spreadRadius: 5)]),
+                  decoration: const BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(color: ThemeColors.shadow, blurRadius: 10, spreadRadius: 5),
+                    ],
+                  ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(ThemeDimens.largeCardBorderRadius),
                     child: Stack(
@@ -84,7 +88,7 @@ class _ClubCardState extends State<ClubCard> {
                             child: Text(
                               widget.title,
                               style: theme.lightTextTheme.titleBig.copyWith(
-                                color: Colors.white.withOpacity(0.8),
+                                color: ThemeColors.white.withOpacity(0.8),
                               ),
                             ),
                           ),

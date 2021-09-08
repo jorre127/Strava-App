@@ -10,7 +10,7 @@ Future<void> main() async {
   await wrapMain(() async {
     await initArchitecture();
     const values = FlavorValues(
-      baseUrl: 'https://jsonplaceholder.typicode.com/',
+      baseUrl: 'https://www.strava.com/api/v3',
       logNetworkInfo: false,
       showFullErrorMessages: false,
     );

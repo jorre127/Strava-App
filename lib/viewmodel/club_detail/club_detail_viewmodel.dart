@@ -14,7 +14,7 @@ class ClubDetailViewModel with ChangeNotifierEx {
 
   Future<void> init(ClubDetailViewNavigator navigator) async {
     _navigator = navigator;
-    getClub();
+    await getClub();
     notifyListeners();
   }
 

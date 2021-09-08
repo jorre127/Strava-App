@@ -1,3 +1,4 @@
+import 'package:flutter_template/util/app_constants.dart';
 import 'package:icapps_architecture/icapps_architecture.dart';
 import 'package:injectable/injectable.dart';
 
@@ -25,7 +26,7 @@ class _AuthStorage implements AuthStorage {
   _AuthStorage(this._storage);
 
   @override
-  Future<String?> getAccessToken() => _storage.getValue(key: _ACCESS_TOKEN);
+  Future<String?> getAccessToken() async => /*_storage.getValue(key: _ACCESS_TOKEN*/ AppConstants.ACCESS_TOKEN;
 
   @override
   Future<String?> getRefreshToken() => _storage.getValue(key: _REFRESH_TOKEN);

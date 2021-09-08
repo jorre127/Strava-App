@@ -3,7 +3,6 @@ import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/viewmodel/club_detail/club_detail_viewmodel.dart';
 import 'package:flutter_template/navigator/mixin/back_navigator.dart';
 import 'package:flutter_template/navigator/mixin/error_navigator.dart';
-import 'package:flutter_template/viewmodel/clubs/clubs_viewmodel.dart';
 import 'package:flutter_template/widget/club_detail/club_banner.dart';
 import 'package:flutter_template/widget/club_detail/club_header.dart';
 import 'package:flutter_template/widget/provider/provider_widget.dart';
@@ -21,11 +20,6 @@ class ClubDetailScreen extends StatefulWidget {
 
 @visibleForTesting
 class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMixin, ErrorNavigatorMixin implements ClubDetailViewNavigator {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

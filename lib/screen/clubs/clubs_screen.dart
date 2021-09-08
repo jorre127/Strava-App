@@ -33,18 +33,38 @@ class ClubsScreenState extends State<ClubsScreen> with BackNavigatorMixin, Error
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ClubCard(onClick: viewModel.onCardClicked, title: 'Running', url: viewModel.runningPicture),
+                    ClubCard(
+                      onClick: viewModel.onCardClicked,
+                      title: 'Running',
+                      url: viewModel.runningPicture,
+                    ),
                     const SizedBox(width: ThemeDimens.padding128),
-                    ClubCard(onClick: viewModel.onCardClicked, title: 'Cycling', url: viewModel.cyclingPicture)
+                    ClubCard(
+                      onClick: viewModel.onCardClicked,
+                      title: 'Cycling',
+                      url: viewModel.cyclingPicture,
+                    ),
                   ],
                 );
               } else {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ClubCard(onClick: viewModel.onCardClicked, width: 350, height: 350, title: localization.clubSelectionRunningTitle, url: viewModel.runningPicture),
+                    ClubCard(
+                      onClick: viewModel.onCardClicked,
+                      width: 350,
+                      height: 350,
+                      title: localization.clubSelectionRunningTitle,
+                      url: viewModel.runningPicture,
+                    ),
                     const SizedBox(height: ThemeDimens.padding56),
-                    ClubCard(onClick: viewModel.onCardClicked, width: 350, height: 350, title: localization.clubSelectionCyclingTitle, url: viewModel.cyclingPicture)
+                    ClubCard(
+                      onClick: viewModel.onCardClicked,
+                      width: 350,
+                      height: 350,
+                      title: localization.clubSelectionCyclingTitle,
+                      url: viewModel.cyclingPicture,
+                    ),
                   ],
                 );
               }
