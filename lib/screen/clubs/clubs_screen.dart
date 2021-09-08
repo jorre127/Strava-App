@@ -35,13 +35,13 @@ class ClubsScreenState extends State<ClubsScreen> with BackNavigatorMixin, Error
                   children: [
                     ClubCard(
                       onClick: viewModel.onCardClicked,
-                      title: 'Running',
+                      title: localization.clubSelectionRunningTitle,
                       url: viewModel.runningPicture,
                     ),
                     const SizedBox(width: ThemeDimens.padding128),
                     ClubCard(
                       onClick: viewModel.onCardClicked,
-                      title: 'Cycling',
+                      title: localization.clubSelectionCyclingTitle,
                       url: viewModel.cyclingPicture,
                     ),
                   ],
