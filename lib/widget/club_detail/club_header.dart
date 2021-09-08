@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/club/club.dart';
-import 'package:flutter_template/styles/theme_colors.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 
@@ -19,7 +18,7 @@ class ClubHeader extends StatelessWidget {
               errorBuilder: (context, object, trace) => Container(
                 width: 30,
                 height: 30,
-                color: ThemeColors.white,
+                color: theme.colorsTheme.secondary.withOpacity(0.8),
               ),
             ),
             Row(
@@ -36,9 +35,9 @@ class ClubHeader extends StatelessWidget {
                   club.memberCount.toString(),
                   style: theme.lightTextTheme.bodySmall,
                 ),
-                const Icon(
+                Icon(
                   Icons.accessibility,
-                color: ThemeColors.white,
+                  color: theme.colorsTheme.secondary.withOpacity(0.8),
                   size: 17,
                 )
               ],
@@ -49,11 +48,11 @@ class ClubHeader extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  '${club.state != null ? club.state! : 'unkown'}, ',
+                  '${club.state == null ? 'unkown' : club.state!}, ',
                   style: theme.lightTextTheme.bodySmall,
                 ),
                 Text(
-                  club.country != null ? club.country! : 'unkown',
+                  club.country == null ? 'unkown' : club.country!,
                   style: theme.lightTextTheme.bodySmall,
                 ),
               ],
@@ -62,7 +61,7 @@ class ClubHeader extends StatelessWidget {
               height: ThemeDimens.padding24,
             ),
             Text(
-              club.description != null ? club.description! : 'no description',
+              club.description == null ? 'no description' : club.description!,
               style: theme.lightTextTheme.bodyNormal,
             ),
           ],

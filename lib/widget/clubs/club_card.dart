@@ -88,7 +88,7 @@ class _ClubCardState extends State<ClubCard> {
                             child: Text(
                               widget.title,
                               style: theme.lightTextTheme.titleBig.copyWith(
-                                color: ThemeColors.white.withOpacity(0.8),
+                                color: theme.colorsTheme.secondary.withOpacity(0.8),
                               ),
                             ),
                           ),

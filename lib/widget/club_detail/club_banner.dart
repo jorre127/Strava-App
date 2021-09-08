@@ -20,7 +20,7 @@ class ClubBanner extends StatelessWidget {
               fit: BoxFit.cover,
               width: double.infinity,
               errorBuilder: (context, object, trace) => Container(
-                color: ThemeColors.white,
+                color: theme.colorsTheme.secondary.withOpacity(0.8),
               ),
             ),
             const AnimatedGradiant()
