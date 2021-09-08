@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/navigator/main_navigator.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/viewmodel/clubs/clubs_viewmodel.dart';
 import 'package:flutter_template/widget/clubs/club_card.dart';
@@ -18,15 +19,12 @@ class ClubsScreen extends StatefulWidget {
 }
 
 @visibleForTesting
-class ClubsScreenState extends State<ClubsScreen>
-    with BackNavigatorMixin, ErrorNavigatorMixin
-    implements ClubsViewNavigator {
+class ClubsScreenState extends State<ClubsScreen> with BackNavigatorMixin, ErrorNavigatorMixin implements ClubsViewNavigator {
   @override
   Widget build(BuildContext context) {
     return ProviderWidget<ClubsViewModel>(
       create: () => GetIt.I()..init(this),
-      consumerWithThemeAndLocalization:
-          (context, viewModel, child, theme, localization) {
+      consumerWithThemeAndLocalization: (context, viewModel, child, theme, localization) {
         return Scaffold(
           backgroundColor: theme.colorsTheme.backgroundDark,
           body: Center(
@@ -35,9 +33,17 @@ class ClubsScreenState extends State<ClubsScreen>
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ClubCard(title: 'Running', url: viewModel.runningPicture),
+                    ClubCard(
+                      onClick: viewModel.onCardClicked,
+                      title: localization.clubSelectionRunningTitle,
+                      url: viewModel.runningPicture,
+                    ),
                     const SizedBox(width: ThemeDimens.padding128),
-                    ClubCard(title: 'Cycling', url: viewModel.cyclingPicture)
+                    ClubCard(
+                      onClick: viewModel.onCardClicked,
+                      title: localization.clubSelectionCyclingTitle,
+                      url: viewModel.cyclingPicture,
+                    ),
                   ],
                 );
               } else {
@@ -45,16 +51,20 @@ class ClubsScreenState extends State<ClubsScreen>
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ClubCard(
-                        width: 350,
-                        height: 350,
-                        title: localization.clubSelectionRunningTitle,
-                        url: viewModel.runningPicture),
+                      onClick: viewModel.onCardClicked,
+                      width: 350,
+                      height: 350,
+                      title: localization.clubSelectionRunningTitle,
+                      url: viewModel.runningPicture,
+                    ),
                     const SizedBox(height: ThemeDimens.padding56),
                     ClubCard(
-                        width: 350,
-                        height: 350,
-                        title: localization.clubSelectionCyclingTitle,
-                        url: viewModel.cyclingPicture)
+                      onClick: viewModel.onCardClicked,
+                      width: 350,
+                      height: 350,
+                      title: localization.clubSelectionCyclingTitle,
+                      url: viewModel.cyclingPicture,
+                    ),
                   ],
                 );
               }
@@ -66,7 +76,5 @@ class ClubsScreenState extends State<ClubsScreen>
   }
 
   @override
-  void goToHome() {
-    // TODO: implement goToHome
-  }
+  void goToClubDetail() => MainNavigatorWidget.of(context).goToClubDetail();
 }

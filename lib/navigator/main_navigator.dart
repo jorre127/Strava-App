@@ -1,4 +1,5 @@
 import 'package:flutter_template/navigator/main_navigation.dart';
+import 'package:flutter_template/screen/club_detail/club_detail_screen.dart';
 import 'package:flutter_template/screen/clubs/clubs_screen.dart';
 import 'package:flutter_template/screen/login/login_screen.dart';
 import 'package:flutter_template/screen/todo/todo_add/todo_add_screen.dart';
@@ -70,6 +71,8 @@ class MainNavigatorWidgetState extends State<MainNavigatorWidget> with MainNavig
         return MaterialPageRoute<void>(builder: (context) => const FlavorBanner(child: LicenseScreen()), settings: settings);
       case ClubsScreen.routeName:
         return MaterialPageRoute<void>(builder: (context) => const FlavorBanner(child: ClubsScreen()), settings: settings);
+      case ClubDetailScreen.routeName:
+        return MaterialPageRoute<void>(builder: (context) => const FlavorBanner(child: ClubDetailScreen()), settings: settings);
       case 'test_route':
         if (!FlavorConfig.isInTest()) return null;
         return MaterialPageRoute<void>(builder: (context) => FlavorBanner(child: Container(color: Colors.grey)), settings: settings);
@@ -126,4 +129,7 @@ class MainNavigatorWidgetState extends State<MainNavigatorWidget> with MainNavig
 
   @override
   void goToClubs() => navigationKey.currentState?.pushNamed(ClubsScreen.routeName);
+
+  @override
+  void goToClubDetail() => navigationKey.currentState?.pushNamed(ClubDetailScreen.routeName);
 }

@@ -14,6 +14,7 @@ import 'package:shared_preferences/shared_preferences.dart' as _i15;
 
 import '../database/flutter_template_database.dart' as _i10;
 import '../database/todo/todo_dao_storage.dart' as _i16;
+import '../repository/club_detail/club_detail_repository.dart' as _i37;
 import '../repository/debug/debug_repository.dart' as _i23;
 import '../repository/locale/locale_repository.dart' as _i26;
 import '../repository/login/login_repository.dart' as _i27;
@@ -28,6 +29,7 @@ import '../util/interceptor/network_auth_interceptor.dart' as _i29;
 import '../util/interceptor/network_error_interceptor.dart' as _i12;
 import '../util/interceptor/network_log_interceptor.dart' as _i13;
 import '../util/interceptor/network_refresh_interceptor.dart' as _i33;
+import '../viewmodel/club_detail/club_detail_viewmodel.dart' as _i38;
 import '../viewmodel/clubs/clubs_viewmodel.dart' as _i5;
 import '../viewmodel/debug/debug_platform_selector_viewmodel.dart' as _i8;
 import '../viewmodel/debug/debug_viewmodel.dart' as _i24;
@@ -37,10 +39,11 @@ import '../viewmodel/login/login_viewmodel.dart' as _i28;
 import '../viewmodel/splash/splash_viewmodel.dart' as _i31;
 import '../viewmodel/todo/todo_add/todo_add_viewmodel.dart' as _i20;
 import '../viewmodel/todo/todo_list/todo_list_viewmodel.dart' as _i21;
+import '../webservice/club/club_webservice.dart' as _i36;
 import '../webservice/todo/todo_dummy_service.dart' as _i19;
 import '../webservice/todo/todo_service.dart' as _i18;
 import '../webservice/todo/todo_webservice.dart' as _i35;
-import 'injectable.dart' as _i36;
+import 'injectable.dart' as _i39;
 
 const String _dummy = 'dummy';
 const String _dev = 'dev';
@@ -120,7 +123,12 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => registerModule.provideDio(get<_i6.CombiningSmartInterceptor>()));
   gh.singleton<_i18.TodoService>(_i35.TodoWebService(get<_i34.Dio>()),
       registerFor: {_dev, _prod});
+  gh.singleton<_i36.ClubWebService>(_i36.ClubWebService(get<_i34.Dio>()));
+  gh.lazySingleton<_i37.ClubDetailRepository>(() => _i37.ClubDetailRepository(
+      get<_i22.AuthStorage>(), get<_i36.ClubWebService>()));
+  gh.factory<_i38.ClubDetailViewModel>(
+      () => _i38.ClubDetailViewModel(get<_i37.ClubDetailRepository>()));
   return get;
 }
 
-class _$RegisterModule extends _i36.RegisterModule {}
+class _$RegisterModule extends _i39.RegisterModule {}

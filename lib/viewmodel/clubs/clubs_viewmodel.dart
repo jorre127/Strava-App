@@ -12,9 +12,12 @@ class ClubsViewModel with ChangeNotifierEx {
   Future<void> init(ClubsViewNavigator navigator) async {
     _navigator = navigator;
   }
+  void onCardClicked(){
+    _navigator.goToClubDetail();
+  }
 }
 
 // ignore: one_member_abstracts
 abstract class ClubsViewNavigator implements ErrorNavigator {
-  void goToHome();
+  void goToClubDetail();
 }
