@@ -31,7 +31,7 @@ class StackedData extends StatelessWidget {
             ),
             Text(
               value,
-              style: theme.lightTextTheme.titleSmall.copyWith(fontWeight: FontWeight.w500),
+              style: theme.lightTextTheme.titleSmall.copyWith(fontWeight: FontWeight.w600),
             ),
           ],
         ),
