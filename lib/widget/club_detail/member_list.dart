@@ -19,7 +19,7 @@ class MemberList extends StatelessWidget {
             Container(
               child: Text(
                 title,
-                style: theme.lightTextTheme.titleBig,
+                style: theme.lightTextTheme.titleNormal.copyWith(fontWeight: FontWeight.bold),
               ),
             ),
             const SizedBox(

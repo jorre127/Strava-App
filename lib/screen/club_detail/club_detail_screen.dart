@@ -68,7 +68,10 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                                 : MemberList(
                                     title: localization.clubDetailAdminTitle,
                                     memberList: viewModel.admins!,
-                                  )
+                                  ),
+                            const SizedBox(
+                              height: ThemeDimens.padding32,
+                            )
                           ],
                         ),
                       )
