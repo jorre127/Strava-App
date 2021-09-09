@@ -340,6 +340,20 @@ class Localization {
   /// en:  **'Running'**
   String get clubSelectionRunningTitle => _t(LocalizationKeys.clubSelectionRunningTitle);
 
+  /// Translations:
+  ///
+  /// nl:  **'Leden'**
+  ///
+  /// en:  **'Members'**
+  String get clubDetailMemberTitle => _t(LocalizationKeys.clubDetailMemberTitle);
+
+  /// Translations:
+  ///
+  /// nl:  **'Administrators'**
+  ///
+  /// en:  **'Admins'**
+  String get clubDetailAdminTitle => _t(LocalizationKeys.clubDetailAdminTitle);
+
   String getTranslation(String key, {List<dynamic>? args}) => _t(key, args: args ?? <dynamic>[]);
 
 }

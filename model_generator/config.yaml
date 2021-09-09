@@ -1,52 +1,10 @@
 ##################################################################################
 #####                                TODO                                    #####
 ##################################################################################
-Club:
-  path: webservice/club/
+Member:
+  path: webservice/member/
   properties:
-    id:
-      type: int
-    name:
+    firstname:
       type: String
-    profile_medium:
+    lastname:
       type: String
-    profile:
-      type: String
-    cover_photo:
-      type: String
-    cover_photo_small:
-      type: String
-    sport_type:
-      type: String
-    city:
-      type: String
-    state:
-      type: String
-    country:
-      type: String
-    private:
-      type: bool
-    member_count:
-      type: int
-    featured:
-      type: bool
-    verified:
-      type: bool
-    url:
-      type: String
-    membership:
-      type: String
-    admin: 
-      type: bool
-    owner: 
-      type: bool
-    description:
-      type: String
-    club_type:
-      type: String
-    post_count:
-      type: int
-    owner_id:
-      type: int
-    following_count:
-      type: int

@@ -40,6 +40,7 @@
   "todo_empty_state": "Er is nog geen data toegevoegd in uw database. Je kan een paar todo's ophalen van een api calll (download icoon) of je kan er zelf toevoegen door op het plus icoon te drukken.",
   "todo_title": "Todo",
   "club_selection_cycling_title": "Fietsen",
-  "club_selection_running_title": "Lopen"
-
+  "club_selection_running_title": "Lopen",
+  "club_detail_member_title": "Leden",
+  "club_detail_admin_title": "Administrators"
 }

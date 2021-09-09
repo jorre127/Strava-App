@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/styles/theme_colors.dart';
 import 'package:flutter_template/widget/general/animated_gradiant.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 

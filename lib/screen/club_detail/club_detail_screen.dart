@@ -5,12 +5,16 @@ import 'package:flutter_template/navigator/mixin/back_navigator.dart';
 import 'package:flutter_template/navigator/mixin/error_navigator.dart';
 import 'package:flutter_template/widget/club_detail/club_banner.dart';
 import 'package:flutter_template/widget/club_detail/club_header.dart';
+import 'package:flutter_template/widget/club_detail/member_list.dart';
+import 'package:flutter_template/widget/general/conditional_shower.dart';
 import 'package:flutter_template/widget/provider/provider_widget.dart';
 import 'package:get_it/get_it.dart';
 
 class ClubDetailScreen extends StatefulWidget {
   static const routeName = 'club_detail';
+  final String clubId;
   const ClubDetailScreen({
+    required this.clubId,
     Key? key,
   }) : super(key: key);
 
@@ -20,35 +24,64 @@ class ClubDetailScreen extends StatefulWidget {
 
 @visibleForTesting
 class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMixin, ErrorNavigatorMixin implements ClubDetailViewNavigator {
-
   @override
   Widget build(BuildContext context) {
     return ProviderWidget<ClubDetailViewModel>(
-      create: () => GetIt.I()..init(this),
+      create: () => GetIt.I()..init(this, widget.clubId),
       consumerWithThemeAndLocalization: (context, viewModel, child, theme, localization) {
         return Scaffold(
           backgroundColor: theme.colorsTheme.backgroundDark,
-          body: viewModel.club == null
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
-              : Center(
-                  child: Stack(
-                    children: [
-                      ClubBanner(imgUrl: viewModel.club!.coverPhoto!),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(ThemeDimens.padding56, 270, ThemeDimens.padding56, 0),
-                        child: Column(
-                          children: [
-                            ClubHeader(
-                              club: viewModel.club!,
+          body: ConditionalShower(
+            isNull: viewModel.club == null,
+            builder: (context) => ListView(
+              children: [
+                Stack(
+                  children: [
+                    ClubBanner(imgUrl: viewModel.club!.coverPhoto!),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(
+                        ThemeDimens.padding56,
+                        270,
+                        ThemeDimens.padding56,
+                        0,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ClubHeader(
+                            club: viewModel.club!,
+                          ),
+                          const SizedBox(
+                            height: ThemeDimens.padding16,
+                          ),
+                          ConditionalShower(
+                            isNull: viewModel.members == null,
+                            builder: (context) => MemberList(
+                              title: localization.clubDetailMemberTitle,
+                              memberList: viewModel.members!,
                             ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                          ),
+                          const SizedBox(
+                            height: ThemeDimens.padding16,
+                          ),
+                          ConditionalShower(
+                            isNull: viewModel.admins == null,
+                            builder: (context) => MemberList(
+                              title: localization.clubDetailAdminTitle,
+                              memberList: viewModel.admins!,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: ThemeDimens.padding32,
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
+              ],
+            ),
+          ),
         );
       },
     );

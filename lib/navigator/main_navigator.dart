@@ -72,7 +72,13 @@ class MainNavigatorWidgetState extends State<MainNavigatorWidget> with MainNavig
       case ClubsScreen.routeName:
         return MaterialPageRoute<void>(builder: (context) => const FlavorBanner(child: ClubsScreen()), settings: settings);
       case ClubDetailScreen.routeName:
-        return MaterialPageRoute<void>(builder: (context) => const FlavorBanner(child: ClubDetailScreen()), settings: settings);
+        final clubId = settings.arguments as String;
+        return PageRouteBuilder<void>(
+          transitionDuration: Duration.zero,
+          pageBuilder: (context, animation, animation2) => FlavorBanner(
+            child: ClubDetailScreen(clubId: clubId),
+          ),
+        );
       case 'test_route':
         if (!FlavorConfig.isInTest()) return null;
         return MaterialPageRoute<void>(builder: (context) => FlavorBanner(child: Container(color: Colors.grey)), settings: settings);
@@ -131,5 +137,5 @@ class MainNavigatorWidgetState extends State<MainNavigatorWidget> with MainNavig
   void goToClubs() => navigationKey.currentState?.pushNamed(ClubsScreen.routeName);
 
   @override
-  void goToClubDetail() => navigationKey.currentState?.pushNamed(ClubDetailScreen.routeName);
+  void goToClubDetail(String clubId) => navigationKey.currentState?.pushNamed(ClubDetailScreen.routeName, arguments: clubId);
 }
