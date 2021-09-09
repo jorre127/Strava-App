@@ -39,7 +39,12 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                   children: [
                     ClubBanner(imgUrl: viewModel.club!.coverPhoto!),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(ThemeDimens.padding56, 270, ThemeDimens.padding56, 0),
+                      padding: const EdgeInsets.fromLTRB(
+                        ThemeDimens.padding56,
+                        270,
+                        ThemeDimens.padding56,
+                        0,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -50,23 +55,25 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                             height: ThemeDimens.padding16,
                           ),
                           ConditionalShower(
-                              isNull: viewModel.members == null,
-                              builder: (context) => MemberList(
-                                    title: localization.clubDetailMemberTitle,
-                                    memberList: viewModel.members!,
-                                  )),
+                            isNull: viewModel.members == null,
+                            builder: (context) => MemberList(
+                              title: localization.clubDetailMemberTitle,
+                              memberList: viewModel.members!,
+                            ),
+                          ),
                           const SizedBox(
                             height: ThemeDimens.padding16,
                           ),
                           ConditionalShower(
-                              isNull: viewModel.admins == null,
-                              builder: (context) => MemberList(
-                                    title: localization.clubDetailAdminTitle,
-                                    memberList: viewModel.admins!,
-                                  )),
+                            isNull: viewModel.admins == null,
+                            builder: (context) => MemberList(
+                              title: localization.clubDetailAdminTitle,
+                              memberList: viewModel.admins!,
+                            ),
+                          ),
                           const SizedBox(
                             height: ThemeDimens.padding32,
-                          )
+                          ),
                         ],
                       ),
                     )
