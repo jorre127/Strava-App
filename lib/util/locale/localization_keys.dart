@@ -311,4 +311,11 @@ class LocalizationKeys {
   /// en:  **'Admins'**
   static const clubDetailAdminTitle = 'club_detail_admin_title';
 
+  /// Translations:
+  ///
+  /// nl:  **'Activiteiten'**
+  ///
+  /// en:  **'Activities'**
+  static const clubDetailActivityTitle = 'club_detail_activity_title';
+
 }

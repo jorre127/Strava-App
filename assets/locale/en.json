@@ -42,5 +42,6 @@
   "club_selection_cycling_title": "Cycling",
   "club_selection_running_title": "Running",
   "club_detail_member_title": "Members",
-  "club_detail_admin_title": "Admins"
+  "club_detail_admin_title": "Admins",
+  "club_detail_activity_title": "Activities"
 }

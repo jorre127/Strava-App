@@ -1,3 +1,4 @@
+import 'package:flutter_template/model/webservice/activity/activity.dart';
 import 'package:flutter_template/model/webservice/club/club.dart';
 import 'package:flutter_template/model/webservice/member/member.dart';
 import 'package:flutter_template/repository/secure_storage/auth/auth_storage.dart';
@@ -12,6 +13,7 @@ abstract class ClubDetailRepository {
   Future<Club> getClub(String clubId);
   Future<List<Member>> getMembers(String clubId);
   Future<List<Member>> getAdmins(String clubId);
+    Future<List<Activity>> getActivites(String clubId);
 }
 
 class _ClubDetailRepository implements ClubDetailRepository {
@@ -27,4 +29,7 @@ class _ClubDetailRepository implements ClubDetailRepository {
 
   @override
   Future<List<Member>> getAdmins(String clubId) => _clubWebService.getClubAdmins(clubId);
+
+  @override
+  Future<List<Activity>> getActivites(String clubId) => _clubWebService.getClubActivities(clubId);
 }

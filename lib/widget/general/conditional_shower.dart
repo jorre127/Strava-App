@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 
-class ConditionalShower extends StatelessWidget {
-  final bool isNull;
-  final WidgetBuilder builder;
+typedef ConditionalBuilder<T> = Widget Function(BuildContext, T);
+
+class ConditionalShower<T> extends StatelessWidget {
+  final T? data;
+  final ConditionalBuilder<T> builder;
   const ConditionalShower({
-    required this.isNull,
+    required this.data,
     required this.builder,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return isNull
+    final data = this.data;
+    return data == null
         ? const Center(
             child: CircularProgressIndicator(),
           )
-        : builder(context);
+        : builder(context, data);
   }
 }

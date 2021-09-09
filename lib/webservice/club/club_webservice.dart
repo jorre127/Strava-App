@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_template/model/webservice/activity/activity.dart';
 import 'package:flutter_template/model/webservice/club/club.dart';
 import 'package:flutter_template/model/webservice/member/member.dart';
 import 'package:injectable/injectable.dart';
@@ -20,4 +21,7 @@ abstract class ClubWebService {
 
   @GET('/clubs/{clubId}/admins')
   Future<List<Member>> getClubAdmins(@Path('clubId') String id);
+
+  @GET('/clubs/{clubId}/activities')
+  Future<List<Activity>> getClubActivities(@Path('clubId') String id);
 }
