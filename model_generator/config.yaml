@@ -1,6 +1,24 @@
 ##################################################################################
 #####                                TODO                                    #####
 ##################################################################################
+Activity:
+  path: webservice/activity/
+  properties:
+    athlete:
+      type: Member
+    name:
+      type: String
+    distance:
+      type: double
+    moving_time:
+      type: double
+    elapsed_time:
+      type: double
+    total_elevation_gain:
+      type: double
+    type:
+      type: String
+
 Member:
   path: webservice/member/
   properties:
