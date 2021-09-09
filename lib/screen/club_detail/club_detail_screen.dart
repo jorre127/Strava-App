@@ -3,9 +3,10 @@ import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/viewmodel/club_detail/club_detail_viewmodel.dart';
 import 'package:flutter_template/navigator/mixin/back_navigator.dart';
 import 'package:flutter_template/navigator/mixin/error_navigator.dart';
+import 'package:flutter_template/widget/club_detail/activity/activity_list.dart';
 import 'package:flutter_template/widget/club_detail/club_banner.dart';
 import 'package:flutter_template/widget/club_detail/club_header.dart';
-import 'package:flutter_template/widget/club_detail/member_list.dart';
+import 'package:flutter_template/widget/club_detail/member/member_list.dart';
 import 'package:flutter_template/widget/general/conditional_shower.dart';
 import 'package:flutter_template/widget/provider/provider_widget.dart';
 import 'package:get_it/get_it.dart';
@@ -54,22 +55,43 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                           const SizedBox(
                             height: ThemeDimens.padding16,
                           ),
-                          ConditionalShower(
-                            isNull: viewModel.members == null,
-                            builder: (context) => MemberList(
-                              title: localization.clubDetailMemberTitle,
-                              memberList: viewModel.members!,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: ThemeDimens.padding16,
-                          ),
-                          ConditionalShower(
-                            isNull: viewModel.admins == null,
-                            builder: (context) => MemberList(
-                              title: localization.clubDetailAdminTitle,
-                              memberList: viewModel.admins!,
-                            ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(children: [
+                                ConditionalShower(
+                                  isNull: viewModel.members == null,
+                                  builder: (context) => MemberList(
+                                    title: localization.clubDetailMemberTitle,
+                                    memberList: viewModel.members!,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: ThemeDimens.padding16,
+                                ),
+                                ConditionalShower(
+                                  isNull: viewModel.admins == null,
+                                  builder: (context) => MemberList(
+                                    title: localization.clubDetailAdminTitle,
+                                    memberList: viewModel.admins!,
+                                  ),
+                                ),
+                              ]),
+                              const SizedBox(
+                                width: ThemeDimens.padding32,
+                              ),
+                              Column(
+                                children: [
+                                  ConditionalShower(
+                                    isNull: viewModel.activities == null,
+                                    builder: (context) => ActivityList(
+                                      title: localization.clubDetailActivityTitle,
+                                      activities: viewModel.activities!,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                           const SizedBox(
                             height: ThemeDimens.padding32,
