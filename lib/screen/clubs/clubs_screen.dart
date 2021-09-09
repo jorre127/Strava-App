@@ -34,13 +34,13 @@ class ClubsScreenState extends State<ClubsScreen> with BackNavigatorMixin, Error
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ClubCard(
-                      onClick: () => viewModel.onCardClicked(viewModel.runningClub),
+                      onClick: () => viewModel.onRunningCardClicked(viewModel.runningClub),
                       title: localization.clubSelectionRunningTitle,
                       url: viewModel.runningPicture,
                     ),
                     const SizedBox(width: ThemeDimens.padding128),
                     ClubCard(
-                      onClick: () => viewModel.onCardClicked(viewModel.cyclingClub),
+                      onClick: () => viewModel.onCyclingCardClicked(viewModel.cyclingClub),
                       title: localization.clubSelectionCyclingTitle,
                       url: viewModel.cyclingPicture,
                     ),
@@ -51,7 +51,7 @@ class ClubsScreenState extends State<ClubsScreen> with BackNavigatorMixin, Error
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ClubCard(
-                      onClick: () => viewModel.onCardClicked(viewModel.runningClub),
+                      onClick: () => viewModel.onRunningCardClicked(viewModel.runningClub),
                       width: 350,
                       height: 350,
                       title: localization.clubSelectionRunningTitle,
@@ -59,7 +59,7 @@ class ClubsScreenState extends State<ClubsScreen> with BackNavigatorMixin, Error
                     ),
                     const SizedBox(height: ThemeDimens.padding56),
                     ClubCard(
-                      onClick: () => viewModel.onCardClicked(viewModel.cyclingClub),
+                      onClick: () => viewModel.onCyclingCardClicked(viewModel.cyclingClub),
                       width: 350,
                       height: 350,
                       title: localization.clubSelectionCyclingTitle,

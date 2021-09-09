@@ -7,7 +7,11 @@ import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 class MemberList extends StatelessWidget {
   final List<Member> memberList;
   final String title;
-  const MemberList({required this.memberList, Key? key, this.title =''}) : super(key: key);
+  const MemberList({
+    required this.memberList,
+    Key? key,
+    this.title = '',
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

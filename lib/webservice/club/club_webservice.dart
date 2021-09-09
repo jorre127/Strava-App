@@ -12,12 +12,12 @@ abstract class ClubWebService {
   @factoryMethod
   factory ClubWebService(Dio dio) = _ClubWebService;
 
-  @GET('/clubs/{id}')
-  Future<Club> getClub(@Path('id') String id);
+  @GET('/clubs/{clubId}')
+  Future<Club> getClub(@Path('clubId') String id);
 
-  @GET('/clubs/{id}/members')
-  Future<List<Member>> getClubMembers(@Path('id') String id);
+  @GET('/clubs/{clubId}/members')
+  Future<List<Member>> getClubMembers(@Path('clubId') String id);
 
-  @GET('/clubs/{id}/admins')
-  Future<List<Member>> getClubAdmins(@Path('id') String id);
+  @GET('/clubs/{clubId}/admins')
+  Future<List<Member>> getClubAdmins(@Path('clubId') String id);
 }

@@ -11,7 +11,7 @@ class MemberListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return DataProviderWidget(
       childBuilderTheme: (context, theme) => Container(
-                    color: theme.colorsTheme.disabledWidget,
+        color: theme.colorsTheme.disabledWidget,
         child: Padding(
           padding: const EdgeInsets.all(ThemeDimens.padding12),
           child: Container(

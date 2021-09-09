@@ -64,9 +64,7 @@ class ClubHeader extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(
-              height: ThemeDimens.padding24,
-            ),
+            const SizedBox(height: ThemeDimens.padding24),
             Text(
               club.description == null ? 'no description' : club.description!,
               style: theme.lightTextTheme.bodySmall,

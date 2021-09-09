@@ -14,9 +14,12 @@ class ClubsViewModel with ChangeNotifierEx {
   Future<void> init(ClubsViewNavigator navigator) async {
     _navigator = navigator;
   }
-  void onCardClicked(String clubId){
-    _navigator.goToClubDetail(clubId);
-  }
+
+  void _onCardClicked(String clubId) => _navigator.goToClubDetail(clubId);
+
+  void onRunningCardClicked(String clubId) => _onCardClicked(clubId);
+
+  void onCyclingCardClicked(String clubId) => _onCardClicked(clubId);
 }
 
 // ignore: one_member_abstracts
