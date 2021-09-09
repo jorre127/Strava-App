@@ -33,7 +33,7 @@ class ActivityListItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                activity.name == null ? '' : activity.name!,
+                activity.name ?? '',
                 style: theme.lightTextTheme.titleSmall,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
