@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/activity/activity.dart';
+import 'package:flutter_template/model/webservice/activity_summary/activity_summary.dart';
 import 'package:flutter_template/model/webservice/club/club.dart';
 import 'package:flutter_template/model/webservice/member/member.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
@@ -7,6 +8,8 @@ import 'package:flutter_template/viewmodel/club_detail/club_detail_viewmodel.dar
 import 'package:flutter_template/navigator/mixin/back_navigator.dart';
 import 'package:flutter_template/navigator/mixin/error_navigator.dart';
 import 'package:flutter_template/widget/club_detail/activity/activity_list.dart';
+import 'package:flutter_template/widget/club_detail/activity/activity_overview.dart';
+import 'package:flutter_template/widget/club_detail/activity/activity_summary.dart';
 import 'package:flutter_template/widget/club_detail/club_banner.dart';
 import 'package:flutter_template/widget/club_detail/club_header.dart';
 import 'package:flutter_template/widget/club_detail/member/member_list.dart';
@@ -45,7 +48,7 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                     Padding(
                       padding: const EdgeInsets.fromLTRB(
                         ThemeDimens.padding56,
-                        270,
+                        140,
                         ThemeDimens.padding56,
                         0,
                       ),
@@ -61,7 +64,16 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Column(children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                ConditionalShower<List<Activity>>(
+                                  data: viewModel.activities,
+                                  builder: (context, activities) => ActivityOverview(
+                                    title: activities[viewModel.selectedActivity].name,
+                                    activity: activities[viewModel.selectedActivity],
+                                  ),
+                                ),
                                 ConditionalShower<List<Member>>(
                                   data: viewModel.members,
                                   builder: (context, members) => MemberList(
@@ -84,12 +96,25 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                                 width: ThemeDimens.padding32,
                               ),
                               Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  ConditionalShower<ActivitySummary>(
+                                    data: viewModel.activitySummary,
+                                    builder: (context, activitySummary) => ActivitySummmarySection(
+                                      activitySummary: activitySummary,
+                                      title: localization.clubDetailSummaryTitle,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: ThemeDimens.padding16,
+                                  ),
                                   ConditionalShower<List<Activity>>(
                                     data: viewModel.activities,
                                     builder: (context, activities) => ActivityList(
                                       title: localization.clubDetailActivityTitle,
                                       activities: activities,
+                                      selectedActivity: viewModel.selectedActivity,
+                                      setSelectedActivity: viewModel.setSelectedActivity,
                                     ),
                                   ),
                                 ],

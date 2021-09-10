@@ -361,6 +361,13 @@ class Localization {
   /// en:  **'Activities'**
   String get clubDetailActivityTitle => _t(LocalizationKeys.clubDetailActivityTitle);
 
+  /// Translations:
+  ///
+  /// nl:  **'Samenvatting'**
+  ///
+  /// en:  **'Summary'**
+  String get clubDetailSummaryTitle => _t(LocalizationKeys.clubDetailSummaryTitle);
+
   String getTranslation(String key, {List<dynamic>? args}) => _t(key, args: args ?? <dynamic>[]);
 
 }

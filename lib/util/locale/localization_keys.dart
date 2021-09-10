@@ -318,4 +318,11 @@ class LocalizationKeys {
   /// en:  **'Activities'**
   static const clubDetailActivityTitle = 'club_detail_activity_title';
 
+  /// Translations:
+  ///
+  /// nl:  **'Samenvatting'**
+  ///
+  /// en:  **'Summary'**
+  static const clubDetailSummaryTitle = 'club_detail_summary_title';
+
 }

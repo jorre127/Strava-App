@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/member/member.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/widget/club_detail/member/member_list_item.dart';
+import 'package:flutter_template/widget/general/section_title.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 
 class MemberList extends StatelessWidget {
@@ -20,26 +21,14 @@ class MemberList extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SectionTitle(title: title),
             Container(
-              child: Text(
-                title,
-                style: theme.lightTextTheme.titleNormal.copyWith(fontWeight: FontWeight.bold),
-              ),
-            ),
-            const SizedBox(
-              height: ThemeDimens.padding16,
-            ),
-            Container(
-              height: 300,
+              height: 100,
               width: 800,
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(blurRadius: 10, color: theme.colorsTheme.shadow),
-                ],
-              ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(ThemeDimens.cardBorderRadius),
                 child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
                   itemCount: memberList.length,
                   itemBuilder: (context, index) => MemberListItem(
                     member: memberList[index],
