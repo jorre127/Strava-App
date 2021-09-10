@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/club/club.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
+import 'package:flutter_template/widget/general/section_title.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 
 class ClubHeader extends StatelessWidget {
@@ -21,19 +22,10 @@ class ClubHeader extends StatelessWidget {
                 color: theme.colorsTheme.secondary.withOpacity(0.8),
               ),
             ),
-            const SizedBox(
-              height: ThemeDimens.padding8,
-            ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  club.name!,
-                  style: theme.lightTextTheme.titleNormal.copyWith(fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(
-                  width: ThemeDimens.padding16,
-                ),
+                SectionTitle(title: club.name!),
                 Text(
                   club.memberCount.toString(),
                   style: theme.lightTextTheme.bodySmall,
@@ -52,22 +44,20 @@ class ClubHeader extends StatelessWidget {
               children: [
                 Text(
                   '${club.state == null ? 'unkown' : club.state!}, ',
-                  style: theme.lightTextTheme.bodySmall.apply(
-                    color: theme.colorsTheme.secondary.withOpacity(0.7),
-                  ),
+                  style: theme.lightTextTheme.bodySmall,
                 ),
                 Text(
                   club.country == null ? 'unkown' : club.country!,
-                  style: theme.lightTextTheme.bodySmall.apply(
-                    color: theme.colorsTheme.secondary.withOpacity(0.7),
-                  ),
+                  style: theme.lightTextTheme.bodySmall,
                 ),
               ],
             ),
-            const SizedBox(height: ThemeDimens.padding24),
+            const SizedBox(
+              height: ThemeDimens.padding24,
+            ),
             Text(
               club.description == null ? 'no description' : club.description!,
-              style: theme.lightTextTheme.bodySmall,
+              style: theme.lightTextTheme.bodyNormal,
             ),
           ],
         ),

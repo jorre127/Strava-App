@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/activity/activity.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/widget/club_detail/activity/activity_list_item.dart';
+import 'package:flutter_template/widget/general/section_title.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 
 class ActivityList extends StatelessWidget {
@@ -22,13 +23,7 @@ class ActivityList extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              style: theme.lightTextTheme.titleNormal.copyWith(fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: ThemeDimens.padding16,
-            ),
+            SectionTitle(title: title),
             Expanded(
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

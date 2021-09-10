@@ -1,4 +1,5 @@
 import 'package:flutter_template/model/webservice/activity/activity.dart';
+import 'package:flutter_template/model/webservice/activity_summary/activity_summary.dart';
 import 'package:flutter_template/model/webservice/club/club.dart';
 import 'package:flutter_template/model/webservice/member/member.dart';
 import 'package:flutter_template/navigator/mixin/error_navigator.dart';
@@ -14,6 +15,7 @@ class ClubDetailViewModel with ChangeNotifierEx {
   List<Member>? members;
   List<Member>? admins;
   List<Activity>? activities;
+  ActivitySummary? activity_summary;
 
   ClubDetailViewModel(this._clubDetailRepository);
 
@@ -43,7 +45,25 @@ class ClubDetailViewModel with ChangeNotifierEx {
 
   Future<void> getActivites(String clubId) async {
     activities = await _clubDetailRepository.getActivites(clubId);
+    getActivitySummary(activities ?? []);
     notifyListeners();
+  }
+
+  void getActivitySummary(List<Activity> activities) {
+    final summary = ActivitySummary(
+      totalDistance: 0,
+      totalElapsedTime: 0,
+      totalElevatiionGain: 0,
+      totalMovingTime: 0,
+    );
+    activities.forEach((element) {
+      summary
+        ..totalDistance += element.distance
+        ..totalElapsedTime += element.elapsedTime
+        ..totalElevatiionGain += element.totalElevationGain
+        ..totalMovingTime += element.movingTime;
+    });
+    activity_summary = summary;
   }
 }
 

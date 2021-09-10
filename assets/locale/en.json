@@ -43,5 +43,6 @@
   "club_selection_running_title": "Running",
   "club_detail_member_title": "Members",
   "club_detail_admin_title": "Admins",
-  "club_detail_activity_title": "Activities"
+  "club_detail_activity_title": "Activities",
+    "club_detail_summary_title": "Summary"
 }

@@ -33,7 +33,7 @@ class ActivityListItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                activity.name ?? '',
+                activity.name,
                 style: theme.lightTextTheme.titleSmall,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -47,25 +47,25 @@ class ActivityListItem extends StatelessWidget {
                 children: [
                   StackedData(
                     label: 'Distance',
-                    value: activity.distance == null ? 'unkown' : activity.distance!.toString(),
+                    value: activity.distance.toString(),
                   ),
                   StackedData(
                     label: 'Moving Time',
-                    value: activity.movingTime == null ? 'unkown' : activity.movingTime!.toString(),
+                    value: activity.movingTime.toString(),
                   ),
                   StackedData(
                     label: 'Elapsed Time',
-                    value: activity.elapsedTime == null ? 'unkown' : activity.elapsedTime!.toString(),
+                    value: activity.elapsedTime.toString(),
                   ),
                   StackedData(
                     label: 'Total Elevation Gain',
-                    value: activity.totalElevationGain == null ? 'unkown' : activity.totalElevationGain!.toString(),
+                    value: activity.totalElevationGain.toString(),
                   ),
                 ],
               ),
               const Spacer(),
               Text(
-                activity.athlete == null ? '' : 'By ${activity.athlete!.firstname!} ${activity.athlete!.lastname!}',
+                'By ${activity.athlete.firstname} ${activity.athlete.lastname}',
                 style: theme.lightTextTheme.bodyUltraSmall,
               ),
             ],
