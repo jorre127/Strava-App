@@ -23,16 +23,12 @@ class MemberList extends StatelessWidget {
           children: [
             SectionTitle(title: title),
             Container(
-              height: 300,
+              height: 100,
               width: 800,
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(blurRadius: 10, color: theme.colorsTheme.shadow),
-                ],
-              ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(ThemeDimens.cardBorderRadius),
                 child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
                   itemCount: memberList.length,
                   itemBuilder: (context, index) => MemberListItem(
                     member: memberList[index],

@@ -26,6 +26,9 @@ class ClubHeader extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SectionTitle(title: club.name!),
+                const SizedBox(
+                  width: ThemeDimens.padding16,
+                ),
                 Text(
                   club.memberCount.toString(),
                   style: theme.lightTextTheme.bodySmall,
