@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/activity/activity.dart';
+import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/widget/club_detail/activity/activity_list_item.dart';
 import 'package:flutter_template/widget/general/section_card.dart';
 import 'package:flutter_template/widget/general/section_title.dart';
@@ -32,9 +33,13 @@ class _ActivityListState extends State<ActivityList> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SectionTitle(title: widget.title),
+              Padding(
+                padding: const EdgeInsets.all(ThemeDimens.padding12),
+                child: SectionTitle(title: widget.title),
+              ),
               Expanded(
                 child: GridView.builder(
+                  padding: const EdgeInsets.all(ThemeDimens.padding12),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     mainAxisSpacing: 20,

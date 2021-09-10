@@ -13,7 +13,6 @@ class SectionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return DataProviderWidget(
       childBuilderTheme: (context, theme) => Container(
-        padding: const EdgeInsets.all(ThemeDimens.padding12),
         decoration: BoxDecoration(
           color: theme.colorsTheme.disabledWidget,
           borderRadius: BorderRadius.circular(

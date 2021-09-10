@@ -29,7 +29,8 @@ class ActivityListItem extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 blurRadius: 5,
-                color: theme.colorsTheme.shadow,
+                spreadRadius: 3,
+                color: selectedActivity == index ? theme.colorsTheme.accent.withOpacity(0.2) : theme.colorsTheme.shadow,
               ),
             ],
           ),
@@ -54,20 +55,20 @@ class ActivityListItem extends StatelessWidget {
                   alignment: WrapAlignment.start,
                   children: [
                     StackedData(
-                      label: 'Distance',
-                      value: activity.distance.toString(),
+                      label: 'Total Distance',
+                      value: '${(activity.distance / 1000).toStringAsFixed(2)} Km',
                     ),
                     StackedData(
-                      label: 'Moving Time',
-                      value: activity.movingTime.toString(),
+                      label: 'Total Moving Time',
+                      value: '${((activity.movingTime / 60) / 60).toStringAsFixed(2)} Hours',
                     ),
                     StackedData(
-                      label: 'Elapsed Time',
-                      value: activity.elapsedTime.toString(),
+                      label: 'Total Elapsed Time',
+                      value: '${((activity.elapsedTime / 60) / 60).toStringAsFixed(2)} Hours',
                     ),
                     StackedData(
                       label: 'Total Elevation Gain',
-                      value: activity.totalElevationGain.toString(),
+                      value: '${activity.totalElevationGain} metres',
                     ),
                   ],
                 ),

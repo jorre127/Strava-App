@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/activity_summary/activity_summary.dart';
+import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/widget/general/section_card.dart';
 import 'package:flutter_template/widget/general/section_title.dart';
 import 'package:flutter_template/widget/general/stacked_data.dart';
@@ -18,31 +19,38 @@ class ActivitySummmarySection extends StatelessWidget {
   Widget build(BuildContext context) {
     return DataProviderWidget(
       childBuilderTheme: (context, theme) => SectionCard(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SectionTitle(title: title),
-            Row(
-              children: [
-                StackedData(
-                  label: 'Total Distance',
-                  value: activitySummary.totalDistance.round().toString(),
-                ),
-                StackedData(
-                  label: 'Total Moving Time',
-                  value: activitySummary.totalMovingTime.toString(),
-                ),
-                StackedData(
-                  label: 'Total Elapsed Time',
-                  value: activitySummary.totalElapsedTime.toString(),
-                ),
-                StackedData(
-                  label: 'Total Elevation Gain',
-                  value: activitySummary.totalElevatiionGain.toString(),
-                ),
-              ],
-            )
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(ThemeDimens.padding12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SectionTitle(title: title),
+              Row(
+                children: [
+                  StackedData(
+                    width: 150,
+                    label: 'Total Distance',
+                    value: '${(activitySummary.totalDistance / 1000).toStringAsFixed(2)} Km',
+                  ),
+                  StackedData(
+                    width: 150,
+                    label: 'Total Moving Time',
+                    value: '${((activitySummary.totalMovingTime / 60) / 60).toStringAsFixed(2)} Hours',
+                  ),
+                  StackedData(
+                    width: 150,
+                    label: 'Total Elapsed Time',
+                    value: '${((activitySummary.totalElapsedTime / 60) / 60).toStringAsFixed(2)} Hours',
+                  ),
+                  StackedData(
+                    width: 150,
+                    label: 'Total Elevation Gain',
+                    value: '${activitySummary.totalElevatiionGain} Meters',
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

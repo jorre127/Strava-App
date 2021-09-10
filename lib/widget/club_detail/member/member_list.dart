@@ -19,24 +19,27 @@ class MemberList extends StatelessWidget {
   Widget build(BuildContext context) {
     return DataProviderWidget(
       childBuilderTheme: (context, theme) => SectionCard(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SectionTitle(title: title),
-            Container(
-              height: 100,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(ThemeDimens.cardBorderRadius),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: memberList.length,
-                  itemBuilder: (context, index) => MemberListItem(
-                    member: memberList[index],
+        child: Padding(
+          padding: const EdgeInsets.all(ThemeDimens.padding12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SectionTitle(title: title),
+              Container(
+                height: 100,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(ThemeDimens.cardBorderRadius),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: memberList.length,
+                    itemBuilder: (context, index) => MemberListItem(
+                      member: memberList[index],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
