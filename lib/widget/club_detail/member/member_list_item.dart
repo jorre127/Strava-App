@@ -19,7 +19,7 @@ class MemberListItem extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-            color: theme.colorsTheme.disabledWidget,
+            color: theme.colorsTheme.accent.withOpacity(0.15),
             borderRadius: BorderRadius.circular(ThemeDimens.largeCardBorderRadius),
             boxShadow: [
               BoxShadow(blurRadius: 10, color: theme.colorsTheme.shadow),

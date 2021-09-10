@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/member/member.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/widget/club_detail/member/member_list_item.dart';
+import 'package:flutter_template/widget/general/section_card.dart';
 import 'package:flutter_template/widget/general/section_title.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 
@@ -17,14 +18,13 @@ class MemberList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DataProviderWidget(
-      childBuilderTheme: (context, theme) => Container(
+      childBuilderTheme: (context, theme) => SectionCard(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SectionTitle(title: title),
             Container(
               height: 100,
-              width: 800,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(ThemeDimens.cardBorderRadius),
                 child: ListView.builder(

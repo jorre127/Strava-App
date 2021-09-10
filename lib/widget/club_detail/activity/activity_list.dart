@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/activity/activity.dart';
 import 'package:flutter_template/widget/club_detail/activity/activity_list_item.dart';
+import 'package:flutter_template/widget/general/section_card.dart';
 import 'package:flutter_template/widget/general/section_title.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 
@@ -25,32 +26,33 @@ class _ActivityListState extends State<ActivityList> {
   @override
   Widget build(BuildContext context) {
     return DataProviderWidget(
-      childBuilderTheme: (context, theme) => Container(
-        width: 800,
-        height: 600,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SectionTitle(title: widget.title),
-            Expanded(
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  mainAxisSpacing: 20,
-                  crossAxisSpacing: 20,
-                ),
-                itemCount: widget.activities.length,
-                itemBuilder: (context, index) => GestureDetector(
-                  onTap: () => widget.setSelectedActivity(index),
-                  child: ActivityListItem(
-                    selectedActivity: widget.selectedActivity,
-                    index: index,
-                    activity: widget.activities[index],
+      childBuilderTheme: (context, theme) => SectionCard(
+        child: Container(
+          height: 600,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SectionTitle(title: widget.title),
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20,
+                  ),
+                  itemCount: widget.activities.length,
+                  itemBuilder: (context, index) => GestureDetector(
+                    onTap: () => widget.setSelectedActivity(index),
+                    child: ActivityListItem(
+                      selectedActivity: widget.selectedActivity,
+                      index: index,
+                      activity: widget.activities[index],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

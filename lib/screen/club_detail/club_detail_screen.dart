@@ -64,60 +64,65 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                ConditionalShower<List<Activity>>(
-                                  data: viewModel.activities,
-                                  builder: (context, activities) => ActivityOverview(
-                                    title: activities[viewModel.selectedActivity].name,
-                                    activity: activities[viewModel.selectedActivity],
-                                  ),
-                                ),
-                                ConditionalShower<List<Member>>(
-                                  data: viewModel.members,
-                                  builder: (context, members) => MemberList(
-                                    title: localization.clubDetailMemberTitle,
-                                    memberList: members,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: ThemeDimens.padding16,
-                                ),
-                                ConditionalShower<List<Member>>(
-                                  data: viewModel.admins,
-                                  builder: (context, admins) => MemberList(
-                                    title: localization.clubDetailAdminTitle,
-                                    memberList: admins,
-                                  ),
-                                ),
-                              ]),
-                              const SizedBox(
-                                width: ThemeDimens.padding32,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  ConditionalShower<ActivitySummary>(
-                                    data: viewModel.activitySummary,
-                                    builder: (context, activitySummary) => ActivitySummmarySection(
-                                      activitySummary: activitySummary,
-                                      title: localization.clubDetailSummaryTitle,
+                              Expanded(
+                                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                                  ConditionalShower<List<Activity>>(
+                                    data: viewModel.activities,
+                                    builder: (context, activities) => ActivityOverview(
+                                      title: activities[viewModel.selectedActivity].name,
+                                      activity: activities[viewModel.selectedActivity],
                                     ),
                                   ),
                                   const SizedBox(
                                     height: ThemeDimens.padding16,
                                   ),
-                                  ConditionalShower<List<Activity>>(
-                                    data: viewModel.activities,
-                                    builder: (context, activities) => ActivityList(
-                                      title: localization.clubDetailActivityTitle,
-                                      activities: activities,
-                                      selectedActivity: viewModel.selectedActivity,
-                                      setSelectedActivity: viewModel.setSelectedActivity,
+                                  ConditionalShower<List<Member>>(
+                                    data: viewModel.members,
+                                    builder: (context, members) => MemberList(
+                                      title: localization.clubDetailMemberTitle,
+                                      memberList: members,
                                     ),
                                   ),
-                                ],
+                                  const SizedBox(
+                                    height: ThemeDimens.padding16,
+                                  ),
+                                  ConditionalShower<List<Member>>(
+                                    data: viewModel.admins,
+                                    builder: (context, admins) => MemberList(
+                                      title: localization.clubDetailAdminTitle,
+                                      memberList: admins,
+                                    ),
+                                  ),
+                                ]),
+                              ),
+                              const SizedBox(
+                                width: ThemeDimens.padding32,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    ConditionalShower<ActivitySummary>(
+                                      data: viewModel.activitySummary,
+                                      builder: (context, activitySummary) => ActivitySummmarySection(
+                                        activitySummary: activitySummary,
+                                        title: localization.clubDetailSummaryTitle,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: ThemeDimens.padding16,
+                                    ),
+                                    ConditionalShower<List<Activity>>(
+                                      data: viewModel.activities,
+                                      builder: (context, activities) => ActivityList(
+                                        title: localization.clubDetailActivityTitle,
+                                        activities: activities,
+                                        selectedActivity: viewModel.selectedActivity,
+                                        setSelectedActivity: viewModel.setSelectedActivity,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),

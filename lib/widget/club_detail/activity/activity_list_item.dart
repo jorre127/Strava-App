@@ -24,7 +24,7 @@ class ActivityListItem extends StatelessWidget {
         child: AnimatedContainer(
           duration: ThemeDurations.shortAnimationDuration(),
           decoration: BoxDecoration(
-            color: selectedActivity == index ? theme.colorsTheme.accent : theme.colorsTheme.disabledWidget,
+            color: selectedActivity == index ? theme.colorsTheme.accent : theme.colorsTheme.accent.withOpacity(0.15),
             borderRadius: BorderRadius.circular(ThemeDimens.largeCardBorderRadius),
             boxShadow: [
               BoxShadow(
