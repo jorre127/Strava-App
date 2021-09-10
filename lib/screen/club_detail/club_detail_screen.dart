@@ -8,6 +8,7 @@ import 'package:flutter_template/viewmodel/club_detail/club_detail_viewmodel.dar
 import 'package:flutter_template/navigator/mixin/back_navigator.dart';
 import 'package:flutter_template/navigator/mixin/error_navigator.dart';
 import 'package:flutter_template/widget/club_detail/activity/activity_list.dart';
+import 'package:flutter_template/widget/club_detail/activity/activity_overview.dart';
 import 'package:flutter_template/widget/club_detail/activity/activity_summary.dart';
 import 'package:flutter_template/widget/club_detail/club_banner.dart';
 import 'package:flutter_template/widget/club_detail/club_header.dart';
@@ -47,7 +48,7 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                     Padding(
                       padding: const EdgeInsets.fromLTRB(
                         ThemeDimens.padding56,
-                        270,
+                        140,
                         ThemeDimens.padding56,
                         0,
                       ),
@@ -63,7 +64,16 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Column(children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                ConditionalShower<List<Activity>>(
+                                  data: viewModel.activities,
+                                  builder: (context, activities) => ActivityOverview(
+                                    title: activities[viewModel.selectedActivity].name,
+                                    activity: activities[viewModel.selectedActivity],
+                                  ),
+                                ),
                                 ConditionalShower<List<Member>>(
                                   data: viewModel.members,
                                   builder: (context, members) => MemberList(
@@ -89,7 +99,7 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   ConditionalShower<ActivitySummary>(
-                                    data: viewModel.activity_summary,
+                                    data: viewModel.activitySummary,
                                     builder: (context, activitySummary) => ActivitySummmarySection(
                                       activitySummary: activitySummary,
                                       title: localization.clubDetailSummaryTitle,
@@ -103,6 +113,8 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                                     builder: (context, activities) => ActivityList(
                                       title: localization.clubDetailActivityTitle,
                                       activities: activities,
+                                      selectedActivity: viewModel.selectedActivity,
+                                      setSelectedActivity: viewModel.setSelectedActivity,
                                     ),
                                   ),
                                 ],

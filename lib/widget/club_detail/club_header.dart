@@ -27,7 +27,7 @@ class ClubHeader extends StatelessWidget {
               children: [
                 SectionTitle(title: club.name!),
                 const SizedBox(
-                  width: ThemeDimens.padding16,
+                  width: ThemeDimens.padding12,
                 ),
                 Text(
                   club.memberCount.toString(),

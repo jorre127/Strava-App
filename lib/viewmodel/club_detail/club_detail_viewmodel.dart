@@ -15,7 +15,8 @@ class ClubDetailViewModel with ChangeNotifierEx {
   List<Member>? members;
   List<Member>? admins;
   List<Activity>? activities;
-  ActivitySummary? activity_summary;
+  ActivitySummary? activitySummary;
+  int selectedActivity = 0;
 
   ClubDetailViewModel(this._clubDetailRepository);
 
@@ -63,7 +64,12 @@ class ClubDetailViewModel with ChangeNotifierEx {
         ..totalElevatiionGain += element.totalElevationGain
         ..totalMovingTime += element.movingTime;
     });
-    activity_summary = summary;
+    activitySummary = summary;
+  }
+
+  void setSelectedActivity(int index) {
+    selectedActivity = index;
+    notifyListeners();
   }
 }
 
