@@ -66,11 +66,11 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                             children: [
                               Expanded(
                                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                  ConditionalShower<List<Activity>>(
-                                    data: viewModel.activities,
-                                    builder: (context, activities) => ActivityOverview(
-                                      title: activities[viewModel.selectedActivity].name,
-                                      activity: activities[viewModel.selectedActivity],
+                                  ConditionalShower<ActivitySummary>(
+                                    data: viewModel.activitySummary,
+                                    builder: (context, activitySummary) => ActivitySummmarySection(
+                                      activitySummary: activitySummary,
+                                      title: localization.clubDetailSummaryTitle,
                                     ),
                                   ),
                                   const SizedBox(
@@ -102,11 +102,11 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    ConditionalShower<ActivitySummary>(
-                                      data: viewModel.activitySummary,
-                                      builder: (context, activitySummary) => ActivitySummmarySection(
-                                        activitySummary: activitySummary,
-                                        title: localization.clubDetailSummaryTitle,
+                                    ConditionalShower<List<Activity>>(
+                                      data: viewModel.activities,
+                                      builder: (context, activities) => ActivityOverview(
+                                        title: activities[viewModel.selectedActivity].name,
+                                        activity: activities[viewModel.selectedActivity],
                                       ),
                                     ),
                                     const SizedBox(
