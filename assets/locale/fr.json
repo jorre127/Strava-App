@@ -1,0 +1,13 @@
+{
+  "club_selection_cycling_title": "cyclisme",
+  "club_selection_running_title": "marche",
+  "club_detail_member_title": "membres",
+  "club_detail_admin_title": "administrateurs",
+  "club_detail_activity_title": "Activités",
+  "club_detail_summary_title": "résumé",
+  "club_detail_total_distance_title": "distance totale",
+  "club_detail_total_moving_time_title": "Ttemps total de déplacement",
+  "club_detail_total_elevation_gain_title": "gain de hauteur totale",
+  "club_detail_total_elapsed_time_title": "temps total écoulé"
+
+}
