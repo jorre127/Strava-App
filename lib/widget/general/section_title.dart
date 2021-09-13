@@ -13,6 +13,7 @@ class SectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return DataProviderWidget(
       childBuilderTheme: (context, theme) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             title,

@@ -412,7 +412,7 @@ class Localization {
   ///
   /// en:  **'Cycling'**
   ///
-  /// fr:  **'Fietsen'**
+  /// fr:  **'cyclisme'**
   String get clubSelectionCyclingTitle => _t(LocalizationKeys.clubSelectionCyclingTitle);
 
   /// Translations:
@@ -421,7 +421,7 @@ class Localization {
   ///
   /// en:  **'Running'**
   ///
-  /// fr:  **'Lopen'**
+  /// fr:  **'marche'**
   String get clubSelectionRunningTitle => _t(LocalizationKeys.clubSelectionRunningTitle);
 
   /// Translations:
@@ -430,7 +430,7 @@ class Localization {
   ///
   /// en:  **'Members'**
   ///
-  /// fr:  **'Leden'**
+  /// fr:  **'membres'**
   String get clubDetailMemberTitle => _t(LocalizationKeys.clubDetailMemberTitle);
 
   /// Translations:
@@ -439,7 +439,7 @@ class Localization {
   ///
   /// en:  **'Admins'**
   ///
-  /// fr:  **'Administrators'**
+  /// fr:  **'administrateurs'**
   String get clubDetailAdminTitle => _t(LocalizationKeys.clubDetailAdminTitle);
 
   /// Translations:
@@ -448,16 +448,16 @@ class Localization {
   ///
   /// en:  **'Activities'**
   ///
-  /// fr:  **'Activiteiten'**
+  /// fr:  **'Activités'**
   String get clubDetailActivityTitle => _t(LocalizationKeys.clubDetailActivityTitle);
 
   /// Translations:
   ///
   /// nl:  **'Samenvatting'**
   ///
-  /// en:  **''**
+  /// en:  **'Summary'**
   ///
-  /// fr:  **'Samenvatting'**
+  /// fr:  **'résumé'**
   String get clubDetailSummaryTitle => _t(LocalizationKeys.clubDetailSummaryTitle);
 
   /// Translations:
@@ -466,7 +466,7 @@ class Localization {
   ///
   /// en:  **'Total Distance'**
   ///
-  /// fr:  **'Totale Afstand'**
+  /// fr:  **'distance totale'**
   String get clubDetailTotalDistanceTitle => _t(LocalizationKeys.clubDetailTotalDistanceTitle);
 
   /// Translations:
@@ -475,7 +475,7 @@ class Localization {
   ///
   /// en:  **'Total Moving Time'**
   ///
-  /// fr:  **'Totale Tijd In Beweging'**
+  /// fr:  **'Ttemps total de déplacement'**
   String get clubDetailTotalMovingTimeTitle => _t(LocalizationKeys.clubDetailTotalMovingTimeTitle);
 
   /// Translations:
@@ -484,7 +484,7 @@ class Localization {
   ///
   /// en:  **'Total Elevation Gain'**
   ///
-  /// fr:  **'Totale Hoogtewinst'**
+  /// fr:  **'gain de hauteur totale'**
   String get clubDetailTotalElevationGainTitle => _t(LocalizationKeys.clubDetailTotalElevationGainTitle);
 
   /// Translations:
@@ -493,7 +493,7 @@ class Localization {
   ///
   /// en:  **'Total Elapsed Time'**
   ///
-  /// fr:  **'Total Verstreken Tijd'**
+  /// fr:  **'temps total écoulé'**
   String get clubDetailTotalElapsedTimeTitle => _t(LocalizationKeys.clubDetailTotalElapsedTimeTitle);
 
   String getTranslation(String key, {List<dynamic>? args}) => _t(key, args: args ?? <dynamic>[]);

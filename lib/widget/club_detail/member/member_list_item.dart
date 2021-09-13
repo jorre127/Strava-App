@@ -32,7 +32,7 @@ class MemberListItem extends StatelessWidget {
                 CircleAvatar(
                   backgroundColor: theme.colorsTheme.accent,
                   child: Text(
-                    member.firstname![0],
+                    member.firstname[0],
                     style: theme.lightTextTheme.titleSmall.copyWith(fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -41,7 +41,7 @@ class MemberListItem extends StatelessWidget {
                 ),
                 Container(
                   child: Text(
-                    '${member.firstname!} ${member.lastname}',
+                    '${member.firstname} ${member.lastname}',
                     style: theme.lightTextTheme.titleSmall,
                   ),
                 ),

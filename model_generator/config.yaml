@@ -49,9 +49,41 @@ Member:
   path: webservice/member/
   properties:
     firstname:
+      non_final: true
+      required: true
       type: String
     lastname:
+      non_final: true
+      required: true
       type: String
+
+MemberStats:
+  path: webservice/member_stats/
+  properties:
+    firstname:
+      non_final: true
+      required: true
+      type: String
+    lastname:
+      non_final: true
+      required: true
+      type: String
+    total_distance:
+      non_final: true
+      required: true
+      type: double
+    total_moving_time:
+      non_final: true
+      required: true
+      type: double
+    total_elapsed_time:
+      non_final: true
+      required: true
+      type: double
+    total_elevatiion_gain:
+      non_final: true
+      required: true
+      type: double
 
 Club:
   path: webservice/club/

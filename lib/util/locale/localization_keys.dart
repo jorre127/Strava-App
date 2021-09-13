@@ -369,7 +369,7 @@ class LocalizationKeys {
   ///
   /// en:  **'Cycling'**
   ///
-  /// fr:  **'Fietsen'**
+  /// fr:  **'cyclisme'**
   static const clubSelectionCyclingTitle = 'club_selection_cycling_title';
 
   /// Translations:
@@ -378,7 +378,7 @@ class LocalizationKeys {
   ///
   /// en:  **'Running'**
   ///
-  /// fr:  **'Lopen'**
+  /// fr:  **'marche'**
   static const clubSelectionRunningTitle = 'club_selection_running_title';
 
   /// Translations:
@@ -387,7 +387,7 @@ class LocalizationKeys {
   ///
   /// en:  **'Members'**
   ///
-  /// fr:  **'Leden'**
+  /// fr:  **'membres'**
   static const clubDetailMemberTitle = 'club_detail_member_title';
 
   /// Translations:
@@ -396,7 +396,7 @@ class LocalizationKeys {
   ///
   /// en:  **'Admins'**
   ///
-  /// fr:  **'Administrators'**
+  /// fr:  **'administrateurs'**
   static const clubDetailAdminTitle = 'club_detail_admin_title';
 
   /// Translations:
@@ -405,16 +405,16 @@ class LocalizationKeys {
   ///
   /// en:  **'Activities'**
   ///
-  /// fr:  **'Activiteiten'**
+  /// fr:  **'Activités'**
   static const clubDetailActivityTitle = 'club_detail_activity_title';
 
   /// Translations:
   ///
   /// nl:  **'Samenvatting'**
   ///
-  /// en:  **''**
+  /// en:  **'Summary'**
   ///
-  /// fr:  **'Samenvatting'**
+  /// fr:  **'résumé'**
   static const clubDetailSummaryTitle = 'club_detail_summary_title';
 
   /// Translations:
@@ -423,7 +423,7 @@ class LocalizationKeys {
   ///
   /// en:  **'Total Distance'**
   ///
-  /// fr:  **'Totale Afstand'**
+  /// fr:  **'distance totale'**
   static const clubDetailTotalDistanceTitle = 'club_detail_total_distance_title';
 
   /// Translations:
@@ -432,7 +432,7 @@ class LocalizationKeys {
   ///
   /// en:  **'Total Moving Time'**
   ///
-  /// fr:  **'Totale Tijd In Beweging'**
+  /// fr:  **'Ttemps total de déplacement'**
   static const clubDetailTotalMovingTimeTitle = 'club_detail_total_moving_time_title';
 
   /// Translations:
@@ -441,7 +441,7 @@ class LocalizationKeys {
   ///
   /// en:  **'Total Elevation Gain'**
   ///
-  /// fr:  **'Totale Hoogtewinst'**
+  /// fr:  **'gain de hauteur totale'**
   static const clubDetailTotalElevationGainTitle = 'club_detail_total_elevation_gain_title';
 
   /// Translations:
@@ -450,7 +450,7 @@ class LocalizationKeys {
   ///
   /// en:  **'Total Elapsed Time'**
   ///
-  /// fr:  **'Total Verstreken Tijd'**
+  /// fr:  **'temps total écoulé'**
   static const clubDetailTotalElapsedTimeTitle = 'club_detail_total_elapsed_time_title';
 
 }

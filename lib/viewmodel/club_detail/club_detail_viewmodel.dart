@@ -2,10 +2,12 @@ import 'package:flutter_template/model/webservice/activity/activity.dart';
 import 'package:flutter_template/model/webservice/activity_summary/activity_summary.dart';
 import 'package:flutter_template/model/webservice/club/club.dart';
 import 'package:flutter_template/model/webservice/member/member.dart';
+import 'package:flutter_template/model/webservice/member_stats/member_stats.dart';
 import 'package:flutter_template/navigator/mixin/error_navigator.dart';
 import 'package:flutter_template/repository/club_detail/club_detail_repository.dart';
 import 'package:icapps_architecture/icapps_architecture.dart';
 import 'package:injectable/injectable.dart';
+import 'package:path/path.dart';
 
 @injectable
 class ClubDetailViewModel with ChangeNotifierEx {
@@ -16,6 +18,7 @@ class ClubDetailViewModel with ChangeNotifierEx {
   List<Member>? admins;
   List<Activity>? activities;
   ActivitySummary? activitySummary;
+  List<MemberStats>? memberStats;
   int selectedActivity = 0;
 
   ClubDetailViewModel(this._clubDetailRepository);
@@ -26,6 +29,7 @@ class ClubDetailViewModel with ChangeNotifierEx {
     await getMembers(clubId);
     await getAdmins(clubId);
     await getActivites(clubId);
+    getMemberStats();
     notifyListeners();
   }
 
@@ -65,6 +69,36 @@ class ClubDetailViewModel with ChangeNotifierEx {
         ..totalMovingTime += element.movingTime;
     });
     activitySummary = summary;
+  }
+
+  void getMemberStats() {
+    final tempMemberStats = <MemberStats>[];
+    members!.forEach(
+      (member) => tempMemberStats.add(
+        MemberStats(
+          firstname: member.firstname,
+          lastname: member.lastname,
+          totalDistance: 0,
+          totalMovingTime: 0,
+          totalElapsedTime: 0,
+          totalElevatiionGain: 0,
+        ),
+      ),
+    );
+    activities!.forEach((activity) {
+      final currentMember = tempMemberStats
+          .where(
+            (member) => member.firstname == activity.athlete.firstname && member.lastname == activity.athlete.lastname,
+          )
+          .first;
+      // ignore: cascade_invocations
+      currentMember
+        ..totalDistance += activity.distance
+        ..totalElapsedTime = activity.elapsedTime
+        ..totalElevatiionGain = activity.totalElevationGain
+        ..totalMovingTime = activity.movingTime;
+    });
+    memberStats = tempMemberStats;
   }
 
   void setSelectedActivity(int index) {
