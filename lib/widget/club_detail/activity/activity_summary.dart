@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/activity_summary/activity_summary.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
+import 'package:flutter_template/widget/club_detail/activity/summary_row.dart';
 import 'package:flutter_template/widget/general/section_card.dart';
 import 'package:flutter_template/widget/general/section_title.dart';
 import 'package:flutter_template/widget/general/stacked_data.dart';
@@ -25,28 +26,11 @@ class ActivitySummmarySection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SectionTitle(title: title),
-              Wrap(
-                children: [
-                  StackedData(
-                    label: 'Total Distance',
-                    value: '${(activitySummary.totalDistance / 1000).toStringAsFixed(2)} Km',
-                  ),
-                  const SizedBox(width: ThemeDimens.padding16),
-                  StackedData(
-                    label: 'Total Moving Time',
-                    value: '${((activitySummary.totalMovingTime / 60) / 60).toStringAsFixed(2)} Hours',
-                  ),
-                  const SizedBox(width: ThemeDimens.padding16),
-                  StackedData(
-                    label: 'Total Elapsed Time',
-                    value: '${((activitySummary.totalElapsedTime / 60) / 60).toStringAsFixed(2)} Hours',
-                  ),
-                  const SizedBox(width: ThemeDimens.padding16),
-                  StackedData(
-                    label: 'Total Elevation Gain',
-                    value: '${activitySummary.totalElevatiionGain} Meters',
-                  ),
-                ],
+              SummaryRow(
+                totalElevationGain: activitySummary.totalElevatiionGain,
+                distance: activitySummary.totalDistance,
+                movingTime: activitySummary.totalMovingTime,
+                elapsedTime: activitySummary.totalElapsedTime,
               )
             ],
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/activity/activity.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
+import 'package:flutter_template/widget/club_detail/activity/summary_row.dart';
 import 'package:flutter_template/widget/general/section_card.dart';
 import 'package:flutter_template/widget/general/section_title.dart';
 import 'package:flutter_template/widget/general/stacked_data.dart';
@@ -27,28 +28,11 @@ class ActivityOverview extends StatelessWidget {
               SectionTitle(
                 title: title,
               ),
-              Wrap(
-                children: [
-                  StackedData(
-                    label: 'Total Distance',
-                    value: '${(activity.distance / 1000).toStringAsFixed(2)} Km',
-                  ),
-                  const SizedBox(width: ThemeDimens.padding16),
-                  StackedData(
-                    label: 'Total Moving Time',
-                    value: '${((activity.movingTime / 60) / 60).toStringAsFixed(2)} Hours',
-                  ),
-                  const SizedBox(width: ThemeDimens.padding16),
-                  StackedData(
-                    label: 'Total Elapsed Time',
-                    value: '${((activity.elapsedTime / 60) / 60).toStringAsFixed(2)} Hours',
-                  ),
-                  const SizedBox(width: ThemeDimens.padding16),
-                  StackedData(
-                    label: 'Total Elevation Gain',
-                    value: '${activity.totalElevationGain} Meters',
-                  ),
-                ],
+              SummaryRow(
+                totalElevationGain: activity.totalElevationGain,
+                distance: activity.distance,
+                movingTime: activity.movingTime,
+                elapsedTime: activity.elapsedTime,
               )
             ],
           ),
