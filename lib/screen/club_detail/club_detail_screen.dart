@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/model/webservice/activity/activity.dart';
-import 'package:flutter_template/model/webservice/activity_summary/activity_summary.dart';
 import 'package:flutter_template/model/webservice/club/club.dart';
-import 'package:flutter_template/model/webservice/member/member.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/viewmodel/club_detail/club_detail_viewmodel.dart';
 import 'package:flutter_template/navigator/mixin/back_navigator.dart';
 import 'package:flutter_template/navigator/mixin/error_navigator.dart';
-import 'package:flutter_template/widget/club_detail/activity/activity_list.dart';
-import 'package:flutter_template/widget/club_detail/activity/activity_overview.dart';
-import 'package:flutter_template/widget/club_detail/activity/activity_summary.dart';
 import 'package:flutter_template/widget/club_detail/club_banner.dart';
 import 'package:flutter_template/widget/club_detail/club_header.dart';
-import 'package:flutter_template/widget/club_detail/member/member_list.dart';
+import 'package:flutter_template/widget/club_detail/layout/left_column.dart';
+import 'package:flutter_template/widget/club_detail/layout/right_column.dart';
 import 'package:flutter_template/widget/general/conditional_shower.dart';
 import 'package:flutter_template/widget/provider/provider_widget.dart';
 import 'package:get_it/get_it.dart';
@@ -48,7 +43,7 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                     Padding(
                       padding: const EdgeInsets.fromLTRB(
                         ThemeDimens.padding56,
-                        140,
+                        100,
                         ThemeDimens.padding56,
                         0,
                       ),
@@ -61,71 +56,54 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                           const SizedBox(
                             height: ThemeDimens.padding16,
                           ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                  ConditionalShower<ActivitySummary>(
-                                    data: viewModel.activitySummary,
-                                    builder: (context, activitySummary) => ActivitySummmarySection(
-                                      activitySummary: activitySummary,
-                                      title: localization.clubDetailSummaryTitle,
+                          LayoutBuilder(builder: (context, constraints) {
+                            if (constraints.maxWidth > 1200) {
+                              return Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Expanded(
+                                    child: LeftColumn(
+                                      activitySummary: viewModel.activitySummary,
+                                      admins: viewModel.admins,
+                                      members: viewModel.members,
+                                      localization: localization,
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: ThemeDimens.padding16,
+                                    width: ThemeDimens.padding32,
                                   ),
-                                  ConditionalShower<List<Member>>(
-                                    data: viewModel.members,
-                                    builder: (context, members) => MemberList(
-                                      title: localization.clubDetailMemberTitle,
-                                      memberList: members,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: ThemeDimens.padding16,
-                                  ),
-                                  ConditionalShower<List<Member>>(
-                                    data: viewModel.admins,
-                                    builder: (context, admins) => MemberList(
-                                      title: localization.clubDetailAdminTitle,
-                                      memberList: admins,
+                                  Expanded(
+                                    child: RightColumn(
+                                      selectedActivity: viewModel.selectedActivity,
+                                      setSelectedActivity: viewModel.setSelectedActivity,
+                                      activities: viewModel.activities,
+                                      localization: localization,
                                     ),
                                   ),
-                                ]),
-                              ),
-                              const SizedBox(
-                                width: ThemeDimens.padding32,
-                              ),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    ConditionalShower<List<Activity>>(
-                                      data: viewModel.activities,
-                                      builder: (context, activities) => ActivityOverview(
-                                        title: activities[viewModel.selectedActivity].name,
-                                        activity: activities[viewModel.selectedActivity],
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: ThemeDimens.padding16,
-                                    ),
-                                    ConditionalShower<List<Activity>>(
-                                      data: viewModel.activities,
-                                      builder: (context, activities) => ActivityList(
-                                        title: localization.clubDetailActivityTitle,
-                                        activities: activities,
-                                        selectedActivity: viewModel.selectedActivity,
-                                        setSelectedActivity: viewModel.setSelectedActivity,
-                                      ),
-                                    ),
-                                  ],
+                                ],
+                              );
+                            }
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                LeftColumn(
+                                  activitySummary: viewModel.activitySummary,
+                                  admins: viewModel.admins,
+                                  members: viewModel.members,
+                                  localization: localization,
                                 ),
-                              ),
-                            ],
-                          ),
+                                const SizedBox(
+                                  height: ThemeDimens.padding32,
+                                ),
+                                RightColumn(
+                                  selectedActivity: viewModel.selectedActivity,
+                                  setSelectedActivity: viewModel.setSelectedActivity,
+                                  activities: viewModel.activities,
+                                  localization: localization,
+                                ),
+                              ],
+                            );
+                          }),
                           const SizedBox(
                             height: ThemeDimens.padding32,
                           ),

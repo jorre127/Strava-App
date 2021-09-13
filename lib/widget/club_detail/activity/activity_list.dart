@@ -30,22 +30,18 @@ class _ActivityListState extends State<ActivityList> {
       childBuilderTheme: (context, theme) => SectionCard(
         child: Container(
           height: 600,
+          width: double.infinity,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(ThemeDimens.padding12),
-                child: SectionTitle(title: widget.title),
-              ),
               Expanded(
                 child: GridView.builder(
                   padding: const EdgeInsets.all(ThemeDimens.padding12),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 300,
                     mainAxisSpacing: 20,
                     crossAxisSpacing: 20,
                   ),
-                  itemCount: widget.activities.length,
                   itemBuilder: (context, index) => GestureDetector(
                     onTap: () => widget.setSelectedActivity(index),
                     child: ActivityListItem(

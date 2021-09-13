@@ -22,10 +22,10 @@ class ActivitySummmarySection extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(ThemeDimens.padding12),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SectionTitle(title: title),
-              Row(
+              Wrap(
                 children: [
                   StackedData(
                     width: 150,
