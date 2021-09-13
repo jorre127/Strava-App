@@ -30,22 +30,21 @@ class ActivityOverview extends StatelessWidget {
               Wrap(
                 children: [
                   StackedData(
-                    width: 150,
                     label: 'Total Distance',
                     value: '${(activity.distance / 1000).toStringAsFixed(2)} Km',
                   ),
+                  const SizedBox(width: ThemeDimens.padding16),
                   StackedData(
-                    width: 150,
                     label: 'Total Moving Time',
                     value: '${((activity.movingTime / 60) / 60).toStringAsFixed(2)} Hours',
                   ),
+                  const SizedBox(width: ThemeDimens.padding16),
                   StackedData(
-                    width: 150,
                     label: 'Total Elapsed Time',
                     value: '${((activity.elapsedTime / 60) / 60).toStringAsFixed(2)} Hours',
                   ),
+                  const SizedBox(width: ThemeDimens.padding16),
                   StackedData(
-                    width: 150,
                     label: 'Total Elevation Gain',
                     value: '${activity.totalElevationGain} Meters',
                   ),

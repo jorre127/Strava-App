@@ -36,6 +36,7 @@ class _ActivityListState extends State<ActivityList> {
             children: [
               Expanded(
                 child: GridView.builder(
+                  itemCount: widget.activities.length,
                   padding: const EdgeInsets.all(ThemeDimens.padding12),
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 300,
