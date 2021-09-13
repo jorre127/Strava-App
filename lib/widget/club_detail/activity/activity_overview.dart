@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/activity/activity.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
+import 'package:flutter_template/util/locale/localization.dart';
 import 'package:flutter_template/widget/club_detail/activity/summary_row.dart';
 import 'package:flutter_template/widget/general/section_card.dart';
 import 'package:flutter_template/widget/general/section_title.dart';
@@ -10,9 +11,11 @@ import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 class ActivityOverview extends StatelessWidget {
   final String title;
   final Activity activity;
+  final Localization localization;
   const ActivityOverview({
     required this.activity,
     required this.title,
+    required this.localization,
     Key? key,
   }) : super(key: key);
 
@@ -33,6 +36,7 @@ class ActivityOverview extends StatelessWidget {
                 distance: activity.distance,
                 movingTime: activity.movingTime,
                 elapsedTime: activity.elapsedTime,
+                localization: localization,
               )
             ],
           ),

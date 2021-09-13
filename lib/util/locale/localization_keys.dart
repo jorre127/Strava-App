@@ -322,7 +322,35 @@ class LocalizationKeys {
   ///
   /// nl:  **'Samenvatting'**
   ///
-  /// en:  **'Summary'**
+  /// en:  **''**
   static const clubDetailSummaryTitle = 'club_detail_summary_title';
+
+  /// Translations:
+  ///
+  /// nl:  **'Totale Afstand'**
+  ///
+  /// en:  **'Total Distance'**
+  static const clubDetailTotalDistanceTitle = 'club_detail_total_distance_title';
+
+  /// Translations:
+  ///
+  /// nl:  **'Totale Tijd In Beweging'**
+  ///
+  /// en:  **'Total Moving Time'**
+  static const clubDetailTotalMovingTimeTitle = 'club_detail_total_moving_time_title';
+
+  /// Translations:
+  ///
+  /// nl:  **'Totale Hoogtewinst'**
+  ///
+  /// en:  **'Total Elevation Gain'**
+  static const clubDetailTotalElevationGainTitle = 'club_detail_total_elevation_gain_title';
+
+  /// Translations:
+  ///
+  /// nl:  **'Total Verstreken Tijd'**
+  ///
+  /// en:  **'Total Elapsed Time'**
+  static const clubDetailTotalElapsedTimeTitle = 'club_detail_total_elapsed_time_title';
 
 }

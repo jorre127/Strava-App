@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/activity/activity.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
+import 'package:flutter_template/util/locale/localization.dart';
 import 'package:flutter_template/widget/general/stacked_data.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 import 'package:flutter_template/styles/theme_durations.dart';
@@ -9,10 +10,12 @@ class ActivityListItem extends StatelessWidget {
   final Activity activity;
   final int selectedActivity;
   final int index;
+  final Localization localization;
   const ActivityListItem({
     required this.selectedActivity,
     required this.index,
     required this.activity,
+    required this.localization,
     Key? key,
   }) : super(key: key);
 
@@ -57,12 +60,12 @@ class ActivityListItem extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           StackedData(
-                            label: 'Total Distance',
+                            label: localization.clubDetailTotalDistanceTitle,
                             value: '${(activity.distance / 1000).toStringAsFixed(2)} Km',
                           ),
                           const SizedBox(height: ThemeDimens.padding8),
                           StackedData(
-                            label: 'Total Moving Time',
+                            label: localization.clubDetailTotalMovingTimeTitle,
                             value: '${((activity.movingTime / 60) / 60).toStringAsFixed(2)} Hours',
                           ),
                         ],
@@ -73,12 +76,12 @@ class ActivityListItem extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           StackedData(
-                            label: 'Total Elapsed Time',
+                            label: localization.clubDetailTotalElapsedTimeTitle,
                             value: '${((activity.elapsedTime / 60) / 60).toStringAsFixed(2)} Hours',
                           ),
                           const SizedBox(height: ThemeDimens.padding8),
                           StackedData(
-                            label: 'Total Elevation Gain',
+                            label: localization.clubDetailTotalElevationGainTitle,
                             value: '${activity.totalElevationGain} metres',
                           ),
                         ],

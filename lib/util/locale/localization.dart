@@ -365,8 +365,36 @@ class Localization {
   ///
   /// nl:  **'Samenvatting'**
   ///
-  /// en:  **'Summary'**
+  /// en:  **''**
   String get clubDetailSummaryTitle => _t(LocalizationKeys.clubDetailSummaryTitle);
+
+  /// Translations:
+  ///
+  /// nl:  **'Totale Afstand'**
+  ///
+  /// en:  **'Total Distance'**
+  String get clubDetailTotalDistanceTitle => _t(LocalizationKeys.clubDetailTotalDistanceTitle);
+
+  /// Translations:
+  ///
+  /// nl:  **'Totale Tijd In Beweging'**
+  ///
+  /// en:  **'Total Moving Time'**
+  String get clubDetailTotalMovingTimeTitle => _t(LocalizationKeys.clubDetailTotalMovingTimeTitle);
+
+  /// Translations:
+  ///
+  /// nl:  **'Totale Hoogtewinst'**
+  ///
+  /// en:  **'Total Elevation Gain'**
+  String get clubDetailTotalElevationGainTitle => _t(LocalizationKeys.clubDetailTotalElevationGainTitle);
+
+  /// Translations:
+  ///
+  /// nl:  **'Total Verstreken Tijd'**
+  ///
+  /// en:  **'Total Elapsed Time'**
+  String get clubDetailTotalElapsedTimeTitle => _t(LocalizationKeys.clubDetailTotalElapsedTimeTitle);
 
   String getTranslation(String key, {List<dynamic>? args}) => _t(key, args: args ?? <dynamic>[]);
 

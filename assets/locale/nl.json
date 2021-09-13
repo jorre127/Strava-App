@@ -44,6 +44,10 @@
   "club_detail_member_title": "Leden",
   "club_detail_admin_title": "Administrators",
   "club_detail_activity_title": "Activiteiten",
-  "club_detail_summary_title": "Samenvatting"
+  "club_detail_summary_title": "Samenvatting",
+  "club_detail_total_distance_title": "Totale Afstand",
+  "club_detail_total_moving_time_title": "Totale Tijd In Beweging",
+  "club_detail_total_elevation_gain_title": "Totale Hoogtewinst",
+  "club_detail_total_elapsed_time_title": "Total Verstreken Tijd"
 
 }

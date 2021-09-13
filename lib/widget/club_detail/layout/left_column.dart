@@ -28,6 +28,7 @@ class LeftColumn extends StatelessWidget {
         builder: (context, activitySummary) => ActivitySummmarySection(
           activitySummary: activitySummary,
           title: localization.clubDetailSummaryTitle,
+          localization: localization,
         ),
       ),
       const SizedBox(

@@ -29,6 +29,7 @@ class RightColumn extends StatelessWidget {
           builder: (context, activities) => ActivityOverview(
             title: activities[selectedActivity].name,
             activity: activities[selectedActivity],
+            localization: localization,
           ),
         ),
         const SizedBox(
@@ -41,6 +42,7 @@ class RightColumn extends StatelessWidget {
             activities: activities,
             selectedActivity: selectedActivity,
             setSelectedActivity: setSelectedActivity,
+            localization: localization,
           ),
         ),
       ],

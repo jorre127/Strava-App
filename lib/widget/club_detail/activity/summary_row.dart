@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/model/webservice/activity/activity.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
+import 'package:flutter_template/util/locale/localization.dart';
 import 'package:flutter_template/widget/general/stacked_data.dart';
 
 class SummaryRow extends StatelessWidget {
@@ -8,11 +8,13 @@ class SummaryRow extends StatelessWidget {
   final double movingTime;
   final double elapsedTime;
   final double totalElevationGain;
+  final Localization localization;
   const SummaryRow({
     required this.distance,
     required this.movingTime,
     required this.elapsedTime,
     required this.totalElevationGain,
+    required this.localization,
     Key? key,
   }) : super(key: key);
 
@@ -21,22 +23,22 @@ class SummaryRow extends StatelessWidget {
     return Wrap(
       children: [
         StackedData(
-          label: 'Total Distance',
+          label: localization.clubDetailTotalDistanceTitle,
           value: '${(distance / 1000).toStringAsFixed(2)} Km',
         ),
         const SizedBox(width: ThemeDimens.padding16),
         StackedData(
-          label: 'Total Moving Time',
+          label: localization.clubDetailTotalMovingTimeTitle,
           value: '${((movingTime / 60) / 60).toStringAsFixed(2)} Hours',
         ),
         const SizedBox(width: ThemeDimens.padding16),
         StackedData(
-          label: 'Total Elapsed Time',
+          label: localization.clubDetailTotalElapsedTimeTitle,
           value: '${((elapsedTime / 60) / 60).toStringAsFixed(2)} Hours',
         ),
         const SizedBox(width: ThemeDimens.padding16),
         StackedData(
-          label: 'Total Elevation Gain',
+          label: localization.clubDetailTotalElevationGainTitle,
           value: '$totalElevationGain Meters',
         ),
       ],
