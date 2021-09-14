@@ -16,10 +16,12 @@ class ClubDetailViewModel with ChangeNotifierEx {
   Club? club;
   List<Member>? members;
   List<Member>? admins;
+  List<Member>? adminMembers;
   List<Activity>? activities;
   ActivitySummary? activitySummary;
   List<MemberStats>? memberStats;
   int selectedActivity = 0;
+  int selectedMember = 0;
 
   ClubDetailViewModel(this._clubDetailRepository);
 
@@ -28,6 +30,7 @@ class ClubDetailViewModel with ChangeNotifierEx {
     await getClub(clubId);
     await getMembers(clubId);
     await getAdmins(clubId);
+    getAdminMembers();
     await getActivites(clubId);
     getMemberStats();
     notifyListeners();
@@ -46,6 +49,12 @@ class ClubDetailViewModel with ChangeNotifierEx {
   Future<void> getAdmins(String clubId) async {
     admins = await _clubDetailRepository.getAdmins(clubId);
     notifyListeners();
+  }
+
+  void getAdminMembers() {
+    final tempArray = [...members!];
+    tempArray.addAll(admins!);
+    adminMembers = tempArray;
   }
 
   Future<void> getActivites(String clubId) async {
@@ -73,7 +82,7 @@ class ClubDetailViewModel with ChangeNotifierEx {
 
   void getMemberStats() {
     final tempMemberStats = <MemberStats>[];
-    members!.forEach(
+    adminMembers!.forEach(
       (member) => tempMemberStats.add(
         MemberStats(
           firstname: member.firstname,
@@ -103,6 +112,11 @@ class ClubDetailViewModel with ChangeNotifierEx {
 
   void setSelectedActivity(int index) {
     selectedActivity = index;
+    notifyListeners();
+  }
+
+  void setSelectedMember(int index) {
+    selectedMember = index;
     notifyListeners();
   }
 }

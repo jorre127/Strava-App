@@ -6,17 +6,23 @@ import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/util/locale/localization.dart';
 import 'package:flutter_template/widget/club_detail/activity/activity_summary.dart';
 import 'package:flutter_template/widget/club_detail/member/member_admin_list.dart';
-import 'package:flutter_template/widget/club_detail/member/member_list.dart';
 import 'package:flutter_template/widget/club_detail/leader_board/leader_board.dart';
+import 'package:flutter_template/widget/club_detail/member/member_overview.dart';
 import 'package:flutter_template/widget/general/conditional_shower.dart';
 
 class LeftColumn extends StatelessWidget {
   final ActivitySummary? activitySummary;
   final List<Member>? members;
   final List<Member>? admins;
+  final List<Member>? adminMembers;
   final List<MemberStats>? memberStats;
+  final int selectedMember;
+  final Function setSelectedMember;
   final Localization localization;
   const LeftColumn({
+    required this.adminMembers,
+    required this.setSelectedMember,
+    required this.selectedMember,
     required this.activitySummary,
     required this.members,
     required this.admins,
@@ -50,7 +56,18 @@ class LeftColumn extends StatelessWidget {
       const SizedBox(
         height: ThemeDimens.padding16,
       ),
+      ConditionalShower<List<Member>>(
+        data: adminMembers,
+        builder: (context, adminMembers) => MemberOverview(
+          member: adminMembers[selectedMember],
+        ),
+      ),
+      const SizedBox(
+        height: ThemeDimens.padding16,
+      ),
       MemberAdminList(
+        selectedMember: selectedMember,
+        setSelectedMember: setSelectedMember,
         members: members,
         admins: admins,
         localization: localization,

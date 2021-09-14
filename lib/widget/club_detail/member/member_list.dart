@@ -8,8 +8,14 @@ import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 class MemberList extends StatelessWidget {
   final List<Member> memberList;
   final String title;
+  final int selectedMember;
+  final int memberOffset;
+  final Function setSelectedMember;
   const MemberList({
+    required this.setSelectedMember,
+    required this.selectedMember,
     required this.memberList,
+    this.memberOffset = 0,
     Key? key,
     this.title = '',
   }) : super(key: key);
@@ -30,8 +36,13 @@ class MemberList extends StatelessWidget {
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: memberList.length,
-                  itemBuilder: (context, index) => MemberListItem(
-                    member: memberList[index],
+                  itemBuilder: (context, index) => GestureDetector(
+                    onTap: () => setSelectedMember(index + memberOffset),
+                    child: MemberListItem(
+                      index: index + memberOffset,
+                      selectedMember: selectedMember,
+                      member: memberList[index],
+                    ),
                   ),
                 ),
               ),

@@ -9,8 +9,12 @@ import 'package:flutter_template/widget/general/section_card.dart';
 class MemberAdminList extends StatelessWidget {
   final List<Member>? members;
   final List<Member>? admins;
+  final Function setSelectedMember;
+  final int selectedMember;
   final Localization localization;
   const MemberAdminList({
+    required this.setSelectedMember,
+    required this.selectedMember,
     required this.members,
     required this.admins,
     required this.localization,
@@ -26,6 +30,8 @@ class MemberAdminList extends StatelessWidget {
             data: members,
             builder: (context, members) => MemberList(
               title: localization.clubDetailMemberTitle,
+              selectedMember: selectedMember,
+              setSelectedMember: setSelectedMember,
               memberList: members,
             ),
           ),
@@ -36,7 +42,10 @@ class MemberAdminList extends StatelessWidget {
             data: admins,
             builder: (context, admins) => MemberList(
               title: localization.clubDetailAdminTitle,
+              selectedMember: selectedMember,
+              setSelectedMember: setSelectedMember,
               memberList: admins,
+              memberOffset: members!.length,
             ),
           ),
         ],
