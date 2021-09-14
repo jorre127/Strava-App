@@ -8,6 +8,8 @@ class LocalizationKeys {
   /// nl:  **'klimb'**
   ///
   /// en:  **'Climb'**
+  ///
+  /// fr:  **''**
   static const climbTitle = 'climb_title';
 
   /// Translations:
@@ -15,6 +17,8 @@ class LocalizationKeys {
   /// nl:  **'Animaties'**
   ///
   /// en:  **'Animations'**
+  ///
+  /// fr:  **''**
   static const debugAnimationsTitle = 'debug_animations_title';
 
   /// Translations:
@@ -22,6 +26,8 @@ class LocalizationKeys {
   /// nl:  **'Database'**
   ///
   /// en:  **'Database'**
+  ///
+  /// fr:  **''**
   static const debugDatabase = 'debug_database';
 
   /// Translations:
@@ -29,6 +35,8 @@ class LocalizationKeys {
   /// nl:  **'Bekijk de licenties'**
   ///
   /// en:  **'View licenses'**
+  ///
+  /// fr:  **''**
   static const debugLicensesGoTo = 'debug_licenses_go_to';
 
   /// Translations:
@@ -36,6 +44,8 @@ class LocalizationKeys {
   /// nl:  **'Licenties'**
   ///
   /// en:  **'Licenses'**
+  ///
+  /// fr:  **''**
   static const debugLicensesTitle = 'debug_licenses_title';
 
   /// Translations:
@@ -43,6 +53,8 @@ class LocalizationKeys {
   /// nl:  **'Huidige taal: %1$s'**
   ///
   /// en:  **'Current language: %1$s'**
+  ///
+  /// fr:  **''**
   static const debugLocaleCurrentLanguage = 'debug_locale_current_language';
 
   /// Translations:
@@ -50,6 +62,8 @@ class LocalizationKeys {
   /// nl:  **'Selecteer uw taal'**
   ///
   /// en:  **'Select your language'**
+  ///
+  /// fr:  **''**
   static const debugLocaleSelector = 'debug_locale_selector';
 
   /// Translations:
@@ -57,6 +71,8 @@ class LocalizationKeys {
   /// nl:  **'Taal'**
   ///
   /// en:  **'Language'**
+  ///
+  /// fr:  **''**
   static const debugLocaleTitle = 'debug_locale_title';
 
   /// Translations:
@@ -64,6 +80,8 @@ class LocalizationKeys {
   /// nl:  **'Native brug'**
   ///
   /// en:  **'Native bridge'**
+  ///
+  /// fr:  **''**
   static const debugNativeBridge = 'debug_native_bridge';
 
   /// Translations:
@@ -71,6 +89,8 @@ class LocalizationKeys {
   /// nl:  **'Stuur native log'**
   ///
   /// en:  **'Send native log'**
+  ///
+  /// fr:  **''**
   static const debugNativeBridgeLog = 'debug_native_bridge_log';
 
   /// Translations:
@@ -78,6 +98,8 @@ class LocalizationKeys {
   /// nl:  **'Toon vertalingen'**
   ///
   /// en:  **'Show translations'**
+  ///
+  /// fr:  **''**
   static const debugShowTranslations = 'debug_show_translations';
 
   /// Translations:
@@ -85,6 +107,8 @@ class LocalizationKeys {
   /// nl:  **'Trage animaties'**
   ///
   /// en:  **'Slow animations'**
+  ///
+  /// fr:  **''**
   static const debugSlowAnimations = 'debug_slow_animations';
 
   /// Translations:
@@ -92,6 +116,8 @@ class LocalizationKeys {
   /// nl:  **'Huidig platfrom: %1$s'**
   ///
   /// en:  **'Current platfrom: %1$s'**
+  ///
+  /// fr:  **''**
   static const debugTargetPlatformSubtitle = 'debug_target_platform_subtitle';
 
   /// Translations:
@@ -99,6 +125,8 @@ class LocalizationKeys {
   /// nl:  **'Doelplatform'**
   ///
   /// en:  **'Target platfrom'**
+  ///
+  /// fr:  **''**
   static const debugTargetPlatformTitle = 'debug_target_platform_title';
 
   /// Translations:
@@ -106,6 +134,8 @@ class LocalizationKeys {
   /// nl:  **'Thema'**
   ///
   /// en:  **'Theme'**
+  ///
+  /// fr:  **''**
   static const debugThemeTitle = 'debug_theme_title';
 
   /// Translations:
@@ -113,6 +143,8 @@ class LocalizationKeys {
   /// nl:  **'Debuggen'**
   ///
   /// en:  **'Debug'**
+  ///
+  /// fr:  **''**
   static const debugTitle = 'debug_title';
 
   /// Translations:
@@ -120,6 +152,8 @@ class LocalizationKeys {
   /// nl:  **'Vertaling sluitels'**
   ///
   /// en:  **'Translation Keys'**
+  ///
+  /// fr:  **''**
   static const debugTranslationsTitle = 'debug_translations_title';
 
   /// Translations:
@@ -127,6 +161,8 @@ class LocalizationKeys {
   /// nl:  **'Toon database'**
   ///
   /// en:  **'View database'**
+  ///
+  /// fr:  **''**
   static const debugViewDatabase = 'debug_view_database';
 
   /// Translations:
@@ -134,6 +170,8 @@ class LocalizationKeys {
   /// nl:  **'Foute request error'**
   ///
   /// en:  **'Bad request error'**
+  ///
+  /// fr:  **''**
   static const errorBadRequest = 'error_bad_request';
 
   /// Translations:
@@ -141,6 +179,8 @@ class LocalizationKeys {
   /// nl:  **'Je hebt een programmeerfout gemaakt'**
   ///
   /// en:  **'You coded something wrong'**
+  ///
+  /// fr:  **''**
   static const errorDuringDev = 'error_during_dev';
 
   /// Translations:
@@ -148,6 +188,8 @@ class LocalizationKeys {
   /// nl:  **'Geen toegang error'**
   ///
   /// en:  **'Forbidden error'**
+  ///
+  /// fr:  **''**
   static const errorForbidden = 'error_forbidden';
 
   /// Translations:
@@ -155,6 +197,8 @@ class LocalizationKeys {
   /// nl:  **'Er liep iets mis'**
   ///
   /// en:  **'Something went wrong'**
+  ///
+  /// fr:  **''**
   static const errorGeneral = 'error_general';
 
   /// Translations:
@@ -162,6 +206,8 @@ class LocalizationKeys {
   /// nl:  **'Er liep iets mis (code: %1$s)'**
   ///
   /// en:  **'Something went wrong (code: %1$s)'**
+  ///
+  /// fr:  **''**
   static const errorGeneralWithCode = 'error_general_with_code';
 
   /// Translations:
@@ -169,6 +215,8 @@ class LocalizationKeys {
   /// nl:  **'Intern server probleem'**
   ///
   /// en:  **'Internal server error'**
+  ///
+  /// fr:  **''**
   static const errorInternalServer = 'error_internal_server';
 
   /// Translations:
@@ -176,6 +224,8 @@ class LocalizationKeys {
   /// nl:  **'Geen internet verbinding beschikbaar'**
   ///
   /// en:  **'No internet connection available'**
+  ///
+  /// fr:  **''**
   static const errorNoNetwork = 'error_no_network';
 
   /// Translations:
@@ -183,6 +233,8 @@ class LocalizationKeys {
   /// nl:  **'Ongeautoriseerde fout'**
   ///
   /// en:  **'Unauthorized error'**
+  ///
+  /// fr:  **''**
   static const errorUnauthorized = 'error_unauthorized';
 
   /// Translations:
@@ -190,6 +242,8 @@ class LocalizationKeys {
   /// nl:  **'Android'**
   ///
   /// en:  **'Android'**
+  ///
+  /// fr:  **''**
   static const generalLabelAndroid = 'general_label_android';
 
   /// Translations:
@@ -197,6 +251,8 @@ class LocalizationKeys {
   /// nl:  **'Annuleer'**
   ///
   /// en:  **'Cancel'**
+  ///
+  /// fr:  **''**
   static const generalLabelCancel = 'general_label_cancel';
 
   /// Translations:
@@ -204,6 +260,8 @@ class LocalizationKeys {
   /// nl:  **'Verwijder'**
   ///
   /// en:  **'Delete'**
+  ///
+  /// fr:  **''**
   static const generalLabelDelete = 'general_label_delete';
 
   /// Translations:
@@ -211,6 +269,8 @@ class LocalizationKeys {
   /// nl:  **'iOS'**
   ///
   /// en:  **'iOS'**
+  ///
+  /// fr:  **''**
   static const generalLabelIos = 'general_label_ios';
 
   /// Translations:
@@ -218,6 +278,8 @@ class LocalizationKeys {
   /// nl:  **'Nee'**
   ///
   /// en:  **'No'**
+  ///
+  /// fr:  **''**
   static const generalLabelNo = 'general_label_no';
 
   /// Translations:
@@ -225,6 +287,8 @@ class LocalizationKeys {
   /// nl:  **'Ok'**
   ///
   /// en:  **'Ok'**
+  ///
+  /// fr:  **''**
   static const generalLabelOk = 'general_label_ok';
 
   /// Translations:
@@ -232,6 +296,8 @@ class LocalizationKeys {
   /// nl:  **'Opslaan'**
   ///
   /// en:  **'Save'**
+  ///
+  /// fr:  **''**
   static const generalLabelSave = 'general_label_save';
 
   /// Translations:
@@ -239,6 +305,8 @@ class LocalizationKeys {
   /// nl:  **'Systeem standaard'**
   ///
   /// en:  **'System default'**
+  ///
+  /// fr:  **''**
   static const generalLabelSystemDefault = 'general_label_system_default';
 
   /// Translations:
@@ -246,6 +314,8 @@ class LocalizationKeys {
   /// nl:  **'Ja'**
   ///
   /// en:  **'Yes'**
+  ///
+  /// fr:  **''**
   static const generalLabelYes = 'general_label_yes';
 
   /// Translations:
@@ -253,6 +323,8 @@ class LocalizationKeys {
   /// nl:  **'Instellingen'**
   ///
   /// en:  **'Settings'**
+  ///
+  /// fr:  **''**
   static const settingsTitle = 'settings_title';
 
   /// Translations:
@@ -260,6 +332,8 @@ class LocalizationKeys {
   /// nl:  **'Vul hier uw todo in'**
   ///
   /// en:  **'Enter your todo'**
+  ///
+  /// fr:  **''**
   static const todoAddInputHint = 'todo_add_input_hint';
 
   /// Translations:
@@ -267,6 +341,8 @@ class LocalizationKeys {
   /// nl:  **'Todo toevoegen'**
   ///
   /// en:  **'Add todo'**
+  ///
+  /// fr:  **''**
   static const todoAddTitle = 'todo_add_title';
 
   /// Translations:
@@ -274,6 +350,8 @@ class LocalizationKeys {
   /// nl:  **'Er is nog geen data toegevoegd in uw database. Je kan een paar todo's ophalen van een api calll (download icoon) of je kan er zelf toevoegen door op het plus icoon te drukken.'**
   ///
   /// en:  **'No data added to your database. Fetch some todos with an api call (download icon) or add one yourself by clicking the add icon.'**
+  ///
+  /// fr:  **''**
   static const todoEmptyState = 'todo_empty_state';
 
   /// Translations:
@@ -281,6 +359,8 @@ class LocalizationKeys {
   /// nl:  **'Todo'**
   ///
   /// en:  **'Todo'**
+  ///
+  /// fr:  **''**
   static const todoTitle = 'todo_title';
 
   /// Translations:
@@ -288,6 +368,8 @@ class LocalizationKeys {
   /// nl:  **'Fietsen'**
   ///
   /// en:  **'Cycling'**
+  ///
+  /// fr:  **'cyclisme'**
   static const clubSelectionCyclingTitle = 'club_selection_cycling_title';
 
   /// Translations:
@@ -295,6 +377,8 @@ class LocalizationKeys {
   /// nl:  **'Lopen'**
   ///
   /// en:  **'Running'**
+  ///
+  /// fr:  **'marche'**
   static const clubSelectionRunningTitle = 'club_selection_running_title';
 
   /// Translations:
@@ -302,6 +386,8 @@ class LocalizationKeys {
   /// nl:  **'Leden'**
   ///
   /// en:  **'Members'**
+  ///
+  /// fr:  **'membres'**
   static const clubDetailMemberTitle = 'club_detail_member_title';
 
   /// Translations:
@@ -309,6 +395,8 @@ class LocalizationKeys {
   /// nl:  **'Administrators'**
   ///
   /// en:  **'Admins'**
+  ///
+  /// fr:  **'administrateurs'**
   static const clubDetailAdminTitle = 'club_detail_admin_title';
 
   /// Translations:
@@ -316,6 +404,53 @@ class LocalizationKeys {
   /// nl:  **'Activiteiten'**
   ///
   /// en:  **'Activities'**
+  ///
+  /// fr:  **'Activités'**
   static const clubDetailActivityTitle = 'club_detail_activity_title';
+
+  /// Translations:
+  ///
+  /// nl:  **'Samenvatting'**
+  ///
+  /// en:  **'Summary'**
+  ///
+  /// fr:  **'résumé'**
+  static const clubDetailSummaryTitle = 'club_detail_summary_title';
+
+  /// Translations:
+  ///
+  /// nl:  **'Totale Afstand'**
+  ///
+  /// en:  **'Total Distance'**
+  ///
+  /// fr:  **'distance totale'**
+  static const clubDetailTotalDistanceTitle = 'club_detail_total_distance_title';
+
+  /// Translations:
+  ///
+  /// nl:  **'Totale Tijd In Beweging'**
+  ///
+  /// en:  **'Total Moving Time'**
+  ///
+  /// fr:  **'Ttemps total de déplacement'**
+  static const clubDetailTotalMovingTimeTitle = 'club_detail_total_moving_time_title';
+
+  /// Translations:
+  ///
+  /// nl:  **'Totale Hoogtewinst'**
+  ///
+  /// en:  **'Total Elevation Gain'**
+  ///
+  /// fr:  **'gain de hauteur totale'**
+  static const clubDetailTotalElevationGainTitle = 'club_detail_total_elevation_gain_title';
+
+  /// Translations:
+  ///
+  /// nl:  **'Total Verstreken Tijd'**
+  ///
+  /// en:  **'Total Elapsed Time'**
+  ///
+  /// fr:  **'temps total écoulé'**
+  static const clubDetailTotalElapsedTimeTitle = 'club_detail_total_elapsed_time_title';
 
 }

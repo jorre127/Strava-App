@@ -7,5 +7,5 @@ class AppConstants {
   static const CLIENT_ID = '69961';
   static const PORT = '8000';
   //TODO: remove when auth0 is implemented
-  static const ACCESS_TOKEN = '94dfee622d1454861fe71e687a62fb5787981544';
+  static const ACCESS_TOKEN = '4520678bf7d68375495a1dde8b74f08b5c1b5c98';
 }

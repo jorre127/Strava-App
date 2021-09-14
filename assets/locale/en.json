@@ -43,5 +43,10 @@
   "club_selection_running_title": "Running",
   "club_detail_member_title": "Members",
   "club_detail_admin_title": "Admins",
-  "club_detail_activity_title": "Activities"
+  "club_detail_activity_title": "Activities",
+  "club_detail_summary_title": "Summary",
+  "club_detail_total_distance_title": "Total Distance",
+  "club_detail_total_moving_time_title": "Total Moving Time",
+  "club_detail_total_elevation_gain_title": "Total Elevation Gain",
+  "club_detail_total_elapsed_time_title": "Total Elapsed Time"
 }
