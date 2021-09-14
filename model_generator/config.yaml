@@ -57,6 +57,22 @@ Member:
       required: true
       type: String
 
+LeaderBoardSpot:
+  path: webservice/leader_board_spot/
+  properties:
+    firstname:
+      non_final: true
+      required: true
+      type: String
+    lastname:
+      non_final: true
+      required: true
+      type: String
+    stat:
+      non_final: true
+      required: true
+      type: double
+
 MemberStats:
   path: webservice/member_stats/
   properties:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/model/webservice/leader_board_spot/leader_board_spot.dart';
 import 'package:flutter_template/model/webservice/member_stats/member_stats.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/util/locale/localization.dart';
@@ -18,22 +19,56 @@ class LeaderBoard extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  List<MemberStats> getTopMembersDistance() {
+  List<LeaderBoardSpot> getTopMembersDistance() {
     final tempMemberStats = [...memberStats];
     // ignore: cascade_invocations
     tempMemberStats.sort(
       (a, b) => b.totalDistance.compareTo(a.totalDistance),
     );
-    return tempMemberStats;
+    final topThree = [
+      LeaderBoardSpot(
+        firstname: tempMemberStats[0].firstname,
+        lastname: tempMemberStats[0].lastname,
+        stat: tempMemberStats[0].totalDistance,
+      ),
+      LeaderBoardSpot(
+        firstname: tempMemberStats[1].firstname,
+        lastname: tempMemberStats[1].lastname,
+        stat: tempMemberStats[1].totalDistance,
+      ),
+      LeaderBoardSpot(
+        firstname: tempMemberStats[2].firstname,
+        lastname: tempMemberStats[2].lastname,
+        stat: tempMemberStats[2].totalDistance,
+      ),
+    ];
+    return topThree;
   }
 
-  List<MemberStats> getTopMembersElevationGain() {
+  List<LeaderBoardSpot> getTopMembersElevationGain() {
     final tempMemberStats = [...memberStats];
     // ignore: cascade_invocations
     tempMemberStats.sort(
       (a, b) => b.totalElevatiionGain.compareTo(a.totalElevatiionGain),
     );
-    return tempMemberStats;
+    final topThree = [
+      LeaderBoardSpot(
+        firstname: tempMemberStats[0].firstname,
+        lastname: tempMemberStats[0].lastname,
+        stat: tempMemberStats[0].totalElevatiionGain,
+      ),
+      LeaderBoardSpot(
+        firstname: tempMemberStats[1].firstname,
+        lastname: tempMemberStats[1].lastname,
+        stat: tempMemberStats[1].totalElevatiionGain,
+      ),
+      LeaderBoardSpot(
+        firstname: tempMemberStats[2].firstname,
+        lastname: tempMemberStats[2].lastname,
+        stat: tempMemberStats[2].totalElevatiionGain,
+      ),
+    ];
+    return topThree;
   }
 
   @override
@@ -58,8 +93,8 @@ class LeaderBoard extends StatelessWidget {
                   LeaderBoardSection(
                     memberStats: getTopMembersElevationGain(),
                     title: localization.clubDetailTotalElevationGainTitle,
-                    symbol: 'Km',
-                    conversion: 1000,
+                    symbol: 'm',
+                    conversion: 1,
                   )
                 ],
               )

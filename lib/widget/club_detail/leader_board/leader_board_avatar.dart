@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/model/webservice/member_stats/member_stats.dart';
+import 'package:flutter_template/model/webservice/leader_board_spot/leader_board_spot.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 
 class LeaderBoardAvatar extends StatelessWidget {
-  final MemberStats memberStats;
-  final double stat;
+  final LeaderBoardSpot leaderBoardSpot;
   final double conversion;
   final String symbol;
   final Color color;
   const LeaderBoardAvatar({
-    required this.stat,
     required this.symbol,
-    required this.memberStats,
+    required this.leaderBoardSpot,
     required this.color,
     this.conversion = 0,
     Key? key,
@@ -37,7 +35,7 @@ class LeaderBoardAvatar extends StatelessWidget {
             ),
             child: CircleAvatar(
               child: Text(
-                memberStats.firstname[0],
+                leaderBoardSpot.firstname[0],
                 style: theme.lightTextTheme.titleSmall.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
@@ -48,11 +46,11 @@ class LeaderBoardAvatar extends StatelessWidget {
           ),
           const SizedBox(height: ThemeDimens.padding8),
           Text(
-            '${memberStats.firstname} ${memberStats.lastname}',
+            '${leaderBoardSpot.firstname} ${leaderBoardSpot.lastname}',
             style: theme.lightTextTheme.titleSmall,
           ),
           Text(
-            '${(stat / conversion).toStringAsFixed(2)} ${symbol}',
+            '${(leaderBoardSpot.stat / conversion).toStringAsFixed(2)} $symbol',
             style: theme.lightTextTheme.titleSmall.copyWith(
               fontWeight: FontWeight.bold,
               color: theme.colorsTheme.accent,

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/model/webservice/member_stats/member_stats.dart';
+import 'package:flutter_template/model/webservice/leader_board_spot/leader_board_spot.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/widget/club_detail/leader_board/leader_board_avatar.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 
 class LeaderBoardSection extends StatelessWidget {
-  final List<MemberStats> memberStats;
+  final List<LeaderBoardSpot> memberStats;
   final String title;
   final double conversion;
   final String symbol;
@@ -33,30 +33,27 @@ class LeaderBoardSection extends StatelessWidget {
           Row(
             children: [
               LeaderBoardAvatar(
-                memberStats: memberStats[1],
                 color: Colors.grey,
                 conversion: conversion,
-                stat: memberStats[1].totalDistance,
+                leaderBoardSpot: memberStats[1],
                 symbol: symbol,
               ),
               const SizedBox(
                 width: ThemeDimens.padding24,
               ),
               LeaderBoardAvatar(
-                memberStats: memberStats[0],
                 color: Colors.yellow,
                 conversion: conversion,
-                stat: memberStats[0].totalDistance,
+                leaderBoardSpot: memberStats[0],
                 symbol: symbol,
               ),
               const SizedBox(
                 width: ThemeDimens.padding24,
               ),
               LeaderBoardAvatar(
-                memberStats: memberStats[2],
                 color: Colors.brown,
                 conversion: conversion,
-                stat: memberStats[2].totalDistance,
+                leaderBoardSpot: memberStats[2],
                 symbol: symbol,
               )
             ],

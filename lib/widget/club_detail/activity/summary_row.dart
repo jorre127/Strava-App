@@ -39,7 +39,7 @@ class SummaryRow extends StatelessWidget {
         const SizedBox(width: ThemeDimens.padding16),
         StackedData(
           label: localization.clubDetailTotalElevationGainTitle,
-          value: '$totalElevationGain Meters',
+          value: '${totalElevationGain.toStringAsFixed(2)} Meters',
         ),
       ],
     );
