@@ -51,6 +51,8 @@ class Localization {
   /// nl:  **'klimb'**
   ///
   /// en:  **'Climb'**
+  ///
+  /// fr:  **''**
   String get climbTitle => _t(LocalizationKeys.climbTitle);
 
   /// Translations:
@@ -58,6 +60,8 @@ class Localization {
   /// nl:  **'Animaties'**
   ///
   /// en:  **'Animations'**
+  ///
+  /// fr:  **''**
   String get debugAnimationsTitle => _t(LocalizationKeys.debugAnimationsTitle);
 
   /// Translations:
@@ -65,6 +69,8 @@ class Localization {
   /// nl:  **'Database'**
   ///
   /// en:  **'Database'**
+  ///
+  /// fr:  **''**
   String get debugDatabase => _t(LocalizationKeys.debugDatabase);
 
   /// Translations:
@@ -72,6 +78,8 @@ class Localization {
   /// nl:  **'Bekijk de licenties'**
   ///
   /// en:  **'View licenses'**
+  ///
+  /// fr:  **''**
   String get debugLicensesGoTo => _t(LocalizationKeys.debugLicensesGoTo);
 
   /// Translations:
@@ -79,6 +87,8 @@ class Localization {
   /// nl:  **'Licenties'**
   ///
   /// en:  **'Licenses'**
+  ///
+  /// fr:  **''**
   String get debugLicensesTitle => _t(LocalizationKeys.debugLicensesTitle);
 
   /// Translations:
@@ -86,6 +96,8 @@ class Localization {
   /// nl:  **'Huidige taal: %1$s'**
   ///
   /// en:  **'Current language: %1$s'**
+  ///
+  /// fr:  **''**
   String debugLocaleCurrentLanguage(String arg1) => _t(LocalizationKeys.debugLocaleCurrentLanguage, args: <dynamic>[arg1]);
 
   /// Translations:
@@ -93,6 +105,8 @@ class Localization {
   /// nl:  **'Selecteer uw taal'**
   ///
   /// en:  **'Select your language'**
+  ///
+  /// fr:  **''**
   String get debugLocaleSelector => _t(LocalizationKeys.debugLocaleSelector);
 
   /// Translations:
@@ -100,6 +114,8 @@ class Localization {
   /// nl:  **'Taal'**
   ///
   /// en:  **'Language'**
+  ///
+  /// fr:  **''**
   String get debugLocaleTitle => _t(LocalizationKeys.debugLocaleTitle);
 
   /// Translations:
@@ -107,6 +123,8 @@ class Localization {
   /// nl:  **'Native brug'**
   ///
   /// en:  **'Native bridge'**
+  ///
+  /// fr:  **''**
   String get debugNativeBridge => _t(LocalizationKeys.debugNativeBridge);
 
   /// Translations:
@@ -114,6 +132,8 @@ class Localization {
   /// nl:  **'Stuur native log'**
   ///
   /// en:  **'Send native log'**
+  ///
+  /// fr:  **''**
   String get debugNativeBridgeLog => _t(LocalizationKeys.debugNativeBridgeLog);
 
   /// Translations:
@@ -121,6 +141,8 @@ class Localization {
   /// nl:  **'Toon vertalingen'**
   ///
   /// en:  **'Show translations'**
+  ///
+  /// fr:  **''**
   String get debugShowTranslations => _t(LocalizationKeys.debugShowTranslations);
 
   /// Translations:
@@ -128,6 +150,8 @@ class Localization {
   /// nl:  **'Trage animaties'**
   ///
   /// en:  **'Slow animations'**
+  ///
+  /// fr:  **''**
   String get debugSlowAnimations => _t(LocalizationKeys.debugSlowAnimations);
 
   /// Translations:
@@ -135,6 +159,8 @@ class Localization {
   /// nl:  **'Huidig platfrom: %1$s'**
   ///
   /// en:  **'Current platfrom: %1$s'**
+  ///
+  /// fr:  **''**
   String debugTargetPlatformSubtitle(String arg1) => _t(LocalizationKeys.debugTargetPlatformSubtitle, args: <dynamic>[arg1]);
 
   /// Translations:
@@ -142,6 +168,8 @@ class Localization {
   /// nl:  **'Doelplatform'**
   ///
   /// en:  **'Target platfrom'**
+  ///
+  /// fr:  **''**
   String get debugTargetPlatformTitle => _t(LocalizationKeys.debugTargetPlatformTitle);
 
   /// Translations:
@@ -149,6 +177,8 @@ class Localization {
   /// nl:  **'Thema'**
   ///
   /// en:  **'Theme'**
+  ///
+  /// fr:  **''**
   String get debugThemeTitle => _t(LocalizationKeys.debugThemeTitle);
 
   /// Translations:
@@ -156,6 +186,8 @@ class Localization {
   /// nl:  **'Debuggen'**
   ///
   /// en:  **'Debug'**
+  ///
+  /// fr:  **''**
   String get debugTitle => _t(LocalizationKeys.debugTitle);
 
   /// Translations:
@@ -163,6 +195,8 @@ class Localization {
   /// nl:  **'Vertaling sluitels'**
   ///
   /// en:  **'Translation Keys'**
+  ///
+  /// fr:  **''**
   String get debugTranslationsTitle => _t(LocalizationKeys.debugTranslationsTitle);
 
   /// Translations:
@@ -170,6 +204,8 @@ class Localization {
   /// nl:  **'Toon database'**
   ///
   /// en:  **'View database'**
+  ///
+  /// fr:  **''**
   String get debugViewDatabase => _t(LocalizationKeys.debugViewDatabase);
 
   /// Translations:
@@ -177,6 +213,8 @@ class Localization {
   /// nl:  **'Foute request error'**
   ///
   /// en:  **'Bad request error'**
+  ///
+  /// fr:  **''**
   String get errorBadRequest => _t(LocalizationKeys.errorBadRequest);
 
   /// Translations:
@@ -184,6 +222,8 @@ class Localization {
   /// nl:  **'Je hebt een programmeerfout gemaakt'**
   ///
   /// en:  **'You coded something wrong'**
+  ///
+  /// fr:  **''**
   String get errorDuringDev => _t(LocalizationKeys.errorDuringDev);
 
   /// Translations:
@@ -191,6 +231,8 @@ class Localization {
   /// nl:  **'Geen toegang error'**
   ///
   /// en:  **'Forbidden error'**
+  ///
+  /// fr:  **''**
   String get errorForbidden => _t(LocalizationKeys.errorForbidden);
 
   /// Translations:
@@ -198,6 +240,8 @@ class Localization {
   /// nl:  **'Er liep iets mis'**
   ///
   /// en:  **'Something went wrong'**
+  ///
+  /// fr:  **''**
   String get errorGeneral => _t(LocalizationKeys.errorGeneral);
 
   /// Translations:
@@ -205,6 +249,8 @@ class Localization {
   /// nl:  **'Er liep iets mis (code: %1$s)'**
   ///
   /// en:  **'Something went wrong (code: %1$s)'**
+  ///
+  /// fr:  **''**
   String errorGeneralWithCode(String arg1) => _t(LocalizationKeys.errorGeneralWithCode, args: <dynamic>[arg1]);
 
   /// Translations:
@@ -212,6 +258,8 @@ class Localization {
   /// nl:  **'Intern server probleem'**
   ///
   /// en:  **'Internal server error'**
+  ///
+  /// fr:  **''**
   String get errorInternalServer => _t(LocalizationKeys.errorInternalServer);
 
   /// Translations:
@@ -219,6 +267,8 @@ class Localization {
   /// nl:  **'Geen internet verbinding beschikbaar'**
   ///
   /// en:  **'No internet connection available'**
+  ///
+  /// fr:  **''**
   String get errorNoNetwork => _t(LocalizationKeys.errorNoNetwork);
 
   /// Translations:
@@ -226,6 +276,8 @@ class Localization {
   /// nl:  **'Ongeautoriseerde fout'**
   ///
   /// en:  **'Unauthorized error'**
+  ///
+  /// fr:  **''**
   String get errorUnauthorized => _t(LocalizationKeys.errorUnauthorized);
 
   /// Translations:
@@ -233,6 +285,8 @@ class Localization {
   /// nl:  **'Android'**
   ///
   /// en:  **'Android'**
+  ///
+  /// fr:  **''**
   String get generalLabelAndroid => _t(LocalizationKeys.generalLabelAndroid);
 
   /// Translations:
@@ -240,6 +294,8 @@ class Localization {
   /// nl:  **'Annuleer'**
   ///
   /// en:  **'Cancel'**
+  ///
+  /// fr:  **''**
   String get generalLabelCancel => _t(LocalizationKeys.generalLabelCancel);
 
   /// Translations:
@@ -247,6 +303,8 @@ class Localization {
   /// nl:  **'Verwijder'**
   ///
   /// en:  **'Delete'**
+  ///
+  /// fr:  **''**
   String get generalLabelDelete => _t(LocalizationKeys.generalLabelDelete);
 
   /// Translations:
@@ -254,6 +312,8 @@ class Localization {
   /// nl:  **'iOS'**
   ///
   /// en:  **'iOS'**
+  ///
+  /// fr:  **''**
   String get generalLabelIos => _t(LocalizationKeys.generalLabelIos);
 
   /// Translations:
@@ -261,6 +321,8 @@ class Localization {
   /// nl:  **'Nee'**
   ///
   /// en:  **'No'**
+  ///
+  /// fr:  **''**
   String get generalLabelNo => _t(LocalizationKeys.generalLabelNo);
 
   /// Translations:
@@ -268,6 +330,8 @@ class Localization {
   /// nl:  **'Ok'**
   ///
   /// en:  **'Ok'**
+  ///
+  /// fr:  **''**
   String get generalLabelOk => _t(LocalizationKeys.generalLabelOk);
 
   /// Translations:
@@ -275,6 +339,8 @@ class Localization {
   /// nl:  **'Opslaan'**
   ///
   /// en:  **'Save'**
+  ///
+  /// fr:  **''**
   String get generalLabelSave => _t(LocalizationKeys.generalLabelSave);
 
   /// Translations:
@@ -282,6 +348,8 @@ class Localization {
   /// nl:  **'Systeem standaard'**
   ///
   /// en:  **'System default'**
+  ///
+  /// fr:  **''**
   String get generalLabelSystemDefault => _t(LocalizationKeys.generalLabelSystemDefault);
 
   /// Translations:
@@ -289,6 +357,8 @@ class Localization {
   /// nl:  **'Ja'**
   ///
   /// en:  **'Yes'**
+  ///
+  /// fr:  **''**
   String get generalLabelYes => _t(LocalizationKeys.generalLabelYes);
 
   /// Translations:
@@ -296,6 +366,8 @@ class Localization {
   /// nl:  **'Instellingen'**
   ///
   /// en:  **'Settings'**
+  ///
+  /// fr:  **''**
   String get settingsTitle => _t(LocalizationKeys.settingsTitle);
 
   /// Translations:
@@ -303,6 +375,8 @@ class Localization {
   /// nl:  **'Vul hier uw todo in'**
   ///
   /// en:  **'Enter your todo'**
+  ///
+  /// fr:  **''**
   String get todoAddInputHint => _t(LocalizationKeys.todoAddInputHint);
 
   /// Translations:
@@ -310,6 +384,8 @@ class Localization {
   /// nl:  **'Todo toevoegen'**
   ///
   /// en:  **'Add todo'**
+  ///
+  /// fr:  **''**
   String get todoAddTitle => _t(LocalizationKeys.todoAddTitle);
 
   /// Translations:
@@ -317,6 +393,8 @@ class Localization {
   /// nl:  **'Er is nog geen data toegevoegd in uw database. Je kan een paar todo's ophalen van een api calll (download icoon) of je kan er zelf toevoegen door op het plus icoon te drukken.'**
   ///
   /// en:  **'No data added to your database. Fetch some todos with an api call (download icon) or add one yourself by clicking the add icon.'**
+  ///
+  /// fr:  **''**
   String get todoEmptyState => _t(LocalizationKeys.todoEmptyState);
 
   /// Translations:
@@ -324,6 +402,8 @@ class Localization {
   /// nl:  **'Todo'**
   ///
   /// en:  **'Todo'**
+  ///
+  /// fr:  **''**
   String get todoTitle => _t(LocalizationKeys.todoTitle);
 
   /// Translations:
@@ -331,6 +411,8 @@ class Localization {
   /// nl:  **'Fietsen'**
   ///
   /// en:  **'Cycling'**
+  ///
+  /// fr:  **'cyclisme'**
   String get clubSelectionCyclingTitle => _t(LocalizationKeys.clubSelectionCyclingTitle);
 
   /// Translations:
@@ -338,6 +420,8 @@ class Localization {
   /// nl:  **'Lopen'**
   ///
   /// en:  **'Running'**
+  ///
+  /// fr:  **'marche'**
   String get clubSelectionRunningTitle => _t(LocalizationKeys.clubSelectionRunningTitle);
 
   /// Translations:
@@ -345,6 +429,8 @@ class Localization {
   /// nl:  **'Leden'**
   ///
   /// en:  **'Members'**
+  ///
+  /// fr:  **'membres'**
   String get clubDetailMemberTitle => _t(LocalizationKeys.clubDetailMemberTitle);
 
   /// Translations:
@@ -352,6 +438,8 @@ class Localization {
   /// nl:  **'Administrators'**
   ///
   /// en:  **'Admins'**
+  ///
+  /// fr:  **'administrateurs'**
   String get clubDetailAdminTitle => _t(LocalizationKeys.clubDetailAdminTitle);
 
   /// Translations:
@@ -359,7 +447,54 @@ class Localization {
   /// nl:  **'Activiteiten'**
   ///
   /// en:  **'Activities'**
+  ///
+  /// fr:  **'Activités'**
   String get clubDetailActivityTitle => _t(LocalizationKeys.clubDetailActivityTitle);
+
+  /// Translations:
+  ///
+  /// nl:  **'Samenvatting'**
+  ///
+  /// en:  **'Summary'**
+  ///
+  /// fr:  **'résumé'**
+  String get clubDetailSummaryTitle => _t(LocalizationKeys.clubDetailSummaryTitle);
+
+  /// Translations:
+  ///
+  /// nl:  **'Totale Afstand'**
+  ///
+  /// en:  **'Total Distance'**
+  ///
+  /// fr:  **'distance totale'**
+  String get clubDetailTotalDistanceTitle => _t(LocalizationKeys.clubDetailTotalDistanceTitle);
+
+  /// Translations:
+  ///
+  /// nl:  **'Totale Tijd In Beweging'**
+  ///
+  /// en:  **'Total Moving Time'**
+  ///
+  /// fr:  **'Ttemps total de déplacement'**
+  String get clubDetailTotalMovingTimeTitle => _t(LocalizationKeys.clubDetailTotalMovingTimeTitle);
+
+  /// Translations:
+  ///
+  /// nl:  **'Totale Hoogtewinst'**
+  ///
+  /// en:  **'Total Elevation Gain'**
+  ///
+  /// fr:  **'gain de hauteur totale'**
+  String get clubDetailTotalElevationGainTitle => _t(LocalizationKeys.clubDetailTotalElevationGainTitle);
+
+  /// Translations:
+  ///
+  /// nl:  **'Total Verstreken Tijd'**
+  ///
+  /// en:  **'Total Elapsed Time'**
+  ///
+  /// fr:  **'temps total écoulé'**
+  String get clubDetailTotalElapsedTimeTitle => _t(LocalizationKeys.clubDetailTotalElapsedTimeTitle);
 
   String getTranslation(String key, {List<dynamic>? args}) => _t(key, args: args ?? <dynamic>[]);
 

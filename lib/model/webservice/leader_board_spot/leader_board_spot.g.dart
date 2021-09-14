@@ -1,23 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'member.dart';
+part of 'leader_board_spot.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Member _$MemberFromJson(Map<String, dynamic> json) {
+LeaderBoardSpot _$LeaderBoardSpotFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['firstname', 'lastname'],
+    requiredKeys: const ['firstname', 'lastname', 'stat'],
   );
-  return Member(
+  return LeaderBoardSpot(
     firstname: json['firstname'] as String,
     lastname: json['lastname'] as String,
+    stat: (json['stat'] as num).toDouble(),
   );
 }
 
-Map<String, dynamic> _$MemberToJson(Member instance) => <String, dynamic>{
+Map<String, dynamic> _$LeaderBoardSpotToJson(LeaderBoardSpot instance) =>
+    <String, dynamic>{
       'firstname': instance.firstname,
       'lastname': instance.lastname,
+      'stat': instance.stat,
     };

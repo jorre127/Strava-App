@@ -72,7 +72,7 @@ flutter:
 
 locale_gen:
   default_language: 'nl'
-  languages: ['nl','en']
+  languages: ['nl','en','fr']
 
 icapps_license:
   licenses:

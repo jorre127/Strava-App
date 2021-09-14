@@ -4,14 +4,14 @@ part 'member.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Member {
-  @JsonKey(name: 'firstname', includeIfNull: false)
-  final String? firstname;
-  @JsonKey(name: 'lastname', includeIfNull: false)
-  final String? lastname;
+  @JsonKey(name: 'firstname', required: true, includeIfNull: false)
+  String firstname;
+  @JsonKey(name: 'lastname', required: true, includeIfNull: false)
+  String lastname;
 
-  const Member({
-    this.firstname,
-    this.lastname,
+  Member({
+    required this.firstname,
+    required this.lastname,
   });
 
   factory Member.fromJson(Map<String, dynamic> json) => _$MemberFromJson(json);
