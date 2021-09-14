@@ -69,6 +69,7 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                                       memberStats: viewModel.memberStats,
                                       selectedMember: viewModel.selectedMember,
                                       setSelectedMember: viewModel.setSelectedMember,
+                                      activities: viewModel.activities,
                                       localization: localization,
                                     ),
                                   ),
@@ -96,6 +97,7 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                                   memberStats: viewModel.memberStats,
                                   selectedMember: viewModel.selectedMember,
                                   setSelectedMember: viewModel.setSelectedMember,
+                                  activities: viewModel.activities,
                                   localization: localization,
                                 ),
                                 const SizedBox(

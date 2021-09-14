@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/model/webservice/activity/activity.dart';
 import 'package:flutter_template/model/webservice/activity_summary/activity_summary.dart';
 import 'package:flutter_template/model/webservice/member/member.dart';
 import 'package:flutter_template/model/webservice/member_stats/member_stats.dart';
@@ -14,11 +15,13 @@ class LeftColumn extends StatelessWidget {
   final ActivitySummary? activitySummary;
   final List<Member>? members;
   final List<Member>? admins;
+  final List<Activity>? activities;
   final List<MemberStats>? memberStats;
   final int selectedMember;
   final Function setSelectedMember;
   final Localization localization;
   const LeftColumn({
+    required this.activities,
     required this.setSelectedMember,
     required this.selectedMember,
     required this.activitySummary,
@@ -58,6 +61,7 @@ class LeftColumn extends StatelessWidget {
         data: memberStats,
         builder: (context, adminMembers) => MemberOverview(
           member: adminMembers[selectedMember],
+          activities: activities ?? [],
           localization: localization,
         ),
       ),

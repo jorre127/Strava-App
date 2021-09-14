@@ -12,10 +12,10 @@ class ActivityListItem extends StatelessWidget {
   final int index;
   final Localization localization;
   const ActivityListItem({
-    required this.selectedActivity,
     required this.index,
     required this.activity,
     required this.localization,
+    this.selectedActivity = -1,
     Key? key,
   }) : super(key: key);
 
