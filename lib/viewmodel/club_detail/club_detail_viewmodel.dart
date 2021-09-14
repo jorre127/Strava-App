@@ -16,7 +16,6 @@ class ClubDetailViewModel with ChangeNotifierEx {
   Club? club;
   List<Member>? members;
   List<Member>? admins;
-  List<Member>? adminMembers;
   List<Activity>? activities;
   ActivitySummary? activitySummary;
   List<MemberStats>? memberStats;
@@ -30,7 +29,6 @@ class ClubDetailViewModel with ChangeNotifierEx {
     await getClub(clubId);
     await getMembers(clubId);
     await getAdmins(clubId);
-    getAdminMembers();
     await getActivites(clubId);
     getMemberStats();
     notifyListeners();
@@ -49,12 +47,6 @@ class ClubDetailViewModel with ChangeNotifierEx {
   Future<void> getAdmins(String clubId) async {
     admins = await _clubDetailRepository.getAdmins(clubId);
     notifyListeners();
-  }
-
-  void getAdminMembers() {
-    final tempArray = [...members!];
-    tempArray.addAll(admins!);
-    adminMembers = tempArray;
   }
 
   Future<void> getActivites(String clubId) async {
@@ -82,18 +74,22 @@ class ClubDetailViewModel with ChangeNotifierEx {
 
   void getMemberStats() {
     final tempMemberStats = <MemberStats>[];
-    adminMembers!.forEach(
-      (member) => tempMemberStats.add(
-        MemberStats(
-          firstname: member.firstname,
-          lastname: member.lastname,
-          totalDistance: 0,
-          totalMovingTime: 0,
-          totalElapsedTime: 0,
-          totalElevatiionGain: 0,
+    final allMembers = [...members!];
+    // ignore: cascade_invocations
+    allMembers
+      ..addAll(admins!)
+      ..forEach(
+        (member) => tempMemberStats.add(
+          MemberStats(
+            firstname: member.firstname,
+            lastname: member.lastname,
+            totalDistance: 0,
+            totalMovingTime: 0,
+            totalElapsedTime: 0,
+            totalElevatiionGain: 0,
+          ),
         ),
-      ),
-    );
+      );
     activities!.forEach((activity) {
       final currentMember = tempMemberStats
           .where(

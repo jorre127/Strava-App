@@ -14,13 +14,11 @@ class LeftColumn extends StatelessWidget {
   final ActivitySummary? activitySummary;
   final List<Member>? members;
   final List<Member>? admins;
-  final List<Member>? adminMembers;
   final List<MemberStats>? memberStats;
   final int selectedMember;
   final Function setSelectedMember;
   final Localization localization;
   const LeftColumn({
-    required this.adminMembers,
     required this.setSelectedMember,
     required this.selectedMember,
     required this.activitySummary,
@@ -56,10 +54,11 @@ class LeftColumn extends StatelessWidget {
       const SizedBox(
         height: ThemeDimens.padding16,
       ),
-      ConditionalShower<List<Member>>(
-        data: adminMembers,
+      ConditionalShower<List<MemberStats>>(
+        data: memberStats,
         builder: (context, adminMembers) => MemberOverview(
           member: adminMembers[selectedMember],
+          localization: localization,
         ),
       ),
       const SizedBox(
