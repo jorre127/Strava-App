@@ -5,6 +5,7 @@ import 'package:flutter_template/model/webservice/member_stats/member_stats.dart
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/util/locale/localization.dart';
 import 'package:flutter_template/widget/club_detail/activity/activity_summary.dart';
+import 'package:flutter_template/widget/club_detail/member/member_admin_list.dart';
 import 'package:flutter_template/widget/club_detail/member/member_list.dart';
 import 'package:flutter_template/widget/club_detail/leader_board/leader_board.dart';
 import 'package:flutter_template/widget/general/conditional_shower.dart';
@@ -49,23 +50,11 @@ class LeftColumn extends StatelessWidget {
       const SizedBox(
         height: ThemeDimens.padding16,
       ),
-      ConditionalShower<List<Member>>(
-        data: members,
-        builder: (context, members) => MemberList(
-          title: localization.clubDetailMemberTitle,
-          memberList: members,
-        ),
-      ),
-      const SizedBox(
-        height: ThemeDimens.padding16,
-      ),
-      ConditionalShower<List<Member>>(
-        data: admins,
-        builder: (context, admins) => MemberList(
-          title: localization.clubDetailAdminTitle,
-          memberList: admins,
-        ),
-      ),
+      MemberAdminList(
+        members: members,
+        admins: admins,
+        localization: localization,
+      )
     ]);
   }
 }
