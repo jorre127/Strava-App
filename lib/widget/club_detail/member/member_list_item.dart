@@ -13,7 +13,7 @@ class MemberListItem extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  bool get  isSelected => selectedMember == member.firstname+member.lastname;
+  bool get isSelected => selectedMember == member.firstname + member.lastname;
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +50,16 @@ class MemberListItem extends StatelessWidget {
                   const SizedBox(
                     height: ThemeDimens.padding8,
                   ),
-                  Container(
-                    child: Text(
-                      '${member.firstname} ${member.lastname}',
-                      style: theme.lightTextTheme.titleSmall,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                  Text(
+                    '${member.firstname} ${member.lastname}',
+                    style: theme.lightTextTheme.titleSmall,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
+                  Text(
+                    member.isAdmin == true ? 'Admin' : '',
+                    style: theme.lightTextTheme.bodyUltraSmall.copyWith(color: Colors.yellow),
+                  )
                 ],
               ),
             ),

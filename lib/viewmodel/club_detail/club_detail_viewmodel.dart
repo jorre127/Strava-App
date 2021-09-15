@@ -27,8 +27,9 @@ class ClubDetailViewModel with ChangeNotifierEx {
     _navigator = navigator;
     await getClub(clubId);
     await getMembers(clubId);
-    setSelectedMember('');
     await getAdmins(clubId);
+    setSelectedMember('');
+    checkIsAdmin();
     await getActivites(clubId);
     getMemberStats();
     notifyListeners();
@@ -42,6 +43,19 @@ class ClubDetailViewModel with ChangeNotifierEx {
   Future<void> getMembers(String clubId) async {
     members = await _clubDetailRepository.getMembers(clubId);
     notifyListeners();
+  }
+
+  void checkIsAdmin() {
+    members!.forEach((member) {
+      for (var i = 0; i < admins!.length; i++) {
+        if (member.firstname == admins![i].firstname && member.lastname == admins![i].lastname) {
+          member.isAdmin = true;
+          break;
+        } else {
+          member.isAdmin = false;
+        }
+      }
+    });
   }
 
   Future<void> getAdmins(String clubId) async {

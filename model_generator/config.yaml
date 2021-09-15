@@ -56,6 +56,9 @@ Member:
       non_final: true
       required: true
       type: String
+    isAdmin:
+      non_final: true
+      type: bool
 
 LeaderBoardSpot:
   path: webservice/leader_board_spot/
