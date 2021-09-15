@@ -36,7 +36,7 @@ class LoginViewModel with ChangeNotifierEx {
   Future<void> onLoginClicked() async {
     try {
       _isLoading = true;
-      //await _loginRepo.login();
+      await _loginRepo.login();
       _navigator.goToClubSelection();
     } catch (e, stack) {
       logger.error('Failed to login', error: e, trace: stack);
