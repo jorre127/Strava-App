@@ -17,7 +17,7 @@ class LeftColumn extends StatelessWidget {
   final List<Member>? admins;
   final List<Activity>? activities;
   final List<MemberStats>? memberStats;
-  final int selectedMember;
+  final String selectedMember;
   final Function setSelectedMember;
   final Localization localization;
   const LeftColumn({
@@ -59,8 +59,8 @@ class LeftColumn extends StatelessWidget {
       ),
       ConditionalShower<List<MemberStats>>(
         data: memberStats,
-        builder: (context, adminMembers) => MemberOverview(
-          member: adminMembers[selectedMember],
+        builder: (context, members) => MemberOverview(
+          member: members.where((member) => member.firstname + member.lastname == selectedMember).first,
           activities: activities ?? [],
           localization: localization,
         ),

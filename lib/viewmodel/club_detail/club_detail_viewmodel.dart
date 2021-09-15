@@ -7,7 +7,6 @@ import 'package:flutter_template/navigator/mixin/error_navigator.dart';
 import 'package:flutter_template/repository/club_detail/club_detail_repository.dart';
 import 'package:icapps_architecture/icapps_architecture.dart';
 import 'package:injectable/injectable.dart';
-import 'package:path/path.dart';
 
 @injectable
 class ClubDetailViewModel with ChangeNotifierEx {
@@ -20,7 +19,7 @@ class ClubDetailViewModel with ChangeNotifierEx {
   ActivitySummary? activitySummary;
   List<MemberStats>? memberStats;
   int selectedActivity = 0;
-  int selectedMember = 0;
+  String selectedMember = '';
 
   ClubDetailViewModel(this._clubDetailRepository);
 
@@ -28,6 +27,7 @@ class ClubDetailViewModel with ChangeNotifierEx {
     _navigator = navigator;
     await getClub(clubId);
     await getMembers(clubId);
+    setSelectedMember('');
     await getAdmins(clubId);
     await getActivites(clubId);
     getMemberStats();
@@ -74,22 +74,19 @@ class ClubDetailViewModel with ChangeNotifierEx {
 
   void getMemberStats() {
     final tempMemberStats = <MemberStats>[];
-    final allMembers = [...members!];
     // ignore: cascade_invocations
-    allMembers
-      ..addAll(admins!)
-      ..forEach(
-        (member) => tempMemberStats.add(
-          MemberStats(
-            firstname: member.firstname,
-            lastname: member.lastname,
-            totalDistance: 0,
-            totalMovingTime: 0,
-            totalElapsedTime: 0,
-            totalElevatiionGain: 0,
-          ),
+    members!.forEach(
+      (member) => tempMemberStats.add(
+        MemberStats(
+          firstname: member.firstname,
+          lastname: member.lastname,
+          totalDistance: 0,
+          totalMovingTime: 0,
+          totalElapsedTime: 0,
+          totalElevatiionGain: 0,
         ),
-      );
+      ),
+    );
     activities!.forEach((activity) {
       final currentMember = tempMemberStats
           .where(
@@ -111,8 +108,13 @@ class ClubDetailViewModel with ChangeNotifierEx {
     notifyListeners();
   }
 
-  void setSelectedMember(int index) {
-    selectedMember = index;
+  void setSelectedMember(String name) {
+    if (selectedMember == '') {
+      selectedMember = members![0].firstname + members![0].lastname;
+    } else {
+      selectedMember = name;
+    }
+
     notifyListeners();
   }
 }

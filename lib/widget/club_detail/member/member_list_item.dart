@@ -6,14 +6,14 @@ import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 
 class MemberListItem extends StatelessWidget {
   final Member member;
-  final int selectedMember;
-  final int index;
+  final String selectedMember;
   const MemberListItem({
     required this.selectedMember,
-    required this.index,
     required this.member,
     Key? key,
   }) : super(key: key);
+
+  bool get  isSelected => selectedMember == member.firstname+member.lastname;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class MemberListItem extends StatelessWidget {
             height: 70,
             decoration: BoxDecoration(
               color: theme.colorsTheme.accent.withOpacity(
-                index == selectedMember ? 0.4 : 0.15,
+                isSelected ? 0.4 : 0.15,
               ),
               borderRadius: BorderRadius.circular(ThemeDimens.largeCardBorderRadius),
               boxShadow: [

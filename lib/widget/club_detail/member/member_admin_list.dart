@@ -10,7 +10,7 @@ class MemberAdminList extends StatelessWidget {
   final List<Member>? members;
   final List<Member>? admins;
   final Function setSelectedMember;
-  final int selectedMember;
+  final String selectedMember;
   final Localization localization;
   const MemberAdminList({
     required this.setSelectedMember,
@@ -45,7 +45,6 @@ class MemberAdminList extends StatelessWidget {
               selectedMember: selectedMember,
               setSelectedMember: setSelectedMember,
               memberList: admins,
-              memberOffset: members!.length,
             ),
           ),
         ],
