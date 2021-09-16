@@ -10,12 +10,8 @@ class LoginViewModel with ChangeNotifierEx {
   late LoginNavigator _navigator;
 
   var _isLoading = false;
-  var _password = '';
-  var _email = '';
 
   LoginViewModel(this._loginRepo);
-
-  bool get isLoginEnabled => _password.isNotEmpty && _email.isNotEmpty;
 
   bool get isLoading => _isLoading;
 
@@ -23,20 +19,10 @@ class LoginViewModel with ChangeNotifierEx {
     _navigator = navigator;
   }
 
-  void onEmailUpdated(String email) {
-    _email = email;
-    notifyListeners();
-  }
-
-  void onPasswordUpdated(String password) {
-    _password = password;
-    notifyListeners();
-  }
-
   Future<void> onLoginClicked() async {
     try {
       _isLoading = true;
-      //await _loginRepo.login();
+      await _loginRepo.login();
       _navigator.goToClubSelection();
     } catch (e, stack) {
       logger.error('Failed to login', error: e, trace: stack);

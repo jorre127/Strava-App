@@ -6,26 +6,103 @@ Activity:
   properties:
     athlete:
       type: Member
+      required: true
     name:
       type: String
+      required: true
     distance:
       type: double
+      required: true
     moving_time:
       type: double
+      required: true
     elapsed_time:
       type: double
+      required: true
     total_elevation_gain:
       type: double
+      required: true
     type:
       type: String
+
+ActivitySummary:
+    path: webservice/activity_summary/
+    properties:
+      total_distance:
+        non_final: true
+        required: true
+        type: double
+      total_moving_time:
+        non_final: true
+        required: true
+        type: double
+      total_elapsed_time:
+        non_final: true
+        required: true
+        type: double
+      total_elevatiion_gain:
+        non_final: true
+        required: true
+        type: double
 
 Member:
   path: webservice/member/
   properties:
     firstname:
+      non_final: true
+      required: true
       type: String
     lastname:
+      non_final: true
+      required: true
       type: String
+    isAdmin:
+      non_final: true
+      type: bool
+
+LeaderBoardSpot:
+  path: webservice/leader_board_spot/
+  properties:
+    firstname:
+      non_final: true
+      required: true
+      type: String
+    lastname:
+      non_final: true
+      required: true
+      type: String
+    stat:
+      non_final: true
+      required: true
+      type: double
+
+MemberStats:
+  path: webservice/member_stats/
+  properties:
+    firstname:
+      non_final: true
+      required: true
+      type: String
+    lastname:
+      non_final: true
+      required: true
+      type: String
+    total_distance:
+      non_final: true
+      required: true
+      type: double
+    total_moving_time:
+      non_final: true
+      required: true
+      type: double
+    total_elapsed_time:
+      non_final: true
+      required: true
+      type: double
+    total_elevatiion_gain:
+      non_final: true
+      required: true
+      type: double
 
 Club:
   path: webservice/club/

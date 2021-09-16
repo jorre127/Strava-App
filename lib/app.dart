@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_template/navigator/main_navigator.dart';
-import 'package:flutter_template/screen/clubs/clubs_screen.dart';
+import 'package:flutter_template/screen/login/login_screen.dart';
 import 'package:flutter_template/styles/theme_data.dart';
 import 'package:flutter_template/util/env/flavor_config.dart';
 import 'package:flutter_template/util/locale/localization_delegate.dart';
@@ -40,7 +40,7 @@ class InternalApp extends StatelessWidget {
         themeMode: viewModel.themeMode,
         theme: FlutterTemplateThemeData.lightTheme(viewModel.targetPlatform),
         darkTheme: FlutterTemplateThemeData.darkTheme(viewModel.targetPlatform),
-        initialRoute: ClubsScreen.routeName,
+        initialRoute: LoginScreen.routeName,
         onGenerateRoute: MainNavigatorWidgetState.onGenerateRoute,
         navigatorKey: MainNavigatorWidgetState.navigationKey,
         builder: (context, child) => MainNavigatorWidget(
