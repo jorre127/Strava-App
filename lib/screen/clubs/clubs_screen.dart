@@ -38,7 +38,7 @@ class ClubsScreenState extends State<ClubsScreen> with BackNavigatorMixin, Error
                     width: double.infinity,
                     height: double.infinity,
                   ),
-                  const AnimatedGradiant(gradiantRatio: 0.2),
+                  const AnimatedGradiant(gradiantRatio: 0.15),
                 ],
               );
               if (constraints.maxWidth > 1100) {

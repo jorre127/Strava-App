@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:html' as html;
 import 'package:dio/dio.dart';
 import 'package:flutter_template/repository/secure_storage/auth/auth_storage.dart';
@@ -42,7 +43,7 @@ class _LoginRepository implements LoginRepository {
     final authUrl = '$domain$authorizePath?response_type=code&client_id=${AppConstants.CLIENT_ID}&redirect_uri=$redirectUri&scope=activity:write,read';
 
     popupWindow = html.window.open(authUrl, 'Strava Auth', 'width=800, height=900, scrollbars=yes');
-
+    final completer = Completer<void>();
     html.window.onMessage.listen((event) async {
       final receivedUri = event.data as String;
       authorizationCode = receivedUri
@@ -68,6 +69,8 @@ class _LoginRepository implements LoginRepository {
         print(error);
       }
       popupWindow.close();
+      completer.complete();
     });
+    return completer.future;
   }
 }

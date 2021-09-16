@@ -39,7 +39,7 @@ class LoginScreenState extends State<LoginScreen> with ErrorNavigatorMixin imple
                   width: double.infinity,
                   height: double.infinity,
                 ),
-                const AnimatedGradiant(gradiantRatio: 0.2),
+                const AnimatedGradiant(gradiantRatio: 0.15),
                 Container(
                   width: 200,
                   child: Column(
