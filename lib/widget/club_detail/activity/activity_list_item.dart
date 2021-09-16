@@ -19,6 +19,8 @@ class ActivityListItem extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  bool get isSelected => selectedActivity == index;
+
   @override
   Widget build(BuildContext context) {
     return DataProviderWidget(
@@ -27,13 +29,13 @@ class ActivityListItem extends StatelessWidget {
         child: AnimatedContainer(
           duration: ThemeDurations.shortAnimationDuration(),
           decoration: BoxDecoration(
-            color: selectedActivity == index ? theme.colorsTheme.accent : theme.colorsTheme.accent.withOpacity(0.15),
+            color: isSelected ? theme.colorsTheme.accent : theme.colorsTheme.accent.withOpacity(0.15),
             borderRadius: BorderRadius.circular(ThemeDimens.largeCardBorderRadius),
             boxShadow: [
               BoxShadow(
                 blurRadius: 5,
                 spreadRadius: 3,
-                color: selectedActivity == index ? theme.colorsTheme.accent.withOpacity(0.2) : theme.colorsTheme.shadow,
+                color: isSelected ? theme.colorsTheme.accent.withOpacity(0.2) : theme.colorsTheme.shadow,
               ),
             ],
           ),

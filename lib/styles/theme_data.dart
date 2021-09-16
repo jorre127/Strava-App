@@ -86,6 +86,7 @@ class FlutterTemplateColorsTheme {
   final Color darkProgressIndicator;
   final Color disabledWidget;
   final Color shadow;
+  final Color stravaOrange;
 
   const FlutterTemplateColorsTheme({
     required this.disabledWidget,
@@ -100,7 +101,8 @@ class FlutterTemplateColorsTheme {
     required this.darkIcon,
     required this.lightProgressIndicator,
     required this.darkProgressIndicator,
-    required this.shadow
+    required this.shadow,
+    required this.stravaOrange,
   });
 }
 
@@ -169,6 +171,7 @@ class FlutterTemplateTheme {
       darkIcon: ThemeColors.black,
       darkProgressIndicator: ThemeColors.primary,
       lightProgressIndicator: ThemeColors.white,
+      stravaOrange: ThemeColors.stravaOrange
     ),
   );
 

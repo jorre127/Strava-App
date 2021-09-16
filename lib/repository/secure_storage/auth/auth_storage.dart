@@ -1,4 +1,3 @@
-import 'package:flutter_template/util/app_constants.dart';
 import 'package:icapps_architecture/icapps_architecture.dart';
 import 'package:injectable/injectable.dart';
 

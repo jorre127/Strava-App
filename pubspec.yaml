@@ -66,6 +66,7 @@ flutter:
     - assets/images/icons/
     - assets/images/icons/android/
     - assets/images/icons/ios/
+    - assets/images/icappsGroup.jpg
   fonts:
     - family: OpenSans
       fonts:

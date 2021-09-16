@@ -10,10 +10,10 @@ class LeaderBoardSection extends StatelessWidget {
   final double conversion;
   final String symbol;
   const LeaderBoardSection({
-    this.conversion = 0,
     required this.symbol,
     required this.memberStats,
     required this.title,
+    this.conversion = 0,
     Key? key,
   }) : super(key: key);
 

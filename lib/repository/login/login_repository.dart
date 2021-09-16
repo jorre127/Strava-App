@@ -1,7 +1,7 @@
+import 'dart:html' as html;
 import 'package:dio/dio.dart';
 import 'package:flutter_template/repository/secure_storage/auth/auth_storage.dart';
 import 'package:flutter_template/util/app_constants.dart';
-import 'dart:html' as html;
 import 'package:injectable/injectable.dart';
 
 @lazySingleton
@@ -59,7 +59,7 @@ class _LoginRepository implements LoginRepository {
         'grant_type': 'authorization_code',
       };
       try {
-        var response = await Dio().post<Map<String, dynamic>>('$domain$tokenPath', queryParameters: parameters);
+        final response = await Dio().post<Map<String, dynamic>>('$domain$tokenPath', queryParameters: parameters);
         await _authStorage.saveUserCredentials(
           accessToken: response.data!['access_token'].toString(),
           refreshToken: response.data!['refresh_token'].toString(),
