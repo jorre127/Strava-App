@@ -37,6 +37,7 @@ class RightColumn extends StatelessWidget {
         ),
         ConditionalShower<List<Activity>>(
           data: activities,
+          placeholderHeight: 765,
           builder: (context, activities) => ActivityList(
             title: localization.clubDetailActivityTitle,
             activities: activities,

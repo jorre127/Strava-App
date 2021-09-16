@@ -48,6 +48,7 @@ class LeftColumn extends StatelessWidget {
       ),
       ConditionalShower<List<MemberStats>>(
         data: memberStats,
+        placeholderHeight: 200,
         builder: (context, memberStats) => LeaderBoard(
           memberStats: memberStats,
           localization: localization,
@@ -59,6 +60,7 @@ class LeftColumn extends StatelessWidget {
       ),
       ConditionalShower<List<MemberStats>>(
         data: memberStats,
+        placeholderHeight: 200,
         builder: (context, members) => MemberOverview(
           member: members.where((member) => member.firstname + member.lastname == selectedMember).first,
           activities: activities ?? [],
