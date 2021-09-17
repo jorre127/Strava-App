@@ -31,7 +31,7 @@ class _ActivityListState extends State<ActivityList> {
     return DataProviderWidget(
       childBuilderTheme: (context, theme) => SectionCard(
         child: Container(
-          height: 765,
+          height: 880,
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

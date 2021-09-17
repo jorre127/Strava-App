@@ -48,7 +48,7 @@ class LeftColumn extends StatelessWidget {
       ),
       ConditionalShower<List<MemberStats>>(
         data: memberStats,
-        placeholderHeight: 200,
+        placeholderHeight: 330,
         builder: (context, memberStats) => LeaderBoard(
           memberStats: memberStats,
           localization: localization,
