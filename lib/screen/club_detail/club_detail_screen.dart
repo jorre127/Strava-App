@@ -43,7 +43,7 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                     Padding(
                       padding: const EdgeInsets.fromLTRB(
                         ThemeDimens.padding56,
-                        100,
+                        200,
                         ThemeDimens.padding56,
                         0,
                       ),
