@@ -11,7 +11,6 @@ import 'package:injectable/injectable.dart';
 @injectable
 class ClubDetailViewModel with ChangeNotifierEx {
   final ClubDetailRepository _clubDetailRepository;
-  late ClubDetailViewNavigator _navigator;
   Club? club;
   List<Member>? members;
   List<Member>? admins;
@@ -24,7 +23,6 @@ class ClubDetailViewModel with ChangeNotifierEx {
   ClubDetailViewModel(this._clubDetailRepository);
 
   Future<void> init(ClubDetailViewNavigator navigator, String clubId) async {
-    _navigator = navigator;
     await getClub(clubId);
     await getMembers(clubId);
     await getAdmins(clubId);

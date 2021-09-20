@@ -9,7 +9,6 @@ import 'package:flutter_template/widget/general/styled/flutter_template_back_but
 import 'package:flutter_template/widget/general/styled/flutter_template_button.dart';
 import 'package:flutter_template/widget/general/styled/flutter_template_input_field.dart';
 import 'package:get_it/get_it.dart';
-import 'package:icapps_architecture/icapps_architecture.dart';
 import 'package:scroll_when_needed/scroll_when_needed.dart';
 
 class TodoAddScreen extends StatefulWidget {

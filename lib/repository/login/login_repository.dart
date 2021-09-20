@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:html' as html;
 import 'package:dio/dio.dart';
 import 'package:flutter_template/repository/secure_storage/auth/auth_storage.dart';
@@ -66,7 +67,7 @@ class _LoginRepository implements LoginRepository {
           refreshToken: response.data!['refresh_token'].toString(),
         );
       } catch (error) {
-        print(error);
+        log(error.toString());
       }
       popupWindow.close();
       completer.complete();
