@@ -12,7 +12,7 @@ abstract class ClubDetailRepository {
   Future<Club> getClub(String clubId);
   Future<List<Member>> getMembers(String clubId);
   Future<List<Member>> getAdmins(String clubId);
-    Future<List<Activity>> getActivites(String clubId);
+  Future<List<Activity>> getActivites(String clubId);
 }
 
 class _ClubDetailRepository implements ClubDetailRepository {

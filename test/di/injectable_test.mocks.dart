@@ -10,6 +10,7 @@ import 'package:flutter_template/model/webservice/club/club.dart' as _i2;
 import 'package:flutter_template/model/webservice/member/member.dart' as _i5;
 import 'package:flutter_template/repository/club_detail/club_detail_repository.dart'
     as _i3;
+import 'package:flutter_template/webservice/club/club_webservice.dart' as _i7;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -49,6 +50,38 @@ class MockClubDetailRepository extends _i1.Mock
   @override
   _i4.Future<List<_i6.Activity>> getActivites(String? clubId) =>
       (super.noSuchMethod(Invocation.method(#getActivites, [clubId]),
+              returnValue: Future<List<_i6.Activity>>.value(<_i6.Activity>[]))
+          as _i4.Future<List<_i6.Activity>>);
+  @override
+  String toString() => super.toString();
+}
+
+/// A class which mocks [ClubWebService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockClubWebService extends _i1.Mock implements _i7.ClubWebService {
+  MockClubWebService() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<_i2.Club> getClub(String? id) =>
+      (super.noSuchMethod(Invocation.method(#getClub, [id]),
+              returnValue: Future<_i2.Club>.value(_FakeClub_0()))
+          as _i4.Future<_i2.Club>);
+  @override
+  _i4.Future<List<_i5.Member>> getClubMembers(String? id) =>
+      (super.noSuchMethod(Invocation.method(#getClubMembers, [id]),
+              returnValue: Future<List<_i5.Member>>.value(<_i5.Member>[]))
+          as _i4.Future<List<_i5.Member>>);
+  @override
+  _i4.Future<List<_i5.Member>> getClubAdmins(String? id) =>
+      (super.noSuchMethod(Invocation.method(#getClubAdmins, [id]),
+              returnValue: Future<List<_i5.Member>>.value(<_i5.Member>[]))
+          as _i4.Future<List<_i5.Member>>);
+  @override
+  _i4.Future<List<_i6.Activity>> getClubActivities(String? id) =>
+      (super.noSuchMethod(Invocation.method(#getClubActivities, [id]),
               returnValue: Future<List<_i6.Activity>>.value(<_i6.Activity>[]))
           as _i4.Future<List<_i6.Activity>>);
   @override

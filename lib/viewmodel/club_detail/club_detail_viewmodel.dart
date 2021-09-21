@@ -27,9 +27,9 @@ class ClubDetailViewModel with ChangeNotifierEx {
     await getMembers(clubId);
     await getAdmins(clubId);
     setSelectedMember('');
-    checkIsAdmin();
+    _checkIsAdmin();
     await getActivites(clubId);
-    getMemberStats();
+    _getMemberStats();
     notifyListeners();
   }
 
@@ -43,19 +43,6 @@ class ClubDetailViewModel with ChangeNotifierEx {
     notifyListeners();
   }
 
-  void checkIsAdmin() {
-    members!.forEach((member) {
-      for (var i = 0; i < admins!.length; i++) {
-        if (member.firstname == admins![i].firstname && member.lastname == admins![i].lastname) {
-          member.isAdmin = true;
-          break;
-        } else {
-          member.isAdmin = false;
-        }
-      }
-    });
-  }
-
   Future<void> getAdmins(String clubId) async {
     admins = await _clubDetailRepository.getAdmins(clubId);
     notifyListeners();
@@ -63,11 +50,11 @@ class ClubDetailViewModel with ChangeNotifierEx {
 
   Future<void> getActivites(String clubId) async {
     activities = await _clubDetailRepository.getActivites(clubId);
-    getActivitySummary(activities ?? []);
+    _getActivitySummary(activities ?? []);
     notifyListeners();
   }
 
-  void getActivitySummary(List<Activity> activities) {
+  void _getActivitySummary(List<Activity> activities) {
     final summary = ActivitySummary(
       totalDistance: 0,
       totalElapsedTime: 0,
@@ -84,7 +71,7 @@ class ClubDetailViewModel with ChangeNotifierEx {
     activitySummary = summary;
   }
 
-  void getMemberStats() {
+  void _getMemberStats() {
     final tempMemberStats = <MemberStats>[];
     // ignore: cascade_invocations
     members!.forEach(
@@ -115,13 +102,26 @@ class ClubDetailViewModel with ChangeNotifierEx {
     memberStats = tempMemberStats;
   }
 
+  void _checkIsAdmin() {
+    members!.forEach((member) {
+      for (var i = 0; i < admins!.length; i++) {
+        if (member.firstname == admins![i].firstname && member.lastname == admins![i].lastname) {
+          member.isAdmin = true;
+          break;
+        } else {
+          member.isAdmin = false;
+        }
+      }
+    });
+  }
+
   void setSelectedActivity(int index) {
     selectedActivity = index;
     notifyListeners();
   }
 
   void setSelectedMember(String name) {
-    if (selectedMember == '') {
+    if (name == '') {
       selectedMember = members![0].firstname + members![0].lastname;
     } else {
       selectedMember = name;
