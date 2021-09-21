@@ -6,10 +6,12 @@ void main() {
   late ClubsViewModel clubsViewModel;
   late ClubsViewNavigator clubsViewNavigator;
 
-  setUp(() async {
-    clubsViewNavigator = MockClubsViewNavigator();
-    clubsViewModel = ClubsViewModel();
-  });
+  setUp(
+    () async {
+      clubsViewNavigator = MockClubsViewNavigator();
+      clubsViewModel = ClubsViewModel();
+    },
+  );
 
   group('init', () {
     test('should setup navigator', () async {

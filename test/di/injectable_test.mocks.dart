@@ -10,7 +10,10 @@ import 'package:flutter_template/model/webservice/club/club.dart' as _i2;
 import 'package:flutter_template/model/webservice/member/member.dart' as _i5;
 import 'package:flutter_template/repository/club_detail/club_detail_repository.dart'
     as _i3;
-import 'package:flutter_template/webservice/club/club_webservice.dart' as _i7;
+import 'package:flutter_template/repository/login/login_repository.dart' as _i7;
+import 'package:flutter_template/repository/secure_storage/auth/auth_storage.dart'
+    as _i9;
+import 'package:flutter_template/webservice/club/club_webservice.dart' as _i8;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: avoid_redundant_argument_values
@@ -56,10 +59,30 @@ class MockClubDetailRepository extends _i1.Mock
   String toString() => super.toString();
 }
 
+/// A class which mocks [LoginRepository].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockLoginRepository extends _i1.Mock implements _i7.LoginRepository {
+  MockLoginRepository() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<bool> isLoggedIn() =>
+      (super.noSuchMethod(Invocation.method(#isLoggedIn, []),
+          returnValue: Future<bool>.value(false)) as _i4.Future<bool>);
+  @override
+  _i4.Future<void> login() => (super.noSuchMethod(Invocation.method(#login, []),
+      returnValue: Future<void>.value(),
+      returnValueForMissingStub: Future<void>.value()) as _i4.Future<void>);
+  @override
+  String toString() => super.toString();
+}
+
 /// A class which mocks [ClubWebService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockClubWebService extends _i1.Mock implements _i7.ClubWebService {
+class MockClubWebService extends _i1.Mock implements _i8.ClubWebService {
   MockClubWebService() {
     _i1.throwOnMissingStub(this);
   }
@@ -84,6 +107,42 @@ class MockClubWebService extends _i1.Mock implements _i7.ClubWebService {
       (super.noSuchMethod(Invocation.method(#getClubActivities, [id]),
               returnValue: Future<List<_i6.Activity>>.value(<_i6.Activity>[]))
           as _i4.Future<List<_i6.Activity>>);
+  @override
+  String toString() => super.toString();
+}
+
+/// A class which mocks [AuthStorage].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAuthStorage extends _i1.Mock implements _i9.AuthStorage {
+  MockAuthStorage() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<String?> getRefreshToken() =>
+      (super.noSuchMethod(Invocation.method(#getRefreshToken, []),
+          returnValue: Future<String?>.value()) as _i4.Future<String?>);
+  @override
+  _i4.Future<String?> getAccessToken() =>
+      (super.noSuchMethod(Invocation.method(#getAccessToken, []),
+          returnValue: Future<String?>.value()) as _i4.Future<String?>);
+  @override
+  _i4.Future<void> clear() => (super.noSuchMethod(Invocation.method(#clear, []),
+      returnValue: Future<void>.value(),
+      returnValueForMissingStub: Future<void>.value()) as _i4.Future<void>);
+  @override
+  _i4.Future<void> saveUserCredentials(
+          {String? accessToken, String? refreshToken}) =>
+      (super.noSuchMethod(
+          Invocation.method(#saveUserCredentials, [],
+              {#accessToken: accessToken, #refreshToken: refreshToken}),
+          returnValue: Future<void>.value(),
+          returnValueForMissingStub: Future<void>.value()) as _i4.Future<void>);
+  @override
+  _i4.Future<bool> hasLoggedInUser() =>
+      (super.noSuchMethod(Invocation.method(#hasLoggedInUser, []),
+          returnValue: Future<bool>.value(false)) as _i4.Future<bool>);
   @override
   String toString() => super.toString();
 }
