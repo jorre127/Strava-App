@@ -6,13 +6,23 @@ part of 'member.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Member _$MemberFromJson(Map<String, dynamic> json) => Member(
-      firstname: json['firstname'] as String?,
-      lastname: json['lastname'] as String?,
-    );
+Member _$MemberFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['firstname', 'lastname'],
+  );
+  return Member(
+    firstname: json['firstname'] as String,
+    lastname: json['lastname'] as String,
+    isAdmin: json['isAdmin'] as bool?,
+  );
+}
 
 Map<String, dynamic> _$MemberToJson(Member instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'firstname': instance.firstname,
+    'lastname': instance.lastname,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -20,7 +30,6 @@ Map<String, dynamic> _$MemberToJson(Member instance) {
     }
   }
 
-  writeNotNull('firstname', instance.firstname);
-  writeNotNull('lastname', instance.lastname);
+  writeNotNull('isAdmin', instance.isAdmin);
   return val;
 }

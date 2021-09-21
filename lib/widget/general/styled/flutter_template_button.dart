@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/styles/theme_durations.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 import 'package:icapps_architecture/icapps_architecture.dart';
@@ -8,9 +9,11 @@ class FlutterTemplateButton extends StatelessWidget {
   final String text;
   final double height;
   final bool isEnabled;
+  final Color color;
   final VoidCallback? onClick;
 
   const FlutterTemplateButton({
+    required this.color,
     required this.text,
     required this.onClick,
     this.height = 48,
@@ -34,15 +37,23 @@ class FlutterTemplateButton extends StatelessWidget {
         if (context.isIOSTheme) {
           return TouchFeedBack(
             child: AnimatedContainer(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(ThemeDimens.largeCardBorderRadius),
+                color: isEnabled ? color : theme.colorsTheme.disabled,
+              ),
               height: height,
               child: content,
-              color: isEnabled ? theme.colorsTheme.accent : theme.colorsTheme.disabled,
+              color: isEnabled ? color : theme.colorsTheme.disabled,
               duration: ThemeDurations.shortAnimationDuration(),
             ),
             onClick: isEnabled ? onClick : null,
           );
         }
         return AnimatedContainer(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(ThemeDimens.largeCardBorderRadius),
+            color: isEnabled ? color : theme.colorsTheme.disabled,
+          ),
           child: TouchFeedBack(
             child: MouseRegion(
               cursor: isEnabled ? SystemMouseCursors.click : SystemMouseCursors.basic,
@@ -53,7 +64,6 @@ class FlutterTemplateButton extends StatelessWidget {
             ),
             onClick: isEnabled ? onClick : null,
           ),
-          color: isEnabled ? theme.colorsTheme.accent : theme.colorsTheme.disabled,
           duration: ThemeDurations.shortAnimationDuration(),
         );
       },

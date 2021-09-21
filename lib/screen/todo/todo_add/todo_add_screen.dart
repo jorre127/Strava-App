@@ -1,3 +1,4 @@
+import 'package:flutter_template/styles/theme_colors.dart';
 import 'package:flutter_template/widget/provider/provider_widget.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/navigator/mixin/back_navigator.dart';
@@ -45,6 +46,7 @@ class TodoAddScreenState extends State<TodoAddScreen> with BackNavigatorMixin, E
                 ),
                 Container(height: ThemeDimens.padding16),
                 FlutterTemplateButton(
+                  color: ThemeColors.accent,
                   text: localization.generalLabelSave,
                   isEnabled: viewModel.isSaveEnabled,
                   onClick: viewModel.onSaveClicked,

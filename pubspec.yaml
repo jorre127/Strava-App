@@ -26,6 +26,7 @@ dependencies:
   moor_db_viewer: ^4.4.0
   moor_inspector: ^0.3.1
   niddler_dart: ^1.0.0
+  oauth2: ^2.0.0
   path: ^1.8.0
   path_provider: ^2.0.1
   pedantic: ^1.11.1
@@ -65,6 +66,7 @@ flutter:
     - assets/images/icons/
     - assets/images/icons/android/
     - assets/images/icons/ios/
+    - assets/images/icappsGroup.jpg
   fonts:
     - family: OpenSans
       fonts:
@@ -72,7 +74,7 @@ flutter:
 
 locale_gen:
   default_language: 'nl'
-  languages: ['nl','en']
+  languages: ['nl','en','fr']
 
 icapps_license:
   licenses:

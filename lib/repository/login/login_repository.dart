@@ -1,10 +1,15 @@
+import 'dart:async';
+import 'dart:developer';
+import 'dart:html' as html;
+import 'package:dio/dio.dart';
 import 'package:flutter_template/repository/secure_storage/auth/auth_storage.dart';
+import 'package:flutter_template/util/app_constants.dart';
 import 'package:injectable/injectable.dart';
 
 @lazySingleton
 abstract class LoginRepository {
   @factoryMethod
-  factory LoginRepository(AuthStorage storage) = _LoginRepository;
+  factory LoginRepository(AuthStorage authStorage) = _LoginRepository;
 
   Future<bool> isLoggedIn();
 
@@ -21,26 +26,52 @@ class _LoginRepository implements LoginRepository {
 
   @override
   Future<void> login() async {
-    //TODO Add Auth0 authentication for strava
+    const domain = 'https://www.strava.com';
+    const authorizePath = '/oauth/authorize';
+    const tokenPath = '/oauth/token';
 
-    /*final queryParameters = {
-      'client_id': AppConstants.CLIENT_ID,
-      'redirect_uri': 'http://localhost:${AppConstants.PORT}/',
-      'scope': 'activity:write,read',
-      'response_type': 'code',
-      'approval_prompt': 'auto'
-    };
-    const domain = 'www.strava.com';
-    const path = '/oauth/authorize';
-    final Auth0 auth0 = await createAuth0Client(Auth0CreateOptions(
-      domain: domain + path,
-      client_id: AppConstants.CLIENT_ID,
-    ));
+    html.WindowBase popupWindow;
 
-    String token = await auth0.getTokenWithPopup();
-    print(token);
+    String authorizationCode;
+    final currentUri = Uri.base;
+    final redirectUri = Uri(
+      host: currentUri.host,
+      scheme: currentUri.scheme,
+      port: currentUri.port,
+      path: '/static.html',
+    );
 
-    //final url = Uri.https(domain, path, queryParameters);
-    */
+    final authUrl = '$domain$authorizePath?response_type=code&client_id=${AppConstants.CLIENT_ID}&redirect_uri=$redirectUri&scope=activity:write,read';
+
+    popupWindow = html.window.open(authUrl, 'Strava Auth', 'width=800, height=900, scrollbars=yes');
+    final completer = Completer<void>();
+    html.window.onMessage.listen((event) async {
+      final receivedUri = event.data as String;
+      authorizationCode = receivedUri
+          .split('&')
+          .firstWhere(
+            (element) => element.startsWith('code'),
+          )
+          .substring('code='.length);
+
+      final parameters = {
+        'client_id': AppConstants.CLIENT_ID,
+        'client_secret': AppConstants.CLIENT_SECRET,
+        'code': authorizationCode,
+        'grant_type': 'authorization_code',
+      };
+      try {
+        final response = await Dio().post<Map<String, dynamic>>('$domain$tokenPath', queryParameters: parameters);
+        await _authStorage.saveUserCredentials(
+          accessToken: response.data!['access_token'].toString(),
+          refreshToken: response.data!['refresh_token'].toString(),
+        );
+      } catch (error) {
+        log(error.toString());
+      }
+      popupWindow.close();
+      completer.complete();
+    });
+    return completer.future;
   }
 }

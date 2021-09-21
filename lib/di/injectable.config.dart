@@ -124,8 +124,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.singleton<_i18.TodoService>(_i35.TodoWebService(get<_i34.Dio>()),
       registerFor: {_dev, _prod});
   gh.singleton<_i36.ClubWebService>(_i36.ClubWebService(get<_i34.Dio>()));
-  gh.lazySingleton<_i37.ClubDetailRepository>(() => _i37.ClubDetailRepository(
-      get<_i22.AuthStorage>(), get<_i36.ClubWebService>()));
+  gh.lazySingleton<_i37.ClubDetailRepository>(
+      () => _i37.ClubDetailRepository(get<_i36.ClubWebService>()));
   gh.factory<_i38.ClubDetailViewModel>(
       () => _i38.ClubDetailViewModel(get<_i37.ClubDetailRepository>()));
   return get;

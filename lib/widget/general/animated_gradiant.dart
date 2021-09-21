@@ -4,7 +4,12 @@ import 'package:flutter_template/styles/theme_durations.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 
 class AnimatedGradiant extends StatelessWidget {
-  const AnimatedGradiant({Key? key, this.isActive = false}) : super(key: key);
+  final double gradiantRatio;
+  const AnimatedGradiant({
+    Key? key,
+    this.isActive = false,
+    this.gradiantRatio = 0.05,
+  }) : super(key: key);
   final bool isActive;
 
   @override
@@ -16,7 +21,7 @@ class AnimatedGradiant extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
-            stops: [isActive ? 0.2 : 0.05, 1],
+            stops: [isActive ? 0.2 : gradiantRatio, 1],
             colors: const [ThemeColors.primary, Colors.transparent],
           ),
         ),

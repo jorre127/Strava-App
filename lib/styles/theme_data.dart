@@ -8,6 +8,7 @@ class FlutterTemplateThemeData {
   FlutterTemplateThemeData._();
 
   static final _darkThemeData = ThemeData(
+    iconTheme: const IconThemeData(color: ThemeColors.white),
     fontFamily: ThemeFonts.OpenSans,
     primaryColor: ThemeColors.primary,
     accentColor: ThemeColors.accent,
@@ -86,6 +87,7 @@ class FlutterTemplateColorsTheme {
   final Color darkProgressIndicator;
   final Color disabledWidget;
   final Color shadow;
+  final Color stravaOrange;
 
   const FlutterTemplateColorsTheme({
     required this.disabledWidget,
@@ -100,7 +102,8 @@ class FlutterTemplateColorsTheme {
     required this.darkIcon,
     required this.lightProgressIndicator,
     required this.darkProgressIndicator,
-    required this.shadow
+    required this.shadow,
+    required this.stravaOrange,
   });
 }
 
@@ -156,20 +159,20 @@ class FlutterTemplateTheme {
     ),
     exceptionsTextTheme: FlutterTemplateTextThemeExceptions(),
     colorsTheme: FlutterTemplateColorsTheme(
-      disabledWidget: ThemeColors.disabledWidget,
-      shadow: ThemeColors.shadow,
-      primary: ThemeColors.primary,
-      accent: ThemeColors.accent,
-      secondary: ThemeColors.white,
-      background: ThemeColors.white,
-      backgroundDark: ThemeColors.primary,
-      inputFieldFill: ThemeColors.white,
-      disabled: ThemeColors.disabledGrey,
-      lightIcon: ThemeColors.white,
-      darkIcon: ThemeColors.black,
-      darkProgressIndicator: ThemeColors.primary,
-      lightProgressIndicator: ThemeColors.white,
-    ),
+        disabledWidget: ThemeColors.disabledWidget,
+        shadow: ThemeColors.shadow,
+        primary: ThemeColors.primary,
+        accent: ThemeColors.accent,
+        secondary: ThemeColors.white,
+        background: ThemeColors.white,
+        backgroundDark: ThemeColors.primary,
+        inputFieldFill: ThemeColors.white,
+        disabled: ThemeColors.disabledGrey,
+        lightIcon: ThemeColors.white,
+        darkIcon: ThemeColors.black,
+        darkProgressIndicator: ThemeColors.primary,
+        lightProgressIndicator: ThemeColors.white,
+        stravaOrange: ThemeColors.stravaOrange),
   );
 
   const FlutterTemplateTheme._({
