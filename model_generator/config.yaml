@@ -14,10 +14,10 @@ Activity:
       type: double
       required: true
     moving_time:
-      type: double
+      type: int
       required: true
     elapsed_time:
-      type: double
+      type: int
       required: true
     total_elevation_gain:
       type: double
@@ -35,11 +35,11 @@ ActivitySummary:
       total_moving_time:
         non_final: true
         required: true
-        type: double
+        type: int
       total_elapsed_time:
         non_final: true
         required: true
-        type: double
+        type: int
       total_elevatiion_gain:
         non_final: true
         required: true
@@ -48,6 +48,9 @@ ActivitySummary:
 Member:
   path: webservice/member/
   properties:
+    id:
+      non_final: true
+      type: String
     firstname:
       non_final: true
       required: true
@@ -63,6 +66,9 @@ Member:
 MemberStats:
   path: webservice/member_stats/
   properties:
+    id:
+      non_final: true
+      type: String
     firstname:
       non_final: true
       required: true
@@ -78,11 +84,11 @@ MemberStats:
     total_moving_time:
       non_final: true
       required: true
-      type: double
+      type: int
     total_elapsed_time:
       non_final: true
       required: true
-      type: double
+      type: int
     total_elevatiion_gain:
       non_final: true
       required: true

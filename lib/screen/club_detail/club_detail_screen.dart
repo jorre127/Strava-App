@@ -53,9 +53,7 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                           ClubHeader(
                             club: club,
                           ),
-                          const SizedBox(
-                            height: ThemeDimens.padding16,
-                          ),
+                          const SizedBox(height: ThemeDimens.padding16),
                           LayoutBuilder(builder: (context, constraints) {
                             if (constraints.maxWidth > 1200) {
                               return Row(
@@ -68,18 +66,16 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                                       members: viewModel.members,
                                       memberStats: viewModel.memberStats,
                                       selectedMember: viewModel.selectedMember,
-                                      setSelectedMember: viewModel.setSelectedMember,
+                                      onMemberSelected: viewModel.onMemberSelected,
                                       activities: viewModel.activities,
                                       localization: localization,
                                     ),
                                   ),
-                                  const SizedBox(
-                                    width: ThemeDimens.padding32,
-                                  ),
+                                  const SizedBox(width: ThemeDimens.padding32),
                                   Expanded(
                                     child: RightColumn(
-                                      selectedActivity: viewModel.selectedActivity,
-                                      setSelectedActivity: viewModel.setSelectedActivity,
+                                      selectedActivityIndex: viewModel.selectedActivityIndex,
+                                      onActivitySelected: viewModel.onActivitySelected,
                                       activities: viewModel.activities,
                                       localization: localization,
                                     ),
@@ -96,16 +92,14 @@ class ClubDetailScreenState extends State<ClubDetailScreen> with BackNavigatorMi
                                   members: viewModel.members,
                                   memberStats: viewModel.memberStats,
                                   selectedMember: viewModel.selectedMember,
-                                  setSelectedMember: viewModel.setSelectedMember,
+                                  onMemberSelected: viewModel.onMemberSelected,
                                   activities: viewModel.activities,
                                   localization: localization,
                                 ),
-                                const SizedBox(
-                                  height: ThemeDimens.padding32,
-                                ),
+                                const SizedBox(height: ThemeDimens.padding32),
                                 RightColumn(
-                                  selectedActivity: viewModel.selectedActivity,
-                                  setSelectedActivity: viewModel.setSelectedActivity,
+                                  selectedActivityIndex: viewModel.selectedActivityIndex,
+                                  onActivitySelected: viewModel.onActivitySelected,
                                   activities: viewModel.activities,
                                   localization: localization,
                                 ),

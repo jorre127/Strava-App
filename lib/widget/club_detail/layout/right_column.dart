@@ -8,15 +8,15 @@ import 'package:flutter_template/widget/general/conditional_shower.dart';
 
 class RightColumn extends StatelessWidget {
   final List<Activity>? activities;
-  final int selectedActivity;
-  final Function setSelectedActivity;
+  final int selectedActivityIndex;
+  final Function onActivitySelected;
   final Localization localization;
   const RightColumn({
     required this.activities,
-    required this.selectedActivity,
-    required this.setSelectedActivity,
+    required this.selectedActivityIndex,
+    required this.onActivitySelected,
     required this.localization,
-    Key? key,
+    Key? key, 
   }) : super(key: key);
 
   @override
@@ -27,9 +27,8 @@ class RightColumn extends StatelessWidget {
         ConditionalShower<List<Activity>>(
           data: activities,
           builder: (context, activities) => ActivityOverview(
-            title: activities[selectedActivity].name,
-            activity: activities[selectedActivity],
-            localization: localization,
+            title: activities[selectedActivityIndex].name,
+            activity: activities[selectedActivityIndex],
           ),
         ),
         const SizedBox(
@@ -41,9 +40,8 @@ class RightColumn extends StatelessWidget {
           builder: (context, activities) => ActivityList(
             title: localization.clubDetailActivityTitle,
             activities: activities,
-            selectedActivity: selectedActivity,
-            setSelectedActivity: setSelectedActivity,
-            localization: localization,
+            selectedActivityIndex: selectedActivityIndex,
+            onActivitySelected: onActivitySelected,
           ),
         ),
       ],

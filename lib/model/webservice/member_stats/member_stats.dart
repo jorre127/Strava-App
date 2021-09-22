@@ -11,11 +11,13 @@ class MemberStats {
   @JsonKey(name: 'total_distance', required: true, includeIfNull: false)
   double totalDistance;
   @JsonKey(name: 'total_moving_time', required: true, includeIfNull: false)
-  double totalMovingTime;
+  int totalMovingTime;
   @JsonKey(name: 'total_elapsed_time', required: true, includeIfNull: false)
-  double totalElapsedTime;
+  int totalElapsedTime;
   @JsonKey(name: 'total_elevatiion_gain', required: true, includeIfNull: false)
   double totalElevatiionGain;
+  @JsonKey(name: 'id', includeIfNull: false)
+  String? id;
 
   MemberStats({
     required this.firstname,
@@ -24,6 +26,7 @@ class MemberStats {
     required this.totalMovingTime,
     required this.totalElapsedTime,
     required this.totalElevatiionGain,
+    this.id,
   });
 
   factory MemberStats.fromJson(Map<String, dynamic> json) => _$MemberStatsFromJson(json);

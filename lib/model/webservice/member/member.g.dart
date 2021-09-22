@@ -14,6 +14,7 @@ Member _$MemberFromJson(Map<String, dynamic> json) {
   return Member(
     firstname: json['firstname'] as String,
     lastname: json['lastname'] as String,
+    id: json['id'] as String?,
     isAdmin: json['isAdmin'] as bool?,
   );
 }
@@ -30,6 +31,7 @@ Map<String, dynamic> _$MemberToJson(Member instance) {
     }
   }
 
+  writeNotNull('id', instance.id);
   writeNotNull('isAdmin', instance.isAdmin);
   return val;
 }

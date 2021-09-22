@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/activity/activity.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
-import 'package:flutter_template/util/locale/localization.dart';
 import 'package:flutter_template/widget/club_detail/activity/activity_list_item.dart';
 import 'package:flutter_template/widget/general/section_card.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
@@ -9,15 +8,13 @@ import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 class ActivityList extends StatefulWidget {
   final List<Activity> activities;
   final String title;
-  final int selectedActivity;
-  final Function setSelectedActivity;
-  final Localization localization;
+  final int selectedActivityIndex;
+  final Function onActivitySelected;
   const ActivityList({
-    required this.setSelectedActivity,
-    required this.selectedActivity,
+    required this.onActivitySelected,
+    required this.selectedActivityIndex,
     required this.activities,
     required this.title,
-    required this.localization,
     Key? key,
   }) : super(key: key);
 
@@ -46,12 +43,11 @@ class _ActivityListState extends State<ActivityList> {
                     crossAxisSpacing: 20,
                   ),
                   itemBuilder: (context, index) => GestureDetector(
-                    onTap: () => widget.setSelectedActivity(index),
+                    onTap: () => widget.onActivitySelected(index),
                     child: ActivityListItem(
-                      selectedActivity: widget.selectedActivity,
+                      selectedActivityIndex: widget.selectedActivityIndex,
                       index: index,
                       activity: widget.activities[index],
-                      localization: widget.localization,
                     ),
                   ),
                 ),

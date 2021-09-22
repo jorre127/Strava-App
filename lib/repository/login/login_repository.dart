@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
-import 'dart:html' as html;
+import 'package:universal_html/html.dart' as html;
 import 'package:dio/dio.dart';
 import 'package:flutter_template/repository/secure_storage/auth/auth_storage.dart';
 import 'package:flutter_template/util/app_constants.dart';
@@ -30,9 +30,7 @@ class _LoginRepository implements LoginRepository {
     const authorizePath = '/oauth/authorize';
     const tokenPath = '/oauth/token';
 
-    html.WindowBase popupWindow;
-
-    String authorizationCode;
+    var authorizationCode = '';
     final currentUri = Uri.base;
     final redirectUri = Uri(
       host: currentUri.host,
@@ -43,16 +41,21 @@ class _LoginRepository implements LoginRepository {
 
     final authUrl = '$domain$authorizePath?response_type=code&client_id=${AppConstants.CLIENT_ID}&redirect_uri=$redirectUri&scope=activity:write,read';
 
-    popupWindow = html.window.open(authUrl, 'Strava Auth', 'width=800, height=900, scrollbars=yes');
+    final html.WindowBase? popupWindow = html.window.open(authUrl, 'Strava Auth', 'width=800, height=900, scrollbars=yes');
+    if (popupWindow == null) return;
     final completer = Completer<void>();
     html.window.onMessage.listen((event) async {
-      final receivedUri = event.data as String;
-      authorizationCode = receivedUri
-          .split('&')
-          .firstWhere(
-            (element) => element.startsWith('code'),
-          )
-          .substring('code='.length);
+      try {
+        final receivedUri = event.data as String;
+        authorizationCode = receivedUri
+            .split('&')
+            .firstWhere(
+              (element) => element.startsWith('code'),
+            )
+            .substring('code='.length);
+      } catch (error, trace) {
+        log(error.toString());
+      }
 
       final parameters = {
         'client_id': AppConstants.CLIENT_ID,
@@ -60,13 +63,14 @@ class _LoginRepository implements LoginRepository {
         'code': authorizationCode,
         'grant_type': 'authorization_code',
       };
+
       try {
         final response = await Dio().post<Map<String, dynamic>>('$domain$tokenPath', queryParameters: parameters);
         await _authStorage.saveUserCredentials(
           accessToken: response.data!['access_token'].toString(),
           refreshToken: response.data!['refresh_token'].toString(),
         );
-      } catch (error) {
+      } catch (error, trace) {
         log(error.toString());
       }
       popupWindow.close();

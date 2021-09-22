@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
+import 'package:uuid/uuid.dart';
 
-class StackedData extends StatelessWidget {
+class LabeledDataCell extends StatelessWidget {
   final String label;
   final String value;
 
-  const StackedData({
+  const LabeledDataCell({
     required this.label,
     required this.value,
     Key? key,

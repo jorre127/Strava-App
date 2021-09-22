@@ -6,10 +6,10 @@ import 'package:injectable/injectable.dart';
 class ClubsViewModel with ChangeNotifierEx {
   late ClubsViewNavigator _navigator;
 
-  var runningPicture = 'https://thumbs.dreamstime.com/b/healthy-lifestyle-fitness-sports-woman-running-sunrise-road-39709089.jpg';
-  var cyclingPicture = 'https://static6.depositphotos.com/1070914/590/i/950/depositphotos_5907954-stock-photo-man-extreme-biking.jpg';
-  var runningClub = '198480';
-  var cyclingClub = '198478';
+  final runningPicture = 'https://thumbs.dreamstime.com/b/healthy-lifestyle-fitness-sports-woman-running-sunrise-road-39709089.jpg';
+  final cyclingPicture = 'https://static6.depositphotos.com/1070914/590/i/950/depositphotos_5907954-stock-photo-man-extreme-biking.jpg';
+  final runningClub = '198480';
+  final cyclingClub = '198478';
 
   Future<void> init(ClubsViewNavigator navigator) async {
     _navigator = navigator;
@@ -17,9 +17,11 @@ class ClubsViewModel with ChangeNotifierEx {
 
   void _onCardClicked(String clubId) => _navigator.goToClubDetail(clubId);
 
-  void onRunningCardClicked(String clubId) => _onCardClicked(clubId);
+  void onRunningCardClicked() {
+    _onCardClicked(runningClub);
+  }
 
-  void onCyclingCardClicked(String clubId) => _onCardClicked(clubId);
+  void onCyclingCardClicked() => _onCardClicked(cyclingClub);
 }
 
 // ignore: one_member_abstracts

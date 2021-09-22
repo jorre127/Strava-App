@@ -22,8 +22,8 @@ Activity _$ActivityFromJson(Map<String, dynamic> json) {
     athlete: Member.fromJson(json['athlete'] as Map<String, dynamic>),
     name: json['name'] as String,
     distance: (json['distance'] as num).toDouble(),
-    movingTime: (json['moving_time'] as num).toDouble(),
-    elapsedTime: (json['elapsed_time'] as num).toDouble(),
+    movingTime: json['moving_time'] as int,
+    elapsedTime: json['elapsed_time'] as int,
     totalElevationGain: (json['total_elevation_gain'] as num).toDouble(),
     type: json['type'] as String?,
   );

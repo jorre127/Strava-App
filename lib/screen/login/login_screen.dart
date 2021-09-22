@@ -1,3 +1,4 @@
+import 'package:flutter_template/styles/theme_assets.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/widget/general/animated_gradiant.dart';
 import 'package:flutter_template/widget/provider/provider_widget.dart';
@@ -34,7 +35,7 @@ class LoginScreenState extends State<LoginScreen> with ErrorNavigatorMixin imple
               alignment: Alignment.center,
               children: [
                 Image.asset(
-                  'assets/images/icappsGroup.jpg',
+                  ThemeAssets.loginBackground(),
                   fit: BoxFit.cover,
                   width: double.infinity,
                   height: double.infinity,

@@ -10,11 +10,9 @@ import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 class ActivitySummmarySection extends StatelessWidget {
   final String title;
   final ActivitySummary activitySummary;
-  final Localization localization;
   const ActivitySummmarySection({
     required this.activitySummary,
     required this.title,
-    required this.localization,
     Key? key,
   }) : super(key: key);
 
@@ -35,7 +33,6 @@ class ActivitySummmarySection extends StatelessWidget {
                   distance: activitySummary.totalDistance,
                   movingTime: activitySummary.totalMovingTime,
                   elapsedTime: activitySummary.totalElapsedTime,
-                  localization: localization,
                 )
               ],
             ),

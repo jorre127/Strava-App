@@ -3,37 +3,45 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
 void main() {
-  late ClubsViewModel clubsViewModel;
+  late ClubsViewModel sut;
   late ClubsViewNavigator clubsViewNavigator;
 
   setUp(
     () async {
       clubsViewNavigator = MockClubsViewNavigator();
-      clubsViewModel = ClubsViewModel();
+      sut = ClubsViewModel();
     },
   );
 
   group('init', () {
     test('should setup navigator', () async {
-      await clubsViewModel.init(clubsViewNavigator);
+      await sut.init(clubsViewNavigator);
       verifyZeroInteractions(clubsViewNavigator);
     });
   });
   group('navigation', () {
     setUp(() {
-      clubsViewModel.init(clubsViewNavigator);
+      sut.init(clubsViewNavigator);
     });
     test('navigation running club', () {
       verifyZeroInteractions(clubsViewNavigator);
-      clubsViewModel.onRunningCardClicked(clubsViewModel.runningClub);
-      verify(clubsViewNavigator.goToClubDetail(clubsViewModel.runningClub)).called(1);
+      sut.onRunningCardClicked();
+      verify(clubsViewNavigator.goToClubDetail(sut.runningClub)).called(1);
       verifyNoMoreInteractions(clubsViewNavigator);
     });
     test('navigation cycling club', () {
       verifyZeroInteractions(clubsViewNavigator);
-      clubsViewModel.onCyclingCardClicked(clubsViewModel.cyclingClub);
-      verify(clubsViewNavigator.goToClubDetail(clubsViewModel.cyclingClub)).called(1);
+      sut.onCyclingCardClicked();
+      verify(clubsViewNavigator.goToClubDetail(sut.cyclingClub)).called(1);
       verifyNoMoreInteractions(clubsViewNavigator);
+    });
+
+  });
+
+  group('properties', (){
+    test('should be validated', (){
+      expect(sut.runningClub, '198480');
+
     });
   });
 }

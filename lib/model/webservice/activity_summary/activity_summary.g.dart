@@ -18,8 +18,8 @@ ActivitySummary _$ActivitySummaryFromJson(Map<String, dynamic> json) {
   );
   return ActivitySummary(
     totalDistance: (json['total_distance'] as num).toDouble(),
-    totalMovingTime: (json['total_moving_time'] as num).toDouble(),
-    totalElapsedTime: (json['total_elapsed_time'] as num).toDouble(),
+    totalMovingTime: json['total_moving_time'] as int,
+    totalElapsedTime: json['total_elapsed_time'] as int,
     totalElevatiionGain: (json['total_elevatiion_gain'] as num).toDouble(),
   );
 }

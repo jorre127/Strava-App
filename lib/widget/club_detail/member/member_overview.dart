@@ -12,13 +12,13 @@ import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 class MemberOverview extends StatelessWidget {
   final MemberStats member;
   final List<Activity> activities;
-  final Localization localization;
   const MemberOverview({
     required this.member,
     required this.activities,
-    required this.localization,
     Key? key,
   }) : super(key: key);
+
+  List<Activity> get memberActivities => activities.where((activity) => activity.athlete.firstname == member.firstname && activity.athlete.lastname == member.lastname).toList();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,6 @@ class MemberOverview extends StatelessWidget {
                     movingTime: member.totalMovingTime,
                     elapsedTime: member.totalElapsedTime,
                     totalElevationGain: member.totalElevatiionGain,
-                    localization: localization,
                   ),
                 ],
               ),
@@ -48,8 +47,7 @@ class MemberOverview extends StatelessWidget {
                 height: 200,
                 width: double.infinity,
                 child: MemberActivites(
-                  localization: localization,
-                  activities: activities.where((activity) => activity.athlete.firstname == member.firstname && activity.athlete.lastname == member.lastname).toList(),
+                  activities: memberActivities,
                 ),
               ),
             ],

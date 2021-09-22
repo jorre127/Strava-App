@@ -21,48 +21,49 @@ void main() {
   );
 
   group('Api calls', () {
-    test('Should get club ', () {
-      when(clubDetailRepository.getClub(clubsViewModel.runningClub)).thenAnswer(
+    test('Should get club ', () async {
+      when(clubWebService.getClub(any)).thenAnswer(
         (realInvocation) => Future<Club>.value(
-          const Club(),
+          const Club(id: 123),
         ),
       );
       verifyZeroInteractions(clubWebService);
-      clubDetailRepository.getClub(clubsViewModel.runningClub);
-      verify(clubWebService.getClub(clubsViewModel.runningClub)).called(1);
+      final result = await clubDetailRepository.getClub('lalala');
+      expect(result.id, 123);
+      verify(clubWebService.getClub(any)).called(1);
       verifyNoMoreInteractions(clubWebService);
     });
     test('Should get members ', () {
-      when(clubDetailRepository.getMembers(clubsViewModel.runningClub)).thenAnswer(
+      when(clubWebService.getClubMembers(any)).thenAnswer(
         (realInvocation) => Future<List<Member>>.value(
           List<Member>.empty(),
         ),
       );
       verifyZeroInteractions(clubWebService);
-      clubDetailRepository.getMembers(clubsViewModel.runningClub);
-      verify(clubWebService.getClubMembers(clubsViewModel.runningClub)).called(1);
+      final result = clubDetailRepository.getMembers('');
+      verify(clubWebService.getClubMembers(any)).called(1);
       verifyNoMoreInteractions(clubWebService);
     });
     test('Should get admins ', () {
-      when(clubDetailRepository.getAdmins(clubsViewModel.runningClub)).thenAnswer(
+      when(clubWebService.getClubAdmins(any)).thenAnswer(
         (realInvocation) => Future<List<Member>>.value(
           List<Member>.empty(),
         ),
       );
       verifyZeroInteractions(clubWebService);
-      clubDetailRepository.getAdmins(clubsViewModel.runningClub);
-      verify(clubWebService.getClubAdmins(clubsViewModel.runningClub)).called(1);
+      final result = clubDetailRepository.getAdmins('');
+      verify(clubWebService.getClubAdmins(any)).called(1);
       verifyNoMoreInteractions(clubWebService);
     });
     test('Should get activities ', () {
-      when(clubDetailRepository.getActivites(clubsViewModel.runningClub)).thenAnswer(
+      when(clubWebService.getClubActivities(any)).thenAnswer(
         (realInvocation) => Future<List<Activity>>.value(
           List<Activity>.empty(),
         ),
       );
       verifyZeroInteractions(clubWebService);
-      clubDetailRepository.getActivites(clubsViewModel.runningClub);
-      verify(clubWebService.getClubActivities(clubsViewModel.runningClub)).called(1);
+      final result = clubDetailRepository.getActivites('');
+      verify(clubWebService.getClubActivities(any)).called(1);
       verifyNoMoreInteractions(clubWebService);
     });
   });

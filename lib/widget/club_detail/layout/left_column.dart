@@ -17,12 +17,12 @@ class LeftColumn extends StatelessWidget {
   final List<Member>? admins;
   final List<Activity>? activities;
   final List<MemberStats>? memberStats;
-  final String selectedMember;
-  final Function setSelectedMember;
+  final String? selectedMember;
+  final Function onMemberSelected;
   final Localization localization;
   const LeftColumn({
     required this.activities,
-    required this.setSelectedMember,
+    required this.onMemberSelected,
     required this.selectedMember,
     required this.activitySummary,
     required this.members,
@@ -34,51 +34,45 @@ class LeftColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-      ConditionalShower<ActivitySummary>(
-        data: activitySummary,
-        builder: (context, activitySummary) => ActivitySummmarySection(
-          activitySummary: activitySummary,
-          title: localization.clubDetailSummaryTitle,
-          localization: localization,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        ConditionalShower<ActivitySummary>(
+          data: activitySummary,
+          builder: (context, activitySummary) => ActivitySummmarySection(
+            activitySummary: activitySummary,
+            title: localization.clubDetailSummaryTitle,
+          ),
         ),
-      ),
-      const SizedBox(
-        height: ThemeDimens.padding16,
-      ),
-      ConditionalShower<List<MemberStats>>(
-        data: memberStats,
-        placeholderHeight: 330,
-        builder: (context, memberStats) => LeaderBoard(
-          memberStats: memberStats,
-          localization: localization,
-          title: 'Top Performers',
+        const SizedBox(height: ThemeDimens.padding16),
+        ConditionalShower<List<MemberStats>>(
+          data: memberStats,
+          placeholderHeight: 330,
+          builder: (context, memberStats) => LeaderBoard(
+            memberStats: memberStats,
+            title: 'Top Performers',
+          ),
         ),
-      ),
-      const SizedBox(
-        height: ThemeDimens.padding16,
-      ),
-      ConditionalShower<List<MemberStats>>(
-        data: memberStats,
-        placeholderHeight: 200,
-        builder: (context, members) => MemberOverview(
-          member: members.where((member) => member.firstname + member.lastname == selectedMember).first,
-          activities: activities ?? [],
-          localization: localization,
+        const SizedBox(height: ThemeDimens.padding16),
+        ConditionalShower<List<MemberStats>>(
+          data: memberStats,
+          placeholderHeight: 200,
+          builder: (context, members) => MemberOverview(
+            member: members.where((member) => member.id == selectedMember).first,
+            activities: activities ?? [],
+          ),
         ),
-      ),
-      const SizedBox(
-        height: ThemeDimens.padding16,
-      ),
-      ConditionalShower<List<Member>>(
-        data: members,
-        builder: (context, members) => MemberList(
-          title: localization.clubDetailMemberTitle,
-          selectedMember: selectedMember,
-          setSelectedMember: setSelectedMember,
-          memberList: members,
+        const SizedBox(height: ThemeDimens.padding16),
+        ConditionalShower<List<Member>>(
+          data: members,
+          builder: (context, members) => MemberList(
+            title: localization.clubDetailMemberTitle,
+            selectedMember: selectedMember,
+            onMemberSelected: onMemberSelected,
+            memberList: members,
+          ),
         ),
-      ),
-    ]);
+      ],
+    );
   }
 }

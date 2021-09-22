@@ -8,12 +8,15 @@ class Member {
   String firstname;
   @JsonKey(name: 'lastname', required: true, includeIfNull: false)
   String lastname;
+  @JsonKey(name: 'id', includeIfNull: false)
+  String? id;
   @JsonKey(name: 'isAdmin', includeIfNull: false)
   bool? isAdmin;
 
   Member({
     required this.firstname,
     required this.lastname,
+    this.id,
     this.isAdmin,
   });
 

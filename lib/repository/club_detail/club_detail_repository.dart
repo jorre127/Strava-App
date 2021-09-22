@@ -20,7 +20,10 @@ class _ClubDetailRepository implements ClubDetailRepository {
   _ClubDetailRepository(this._clubWebService);
 
   @override
-  Future<Club> getClub(String clubId) => _clubWebService.getClub(clubId);
+  Future<Club> getClub(String clubId) async {
+    final result = await _clubWebService.getClub(clubId);
+    return Club(id: 900);
+  }
 
   @override
   Future<List<Member>> getMembers(String clubId) => _clubWebService.getClubMembers(clubId);

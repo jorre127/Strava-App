@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/navigator/main_navigator.dart';
+import 'package:flutter_template/styles/theme_assets.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
 import 'package:flutter_template/viewmodel/clubs/clubs_viewmodel.dart';
 import 'package:flutter_template/widget/clubs/club_card.dart';
@@ -33,7 +34,7 @@ class ClubsScreenState extends State<ClubsScreen> with BackNavigatorMixin, Error
               final background = Stack(
                 children: [
                   Image.asset(
-                    'assets/images/icappsGroup.jpg',
+                    ThemeAssets.loginBackground(),
                     fit: BoxFit.cover,
                     width: double.infinity,
                     height: double.infinity,
@@ -41,63 +42,34 @@ class ClubsScreenState extends State<ClubsScreen> with BackNavigatorMixin, Error
                   const AnimatedGradiant(gradiantRatio: 0.15),
                 ],
               );
-              if (constraints.maxWidth > 1100) {
-                return Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    background,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ClubCard(
-                          onClick: () => viewModel.onRunningCardClicked(viewModel.runningClub),
-                          title: localization.clubSelectionRunningTitle,
-                          url: viewModel.runningPicture,
-                        ),
-                        const SizedBox(width: ThemeDimens.padding128),
-                        ClubCard(
-                          onClick: () => viewModel.onCyclingCardClicked(viewModel.cyclingClub),
-                          title: localization.clubSelectionCyclingTitle,
-                          url: viewModel.cyclingPicture,
-                        ),
-                      ],
-                    ),
-                  ],
-                );
-              } else {
-                return Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/images/icappsGroup.jpg',
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: double.infinity,
-                    ),
-                    const AnimatedGradiant(gradiantRatio: 0.2),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ClubCard(
-                          onClick: () => viewModel.onRunningCardClicked(viewModel.runningClub),
-                          width: 350,
-                          height: 350,
-                          title: localization.clubSelectionRunningTitle,
-                          url: viewModel.runningPicture,
-                        ),
-                        const SizedBox(height: ThemeDimens.padding56),
-                        ClubCard(
-                          onClick: () => viewModel.onCyclingCardClicked(viewModel.cyclingClub),
-                          width: 350,
-                          height: 350,
-                          title: localization.clubSelectionCyclingTitle,
-                          url: viewModel.cyclingPicture,
-                        ),
-                      ],
-                    ),
-                  ],
-                );
-              }
+              var isBigLayout = constraints.maxWidth > 1100;
+              return Stack(
+                alignment: Alignment.center,
+                children: [
+                  background,
+                  Flex(
+                    direction: isBigLayout ? Axis.horizontal : Axis.vertical,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ClubCard(
+                        height: isBigLayout ? 450 : 350,
+                        width: isBigLayout ? 450 : 350,
+                        onClick: () => viewModel.onRunningCardClicked(),
+                        title: localization.clubSelectionRunningTitle,
+                        url: viewModel.runningPicture,
+                      ),
+                      SizedBox(height: isBigLayout ? 0 : ThemeDimens.padding56, width: isBigLayout ? ThemeDimens.padding128 : 0),
+                      ClubCard(
+                        height: isBigLayout ? 450 : 350,
+                        width: isBigLayout ? 450 : 350,
+                        onClick: () => viewModel.onCyclingCardClicked(),
+                        title: localization.clubSelectionCyclingTitle,
+                        url: viewModel.cyclingPicture,
+                      ),
+                    ],
+                  ),
+                ],
+              );
             }),
           ),
         );

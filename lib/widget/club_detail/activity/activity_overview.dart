@@ -10,11 +10,9 @@ import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 class ActivityOverview extends StatelessWidget {
   final String title;
   final Activity activity;
-  final Localization localization;
   const ActivityOverview({
     required this.activity,
     required this.title,
-    required this.localization,
     Key? key,
   }) : super(key: key);
 
@@ -29,15 +27,12 @@ class ActivityOverview extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SectionTitle(
-                  title: title,
-                ),
+                SectionTitle(title: title),
                 SummaryRow(
                   totalElevationGain: activity.totalElevationGain,
                   distance: activity.distance,
                   movingTime: activity.movingTime,
                   elapsedTime: activity.elapsedTime,
-                  localization: localization,
                 )
               ],
             ),

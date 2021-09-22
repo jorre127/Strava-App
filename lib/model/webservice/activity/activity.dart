@@ -12,9 +12,9 @@ class Activity {
   @JsonKey(name: 'distance', required: true, includeIfNull: false)
   final double distance;
   @JsonKey(name: 'moving_time', required: true, includeIfNull: false)
-  final double movingTime;
+  final int movingTime;
   @JsonKey(name: 'elapsed_time', required: true, includeIfNull: false)
-  final double elapsedTime;
+  final int elapsedTime;
   @JsonKey(name: 'total_elevation_gain', required: true, includeIfNull: false)
   final double totalElevationGain;
   @JsonKey(name: 'type', includeIfNull: false)

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/member_stats/member_stats.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
+import 'package:flutter_template/util/distance_formatter.dart';
 import 'package:flutter_template/util/locale/localization.dart';
+import 'package:flutter_template/util/time_formatter.dart';
 import 'package:flutter_template/widget/general/section_card.dart';
 import 'package:flutter_template/widget/general/section_title.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
@@ -9,11 +11,9 @@ import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 class LeaderBoard extends StatefulWidget {
   final String title;
   final List<MemberStats> memberStats;
-  final Localization localization;
   const LeaderBoard({
     required this.memberStats,
     required this.title,
-    required this.localization,
     Key? key,
   }) : super(key: key);
 
@@ -23,7 +23,7 @@ class LeaderBoard extends StatefulWidget {
 
 class _LeaderBoardState extends State<LeaderBoard> {
   var currentSortColumn = 1;
-  var isAscending = true;
+  var isAscending = false;
 
   void onSortDistance(int columnIndex, bool boolean) {
     setState(() {
@@ -81,19 +81,19 @@ class _LeaderBoardState extends State<LeaderBoard> {
                           ),
                           DataColumn(
                             onSort: onSortDistance,
-                            label: const Text('Total distance'),
+                            label: Text(Localization.of(context).clubDetailTotalDistanceTitle),
                           ),
                           DataColumn(
                             onSort: onSortElapsedTime,
-                            label: const Text('Total elapsed time'),
+                            label: Text(Localization.of(context).clubDetailTotalElapsedTimeTitle),
                           ),
                           DataColumn(
                             onSort: onSortMovingTime,
-                            label: const Text('Total moving time'),
+                            label: Text(Localization.of(context).clubDetailTotalMovingTimeTitle),
                           ),
                           DataColumn(
                             onSort: onSortElevationGain,
-                            label: const Text('Total elevation gain'),
+                            label: Text(Localization.of(context).clubDetailTotalElevationGainTitle),
                           ),
                         ],
                         rows: List.generate(
@@ -113,10 +113,10 @@ class _LeaderBoardState extends State<LeaderBoard> {
                             }),
                             cells: [
                               DataCell(Text('${widget.memberStats[index].firstname} ${widget.memberStats[index].lastname}')),
-                              DataCell(Text('${(widget.memberStats[index].totalDistance / 1000).toStringAsFixed(2)} Km')),
-                              DataCell(Text('${((widget.memberStats[index].totalElapsedTime / 60) / 60).toStringAsFixed(2)} Hours')),
-                              DataCell(Text('${((widget.memberStats[index].totalMovingTime / 60) / 60).toStringAsFixed(2)} Hours')),
-                              DataCell(Text('${widget.memberStats[index].totalElevatiionGain} metres')),
+                              DataCell(Text(DistanceFormatter.format(widget.memberStats[index].totalDistance))),
+                              DataCell(Text(TimeFormatter.format(widget.memberStats[index].totalElapsedTime))),
+                              DataCell(Text(TimeFormatter.format(widget.memberStats[index].totalMovingTime))),
+                              DataCell(Text(DistanceFormatter.format(widget.memberStats[index].totalElevatiionGain))),
                             ],
                           ),
                         ),

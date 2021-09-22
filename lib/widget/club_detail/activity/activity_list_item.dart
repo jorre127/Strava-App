@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/model/webservice/activity/activity.dart';
 import 'package:flutter_template/styles/theme_dimens.dart';
+import 'package:flutter_template/util/distance_formatter.dart';
 import 'package:flutter_template/util/locale/localization.dart';
+import 'package:flutter_template/util/time_formatter.dart';
 import 'package:flutter_template/widget/general/stacked_data.dart';
 import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 import 'package:flutter_template/styles/theme_durations.dart';
 
 class ActivityListItem extends StatelessWidget {
   final Activity activity;
-  final int selectedActivity;
+  final int? selectedActivityIndex;
   final int index;
-  final Localization localization;
+
   const ActivityListItem({
     required this.index,
     required this.activity,
-    required this.localization,
-    this.selectedActivity = -1,
+    this.selectedActivityIndex,
     Key? key,
   }) : super(key: key);
 
-  bool get isSelected => selectedActivity == index;
+  bool get isSelected => selectedActivityIndex == index;
 
   @override
   Widget build(BuildContext context) {
@@ -61,14 +62,14 @@ class ActivityListItem extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          StackedData(
-                            label: localization.clubDetailTotalDistanceTitle,
-                            value: '${(activity.distance / 1000).toStringAsFixed(2)} Km',
+                          LabeledDataCell(
+                            label: Localization.of(context).clubDetailTotalDistanceTitle,
+                            value: DistanceFormatter.format(activity.distance),
                           ),
                           const SizedBox(height: ThemeDimens.padding8),
-                          StackedData(
-                            label: localization.clubDetailTotalMovingTimeTitle,
-                            value: '${((activity.movingTime / 60) / 60).toStringAsFixed(2)} Hours',
+                          LabeledDataCell(
+                            label: Localization.of(context).clubDetailTotalMovingTimeTitle,
+                            value: TimeFormatter.format(activity.movingTime),
                           ),
                         ],
                       ),
@@ -77,14 +78,14 @@ class ActivityListItem extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          StackedData(
-                            label: localization.clubDetailTotalElapsedTimeTitle,
-                            value: '${((activity.elapsedTime / 60) / 60).toStringAsFixed(2)} Hours',
+                          LabeledDataCell(
+                            label: Localization.of(context).clubDetailTotalElapsedTimeTitle,
+                            value: TimeFormatter.format(activity.elapsedTime),
                           ),
                           const SizedBox(height: ThemeDimens.padding8),
-                          StackedData(
-                            label: localization.clubDetailTotalElevationGainTitle,
-                            value: '${activity.totalElevationGain} metres',
+                          LabeledDataCell(
+                            label: Localization.of(context).clubDetailTotalElevationGainTitle,
+                            value: DistanceFormatter.format(activity.totalElevationGain),
                           ),
                         ],
                       ),

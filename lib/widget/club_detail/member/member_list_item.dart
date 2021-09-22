@@ -7,13 +7,14 @@ import 'package:flutter_template/widget/provider/data_provider_widget.dart';
 class MemberListItem extends StatelessWidget {
   final Member member;
   final String selectedMember;
+
   const MemberListItem({
     required this.selectedMember,
     required this.member,
     Key? key,
   }) : super(key: key);
 
-  bool get isSelected => selectedMember == member.firstname + member.lastname;
+  bool get _isSelected => selectedMember == member.id;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class MemberListItem extends StatelessWidget {
             height: 70,
             decoration: BoxDecoration(
               color: theme.colorsTheme.accent.withOpacity(
-                isSelected ? 0.4 : 0.15,
+                _isSelected ? 0.4 : 0.15,
               ),
               borderRadius: BorderRadius.circular(ThemeDimens.largeCardBorderRadius),
               boxShadow: [
@@ -43,7 +44,7 @@ class MemberListItem extends StatelessWidget {
                   CircleAvatar(
                     backgroundColor: theme.colorsTheme.accent,
                     child: Text(
-                      member.firstname[0],
+                      member.firstname.characters.first,
                       style: theme.lightTextTheme.titleSmall.copyWith(fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -56,10 +57,11 @@ class MemberListItem extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  Text(
-                    member.isAdmin == true ? 'Admin' : '',
-                    style: theme.lightTextTheme.bodyUltraSmall.copyWith(color: Colors.yellow),
-                  )
+                  if (member.isAdmin!)
+                    Text(
+                      'Admin',
+                      style: theme.lightTextTheme.bodyUltraSmall.copyWith(color: Colors.yellow),
+                    )
                 ],
               ),
             ),
